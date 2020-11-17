@@ -1,0 +1,17 @@
+    </array>
+    <key>PayloadDescription</key>
+    <string>Created by Gerald Todd Themer 1.0 on <?= date('m-d-Y H:i:s') ?></string>
+    <key>PayloadDisplayName</key>
+    <string>Custom Theme from gerald@gtodd.dev</string>
+    <key>PayloadIdentifier</key>
+    <string>geralds.icon.themer.<?= $uid ?></string>
+    <key>PayloadOrganization</key>
+    <string>Icon Themer</string>
+    <key>PayloadType</key>
+    <string>Configuration</string>
+    <key>PayloadUUID</key>
+    <string><?= $uid ?></string>
+    <key>PayloadVersion</key>
+    <real>1</real>
+</dict>
+</plist>

@@ -1,0 +1,11 @@
+<?php
+// application/config/config.php
+
+return [
+    'host' => '',
+    'user' => '',
+    'password' => '',
+    'dbname' => '',
+    'port' => '',
+    'charset' => '',
+];

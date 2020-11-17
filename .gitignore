@@ -1,0 +1,7 @@
+# gitignore
+
+# ignore SQL log
+log.txt
+
+# ignore config file
+config.php

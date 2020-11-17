@@ -1,0 +1,26 @@
+        <dict>
+            <key>FullScreen</key>
+            <true/>
+            <key>Icon</key>
+            <data>
+                <?= $data ?>
+            </data>
+            <key>Label</key>
+            <string><?= $label ?></string>
+            <key>PayloadDisplayName</key>
+            <string><?= $label ?></string>
+            <key>PayloadIdentifier</key>
+            <string><?= $id ?></string>
+            <key>PayloadType</key>
+            <string>com.apple.webClip.managed</string>
+            <key>PayloadUUID</key>
+            <string><?= $uid ?></string>
+            <key>PayloadVersion</key>
+            <real>1</real>
+            <key>Precomposed</key>
+            <true/>
+            <key>TargetApplicationBundleIdentifier</key>
+            <string><?= $bundleId ?></string>
+            <key>URL</key>
+            <string><?= $url ?></string>
+        </dict>
