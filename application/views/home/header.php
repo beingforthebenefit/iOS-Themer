@@ -2,7 +2,7 @@
 
 <html lang="en">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
 
     <!-- For favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -18,6 +18,7 @@
     <script src="/js/file-upload.js"></script>
     <script src="/js/search.js"></script>
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/iphone.css">
 
 </head>
 
