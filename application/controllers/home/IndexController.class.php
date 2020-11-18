@@ -21,10 +21,10 @@ class IndexController extends Controller {
         echo $this->build(CURR_VIEW_PATH . 'main.php', $_SESSION['icons']);
     }
 
-    public static function makeIcon($label, $bundleId, $iconPath, $url = 'No') {
+    public static function makeIcon($label, $bundleId, $iconPath, $fileType, $url = 'No') {
         $hash = md5(date("ymdhsu"));
         $dest = TEMP_PATH . "$hash.jpg";
-        shell_exec("convert '$iconPath' '$dest'");
+        $icon = shell_exec("convert $fileType:'$iconPath' jpeg:- | base64");
         return [
             'Label' => $label,
             'PayloadDisplayName' => $label,
@@ -32,16 +32,13 @@ class IndexController extends Controller {
             'PayloadUUID' => $hash,
             'TargetApplicationBundleIdentifier' => $bundleId,
             'URL' => $url,
-            'Icon' => base64_encode(
-                file_get_contents($dest)
-            )
+            'Icon' => $icon
         ];
     }
 
     public function uploadAction() {
         $errors = [];
         $fileType = strtolower(pathinfo($_FILES['icon']['name'], PATHINFO_EXTENSION));
-
         if (array_key_exists('submit', $_POST)) {
             $size = getimagesize($_FILES['icon']['tmp_name']);
             if ($fail = !$size) {
@@ -55,11 +52,12 @@ class IndexController extends Controller {
             }
         }
 
-        if (!$fail && move_uploaded_file($_FILES['icon']['tmp_name'], TEMP_PATH . $_FILES['icon']['name'])) {
+        if (!$fail) {
             $_SESSION['icons'][] = self::makeIcon(
                 $_REQUEST['label'],
                 $_REQUEST['bundleId'],
-                TEMP_PATH . $_FILES['icon']['name']
+                $_FILES['icon']['tmp_name'],
+                $fileType
             );
         } else {
             $_SESSION['errors'] = $errors;
