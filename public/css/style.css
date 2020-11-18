@@ -5,9 +5,10 @@
 }
 
 body {
+    background-color: #e64b99;
     background-image: linear-gradient(to bottom right, #2d21ab, #e64b99);
+    background-repeat: no-repeat;
     font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-    line-height: 1.6;
     color: #FFFFFF;
     font-size: 12px;
     font-style: normal;
@@ -15,168 +16,27 @@ body {
     font-weight: 600;
 }
 
+a {
+    color: lightblue;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #4444AA;
+    transition: all .2s ease;
+}
+
 .page-wrap {
     display: flex;
     flex-flow: row wrap;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-around;
 }
 
-.iphone {
-  box-shadow: inset 0 0 3px 0 rgba(0, 0, 0, 0.2), 0 0 0 1px #999, 0 0 30px 0px rgba(0, 0, 0, 0.7);
-  border: 5px solid #d9dbdc;
-  background: #f8f8f8;
-  padding: 15px;
-  border-radius: 50px;
-  height: 877px;
-  width: 423px;
-  position: relative;
-  -webkit-transform: scale(0.8);
-          transform: scale(0.8);
-}
-
-.iphone-top {
-  padding: 5px 110px 40px;
-  position: relative;
-}
-.iphone-top .speaker {
-  display: block;
-  width: 70px;
-  height: 6px;
-  margin: 0 auto;
-  border-radius: 6px;
-  background: #292728;
-}
-.iphone-top .camera {
-  display: block;
-  margin: 0 auto;
-  height: 10px;
-  width: 10px;
-  border-radius: 50%;
-  margin-bottom: 13px;
-  background: #333;
-}
-.iphone-top .sensor {
-  display: block;
-  width: 15px;
-  height: 15px;
-  float: left;
-  background: #333;
-  margin-top: -5px;
-  border-radius: 50%;
-}
-
-.top-bar,
-.bottom-bar {
-  display: block;
-  width: 423px;
-  height: 15px;
-  border-left: 5px solid #bbb;
-  border-right: 5px solid #bbb;
-  position: absolute;
-  left: -5px;
-}
-
-.top-bar {
-  top: 65px;
-}
-
-.bottom-bar {
-  bottom: 65px;
-}
-
-.iphone-screen {
-  background: #eee;
-  border: 1px solid #fff;
-  height: 677px;
-  width: 375px;
-  margin: 0 auto;
-  border: 2px solid rgba(0, 0, 0, 0.9);
-  border-radius: 3px;
-  overflow: hidden;
-  background-image: url("../images/iphone-background.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-.iphone-screen img {
-  width: 100%;
-}
-
-.buttons .on-off,
-.buttons .up,
-.buttons .down,
-.buttons .sleep {
-  display: block;
-  background: #ccc;
-  position: absolute;
-  border-radius: 2px 0px 0px 2px;
-}
-.buttons .on-off {
-  height: 40px;
-  width: 3px;
-  top: 100px;
-  left: -8px;
-}
-.buttons .up,
-.buttons .down,
-.buttons .sleep {
-  height: 60px;
-  width: 5px;
-  left: -10px;
-}
-.buttons .up {
-  top: 170px;
-}
-.buttons .down {
-  top: 250px;
-}
-.buttons .sleep {
-  left: auto;
-  right: -10px;
-  top: 170px;
-  border-radius: 0px 2px 2px 0px;
-}
-
-.iphone-bottom {
-  padding: 10px 0 0;
-}
-.iphone-bottom span {
-  display: block;
-  margin: 0 auto;
-  width: 68px;
-  height: 68px;
-  background: #ccc;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #303233 0%, #b5b7b9 50%, #f0f2f2 69%, #303233 100%);
-  position: relative;
-}
-.iphone-bottom span:after {
-  content: "";
-  display: block;
-  width: 60px;
-  height: 60px;
-  background: #fff;
-  border-radius: 50%;
-  position: absolute;
-  left: 4px;
-  top: 4px;
-}
-
-
-.app-wrap {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-content: flex-start;
-    margin: 9px;
-    margin-top: 0px;
-    padding-top: 9px;
-}
-
-#inner{
-    width: 100%;
-    height: 100%;
-    overflow: auto;
+.error-wrap {
+    text-align: center;
+    background-color: #CC0000;
+    padding: 1px;
 }
 
 .form-container,
@@ -185,12 +45,19 @@ body {
     width: 40em;
 }
 
+.form-container,
+.download-container {
+    padding-top: 60px;
+    padding-bottom: 20px;
+}
+
 .phone-container {
     display: flex;
     justify-content: center;
 }
 
 .app {
+    width: 70px;
     margin: 9px;
 }
 
@@ -201,8 +68,11 @@ body {
 }
 
 .label {
-    line-height: 10px;
+    line-height: 12px;
     text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .form-fieldset {
@@ -260,7 +130,7 @@ body {
 .form-button-wrap {
     display: flex;
     justify-content: center;
-    margin-top: 1.5em;
+    margin: 1.5em;
 }
 
 .form-field-button {
@@ -280,6 +150,61 @@ body {
 
 .form-field-button:hover {
     background-color: #1189f7;
+}
+
+.step-list {
+    counter-reset: section;
+}
+
+.step-item {
+    list-style-type: none;
+    position: relative;
+}
+
+.step-item::before {
+    counter-increment: section;
+    content: counter(section) ".";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 12px;
+    font-size: 2rem;
+}
+
+.step-wrap {
+  text-align: center;
+  margin: 10px;
+}
+
+
+.step-image {
+  width: 70%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-around;
+    height: 30px;
+    font-size: 1.2em;
+    margin-top: -10px;
+}
+
+.donate-form {
+    width: 400px;
+}
+
+.donate-label {
+    display: inline-block;
+    cursor: pointer;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: 3px;
+}
+
+.donate {
+    height: 100%
 }
 
 /* Portrait and Landscape */
