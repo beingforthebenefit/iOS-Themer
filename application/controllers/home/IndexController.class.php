@@ -18,6 +18,7 @@ class IndexController extends Controller {
     // indexAction :: void -> void
     public function indexAction() {
         $_SESSION['icons'] = [ ];
+
         echo $this->build(CURR_VIEW_PATH . 'main.php', $_SESSION['icons']);
     }
 
@@ -50,6 +51,8 @@ class IndexController extends Controller {
             } else if ($fail = $_FILES['icon']['error']) {
                 $errors[] = "There was an error uploading this file.";
             }
+        } else {
+            $fail = true;
         }
 
         if (!$fail) {
