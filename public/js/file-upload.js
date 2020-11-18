@@ -1,5 +1,3 @@
-$(document).ready(function(){
-  $('form input').change(function () {
-    $('form p').text("\"" + this.files[0].name + "\" selected.");
-  });
-});
+function updateText() {
+    document.getElementById('icon-text').innerHTML = "\"" + document.getElementById('icon').files[0].name + "\" selected.";
+}

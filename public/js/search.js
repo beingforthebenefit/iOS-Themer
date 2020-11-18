@@ -12,6 +12,7 @@ async function fetchApps() {
         option.value = app['bundleId'];
         list.appendChild(option);
     });
+    document.getElementById('label').value = apps['results'][0]['trackName'];
 }
 
 function removeAllChildNodes(parent) {
@@ -23,8 +24,8 @@ function removeAllChildNodes(parent) {
 function insertSelection() {
     var apps = document.getElementById('apps');
     var selection = apps.children.item(apps.selectedIndex).text;
-    var textField = document.getElementById('text');
-    textField.value = selection;
+    var labelField = document.getElementById('label');
+    labelField.value = selection;
 }
 
 function removeSearch() {

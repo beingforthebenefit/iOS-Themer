@@ -15,7 +15,6 @@
     <meta name="description" content="iDevice Icon Themer">
     <meta name="author" content="Gerald Todd">
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="/js/file-upload.js"></script>
     <script src="/js/search.js"></script>
     <link rel="stylesheet" href="/css/style.css">

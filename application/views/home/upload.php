@@ -6,7 +6,7 @@
         </div>
         <div class="form-field-group">
             <label class="form-field-label" for="apps">Select one</label>
-            <select class="form-field-select" id="apps" name="bundleId" onchange="insertSelection()" disabled>
+            <select class="form-field-select" id="apps" name="bundleId" onclick="insertSelection()" disabled>
                 <option>Please search above...</option>
             </select>
         </div>
@@ -15,8 +15,8 @@
             <input class="form-field-input" type="text" id="label" name="label" />
         </div>
         <div class="form-file">
-            <input class="form-field-file" type="file" id="icon" name="icon" />
-            <p class="form-file-text">Drag a new icon here or click to browse!</p>
+            <input class="form-field-file" type="file" id="icon" name="icon" onchange="updateText()" />
+            <p class="form-file-text" id="icon-text">Drag a new icon here or click to browse!</p>
         </div>
         <div class="form-button-wrap">
             <input class="form-field-button" type="submit" name="submit" value="Add Icon" />
