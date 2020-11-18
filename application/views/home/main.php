@@ -33,7 +33,7 @@
     </div>
 
     <div class="download-container">
-        <h1 class="header">2. Download the File and Open It On Your Device</h1>
+        <h1 class="header">2. Install On Your Device</h1>
         <?php include CURR_VIEW_PATH . 'download.php' ?>
     </div>
 </div>
