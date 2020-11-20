@@ -21,10 +21,10 @@ function removeAllChildNodes(parent) {
     }
 }
 
-function insertSelection() {
-    var apps = document.getElementById('apps');
+function insertSelection(list, label) {
+    var apps = document.getElementById(list);
     var selection = apps.children.item(apps.selectedIndex).text;
-    var labelField = document.getElementById('label');
+    var labelField = document.getElementById(label);
     labelField.value = selection;
 }
 
