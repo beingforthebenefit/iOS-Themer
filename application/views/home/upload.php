@@ -69,7 +69,7 @@
 
 <!-- Custom -->
 <form id="custom-app" class="form hidden" method="POST" enctype="multipart/form-data">
-    <input type="hidden" name="a" value="batchUpload" />
+    <input type="hidden" name="a" value="upload" />
     <input type="hidden" name="ios14.3" value="true" />
     <fieldset class="form-fieldset">
         <div class="form-field-group">
