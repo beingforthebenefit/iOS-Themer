@@ -22,7 +22,7 @@ class IndexController extends Controller {
         echo $this->build(CURR_VIEW_PATH . 'main.php', $_SESSION['icons']);
     }
 
-    public static function makeIcon($label, $bundleId, $iconPath, $fileType, $url = 'No') {
+    public static function makeIcon($label, $bundleId, $iconPath, $fileType, $url) {
         $hash = md5(date("ymdhsu"));
         $dest = TEMP_PATH . "$hash.jpg";
         $icon = shell_exec("convert $fileType:'$iconPath' jpeg:- | base64");
@@ -56,14 +56,61 @@ class IndexController extends Controller {
         }
 
         if (!$fail) {
+            $urls = json_decode(file_get_contents(CONFIG_PATH . 'urls.json'), true);
+            $urls = $_REQUEST['ios14_3'] ? array_filter($urls, function($key) {
+                return 'apple' != explode('.', $key)[1];
+            }, ARRAY_FILTER_USE_KEY) : $urls;
+            if (array_key_exists($_REQUEST['bundleId'], $urls)) {
+                $url = array_key_exists($_REQUEST['bundleId'], $urls) ? $urls[$_REQUEST['bundleId']] : '';
+            }
+
             $_SESSION['icons'][] = self::makeIcon(
                 $_REQUEST['label'],
                 $_REQUEST['bundleId'],
                 $_FILES['icon']['tmp_name'],
-                $fileType
+                $fileType,
+                $url ?? ' '
             );
         } else {
             $_SESSION['errors'] = $errors;
+        }
+
+        echo $this->build(CURR_VIEW_PATH . 'main.php', $_SESSION['icons']);
+    }
+
+    public function batchUploadAction() {
+        $icons = [ ];
+        $labels = [ ];
+        $bundleIds = [ ];
+        $fileTypes = [ ];
+        $systemApps = json_decode(file_get_contents(CONFIG_PATH . 'default-apps.json'), true);
+        foreach ($_FILES['icon']['name'] as $id) {
+            $bundleId = explode('-', $id)[0];
+            $response = json_decode(
+                file_get_contents('https://itunes.apple.com/lookup?bundleId=' . $bundleId),
+                true
+            );
+            if ($response['resultCount'] == 1) {
+                $label = $response['results'][0]['trackName'];
+            } else if (array_key_exists($bundleId, $systemApps)) {
+                $label = $systemApps[$bundleId];
+            } else {
+                continue;
+            }
+
+            $labels[] = $label;
+            $bundleIds[] = $bundleId;
+            $fileTypes[] = strtolower(pathinfo($id, PATHINFO_EXTENSION));
+        }
+
+        for ($i = 0; $i < count($labels); $i++) {
+            $_SESSION['icons'][] = self::makeIcon(
+                $labels[$i],
+                $bundleIds[$i],
+                $_FILES['icon']['tmp_name'][$i],
+                $fileTypes[$i],
+                ' '
+            );
         }
 
         echo $this->build(CURR_VIEW_PATH . 'main.php', $_SESSION['icons']);
