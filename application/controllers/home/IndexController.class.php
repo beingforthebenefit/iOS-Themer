@@ -92,15 +92,15 @@ class IndexController extends Controller {
             );
             if ($response['resultCount'] == 1) {
                 $label = $response['results'][0]['trackName'];
-            } else if (array_key_exists($bundleId, $systemApps)) {
-                $label = $systemApps[$bundleId];
             } else {
-                continue;
+                $label = array_search($bundleId, $systemApps);
             }
 
-            $labels[] = $label;
-            $bundleIds[] = $bundleId;
-            $fileTypes[] = strtolower(pathinfo($id, PATHINFO_EXTENSION));
+            if ($label) {
+                $labels[] = $label;
+                $bundleIds[] = $bundleId;
+                $fileTypes[] = strtolower(pathinfo($id, PATHINFO_EXTENSION));
+            }
         }
 
         for ($i = 0; $i < count($labels); $i++) {
