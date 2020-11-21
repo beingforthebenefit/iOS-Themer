@@ -1,3 +1,8 @@
+<div class="directions-wrap">
+    <span>How to use this site:</span>
+    <a href="https://www.youtube.com/watch?v=BviPK5H4gNs">Make Theme on iPhone</a>
+    <a href="https://www.youtube.com/watch?v=ZKWvdFz1z38">Batch Theme on PC</a>
+</div>
 <div class="page-wrap">
     <div class="form-container">
         <h1 class="header">1. Add as Many Apps As You Want</h1>
