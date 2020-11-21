@@ -43,9 +43,8 @@ a:hover {
 }
 
 .directions-wrap {
+    display: table;
     margin: auto;
-    text-align: center;
-    width: 350px;
     font-size: 1.3em;
     border: 2px solid #ffffff;
     border-radius: 10px;
