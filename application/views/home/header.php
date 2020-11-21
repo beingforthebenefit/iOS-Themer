@@ -13,14 +13,14 @@
     <!-- End favicons -->
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
-  <!--   <script async src="https://www.googletagmanager.com/gtag/js?id=G-KCM2YB8CJ6"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KCM2YB8CJ6"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
       gtag('config', 'G-KCM2YB8CJ6');
-    </script> -->
+    </script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-183654641-1">
