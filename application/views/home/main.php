@@ -1,6 +1,6 @@
 <div class="directions-wrap">
     <a href="/?c=Instructions">
-        Click To Learn How To Theme Your Phone in 30 Seonds
+        Learn How To Theme With This Site in 30 Seconds
     </a>
 </div>
 <div class="page-wrap">
