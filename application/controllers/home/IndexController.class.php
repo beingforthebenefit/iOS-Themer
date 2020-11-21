@@ -17,7 +17,9 @@ class IndexController extends Controller {
 
     // indexAction :: void -> void
     public function indexAction() {
-        $_SESSION['icons'] = [ ];
+        if (!array_key_exists('icons', $_SESSION)) {
+            $_SESSION['icons'] = [ ];
+        }
 
         echo $this->build(CURR_VIEW_PATH . 'main.php', $_SESSION['icons']);
     }
