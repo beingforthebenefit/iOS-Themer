@@ -23,8 +23,7 @@ class IndexController extends Controller {
     }
 
     public static function makeIcon($label, $bundleId, $iconPath, $fileType, $url) {
-        $hash = md5(date("ymdhsu"));
-        $dest = TEMP_PATH . "$hash.jpg";
+        $hash = md5(date("ymdhsu") . $bundleId);
         $icon = shell_exec("convert $fileType:'$iconPath' jpeg:- | base64");
         return [
             'Label' => $label,
