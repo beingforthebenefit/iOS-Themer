@@ -37,12 +37,12 @@
     <meta name="description" content="iDevice Icon Themer">
     <meta name="author" content="Gerald Todd">
 
-    <script src="/js/file-upload.js"></script>
-    <script src="/js/search.js"></script>
-    <script src="/js/tabs.js"></script>
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/iphone.css">
-    <link rel="stylesheet" href="/css/iphone-switch.css">
+    <script src="/js/file-upload.js?rnd=<?= rand(0, 1000) ?>"></script>
+    <script src="/js/search.js?rnd=<?= rand(0, 1000) ?>"></script>
+    <script src="/js/tabs.js?rnd=<?= rand(0, 1000) ?>"></script>
+    <link rel="stylesheet" href="/css/style.css?rnd=<?= rand(0, 1000) ?>">
+    <link rel="stylesheet" href="/css/iphone.css?rnd=<?= rand(0, 1000) ?>">
+    <link rel="stylesheet" href="/css/iphone-switch.css?rnd=<?= rand(0, 1000) ?>">
 
 </head>
 
