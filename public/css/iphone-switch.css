@@ -47,6 +47,13 @@
   transform: translate3d(2px, 2px, 0);
 }
 
+.edit {
+  position: absolute;
+  top: 50px;
+  width: 200px;
+  transform: translateX(-50%);
+}
+
 .form-switch:active input:checked + i::after { transform: translate3d(16px, 2px, 0); }
 
 .form-switch input { display: none; }
