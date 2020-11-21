@@ -1,3 +1,7 @@
+<?php
+    // unique ID to append to assets to prevent caching
+    $u = '?random=' . rand(0, 1000);
+?>
 <!doctype html>
 
 <html lang="en">
@@ -37,12 +41,13 @@
     <meta name="description" content="iDevice Icon Themer">
     <meta name="author" content="Gerald Todd">
 
-    <script src="/js/file-upload.js?rnd=<?= rand(0, 1000) ?>"></script>
-    <script src="/js/search.js?rnd=<?= rand(0, 1000) ?>"></script>
-    <script src="/js/tabs.js?rnd=<?= rand(0, 1000) ?>"></script>
-    <link rel="stylesheet" href="/css/style.css?rnd=<?= rand(0, 1000) ?>">
-    <link rel="stylesheet" href="/css/iphone.css?rnd=<?= rand(0, 1000) ?>">
-    <link rel="stylesheet" href="/css/iphone-switch.css?rnd=<?= rand(0, 1000) ?>">
+    <script src="/js/file-upload.js<?= $u ?>"></script>
+    <script src="/js/search.js<?= $u ?>"></script>
+    <script src="/js/tabs.js<?= $u ?>"></script>
+    <script src="/js/edit-mode.js<?= $u ?>"></script>
+    <link rel="stylesheet" href="/css/style.css<?= $u ?>">
+    <link rel="stylesheet" href="/css/iphone.css<?= $u ?>">
+    <link rel="stylesheet" href="/css/iphone-switch.css<?= $u ?>">
 
 </head>
 
