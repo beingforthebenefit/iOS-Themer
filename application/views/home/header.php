@@ -23,7 +23,7 @@
     </script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-183654641-1">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-183654641-1">
     </script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -31,7 +31,7 @@
       gtag('js', new Date());
 
       gtag('config', 'UA-183654641-1');
-    </script> -->
+    </script>
 
     <title>iDevice Icon Themer</title>
     <meta name="description" content="iDevice Icon Themer">
