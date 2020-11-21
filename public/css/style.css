@@ -44,14 +44,36 @@ a:hover {
 
 .directions-wrap {
     margin: auto;
+    text-align: center;
+    width: 350px;
+    font-size: 1.3em;
+    border: 2px solid #ffffff;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.instructions-page-wrap {
+    height: 100vh;
+}
+
+.instructions-wrap {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
-    width: 30vw;
-    font-size: 1.2em;
-    border: 2px solid #ffffff;
-    border-radius: 10px;
+    padding: 20px;
+}
+
+.back-nav {
+    display: flex;
+    justify-content: space-around;
+    width: 300px;
+    text-align: center;
     padding: 3px;
+    font-size: 2em;
+    border: 2px solid #ffffff;
+    margin: auto;
+    margin-bottom: 20px;
+    border-radius: 10px;
 }
 
 .error-wrap {
@@ -270,5 +292,10 @@ a:hover {
     align-items: center;
     line-height: 3em;
     margin-top: 10px;
+  }
+
+  .video {
+    width: 100%;
+    height: auto;
   }
 }
