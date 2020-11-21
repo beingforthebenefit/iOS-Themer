@@ -113,8 +113,16 @@ class IndexController extends Controller {
         echo XML::createConfig($_SESSION['icons']);
     }
 
-    public function clearAction() {
+    public function deleteAction() {
+        $_SESSION['icons'] = array_filter(
+            $_SESSION['icons'],
+            function ($icon) {
+                $icon = unserialize($icon);
+                return $icon->PayloadUUID != $_POST['delete'];
+            }
+        );
 
+        $this->indexAction();
     }
 
     // menuAction :: void -> void
