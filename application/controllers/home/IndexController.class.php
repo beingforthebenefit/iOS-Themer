@@ -64,7 +64,7 @@ class IndexController extends Controller {
             $_SESSION['errors'] = $errors;
         }
 
-        echo $this->build(CURR_VIEW_PATH . 'main.php', $_SESSION['icons']);
+        $this->indexAction();
     }
 
     public function batchUploadAction() {
@@ -104,7 +104,7 @@ class IndexController extends Controller {
             );
         }
 
-        echo $this->build(CURR_VIEW_PATH . 'main.php', $_SESSION['icons']);
+        $this->indexAction();
     }
 
     public function downloadAction() {
