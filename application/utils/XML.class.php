@@ -9,12 +9,13 @@ class XML {
         ob_start();
         include TEMPLATE_PATH . 'head.xml';
         foreach ($icons as $icon) {
-            $label = $icon['Label'];
-            $id = $icon['PayloadIdentifier'];
-            $uid = $icon['PayloadUUID'];
-            $bundleId = $icon['TargetApplicationBundleIdentifier'];
-            $url = $icon['URL'];
-            $data = $icon['Icon'];
+            $icon = unserialize($icon);
+            $label = $icon->Label;
+            $id = $icon->PayloadIdentifier;
+            $uid = $icon->PayloadUUID;
+            $bundleId = $icon->TargetApplicationBundleIdentifier;
+            $url = $icon->URL;
+            $data = $icon->Icon;
             include TEMPLATE_PATH . 'entry.xml';
         }
         include TEMPLATE_PATH . 'tail.xml';

@@ -22,20 +22,6 @@ class IndexController extends Controller {
         echo $this->build(CURR_VIEW_PATH . 'main.php', $_SESSION['icons']);
     }
 
-    public static function makeIcon($label, $bundleId, $iconPath, $fileType, $url) {
-        $hash = md5(date("ymdhsu") . $bundleId);
-        $icon = shell_exec("convert $fileType:'$iconPath' jpeg:- | base64");
-        return [
-            'Label' => $label,
-            'PayloadDisplayName' => $label,
-            'PayloadIdentifier' => 'geralds.icon.themer.' . $hash . "." . (count($_SESSION['icons']) + 1),
-            'PayloadUUID' => $hash,
-            'TargetApplicationBundleIdentifier' => $bundleId,
-            'URL' => $url,
-            'Icon' => $icon
-        ];
-    }
-
     public function uploadAction() {
         $errors = [];
         $fileType = strtolower(pathinfo($_FILES['icon']['name'], PATHINFO_EXTENSION));
@@ -63,12 +49,14 @@ class IndexController extends Controller {
                 $url = array_key_exists($_REQUEST['bundleId'], $urls) ? $urls[$_REQUEST['bundleId']] : '';
             }
 
-            $_SESSION['icons'][] = self::makeIcon(
-                $_REQUEST['label'],
-                $_REQUEST['bundleId'],
-                $_FILES['icon']['tmp_name'],
-                $fileType,
-                $url ?? ' '
+            $_SESSION['icons'][] = serialize(
+                new IconModel(
+                    $_REQUEST['label'],
+                    $_REQUEST['bundleId'],
+                    $_FILES['icon']['tmp_name'],
+                    $fileType,
+                    $url ?? ' '
+                )
             );
         } else {
             $_SESSION['errors'] = $errors;
@@ -103,12 +91,14 @@ class IndexController extends Controller {
         }
 
         for ($i = 0; $i < count($labels); $i++) {
-            $_SESSION['icons'][] = self::makeIcon(
-                $labels[$i],
-                $bundleIds[$i],
-                $_FILES['icon']['tmp_name'][$i],
-                $fileTypes[$i],
-                ' '
+            $_SESSION['icons'][] = serialize(
+                new IconModel(
+                    $labels[$i],
+                    $bundleIds[$i],
+                    $_FILES['icon']['tmp_name'][$i],
+                    $fileTypes[$i],
+                    ' '
+                )
             );
         }
 
