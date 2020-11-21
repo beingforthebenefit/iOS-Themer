@@ -5,3 +5,6 @@ log.txt
 
 # ignore config file
 config.php
+
+# deploy script
+deploy
