@@ -1,7 +1,7 @@
 <div class="app">
-    <form method="post">
+    <form method="post" class="delete-button hidden">
         <input type="hidden" name="a" value="delete" />
-        <input type="hidden" name="delete" value="<?= $icon->PayloadUUID ?>" />
+        <input type="hidden" name="delete" class="hidden" value="<?= $icon->PayloadUUID ?>" />
         <input class="app-close" type="submit" name="remove" value="&#8212;" />
     </form>
     <img class="icon" src="data:image;base64,<?= $icon->Icon ?>" />
