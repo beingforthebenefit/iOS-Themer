@@ -149,6 +149,43 @@
     padding-top: 9px;
 }
 
+.app {
+    position: relative;
+    width: 68px;
+    margin: 11px;
+}
+
+.app-close {
+  position: absolute;
+  background: gray;
+  color: #000000;
+  top: -10px;
+  left: -10px;
+  border-radius: 50%;
+  border: none;
+  width: 30px;
+  height: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+
+.icon {
+    border-radius: 20%;
+    width: 70px;
+    height: 70px;
+}
+
+.icon-label {
+    line-height: 12px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+
 #inner{
     width: 100%;
     height: 100%;

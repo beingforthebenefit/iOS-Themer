@@ -109,25 +109,6 @@ a:hover {
     justify-content: center;
 }
 
-.app {
-    width: 70px;
-    margin: 9px;
-}
-
-.icon {
-    border-radius: 20%;
-    width: 70px;
-    height: 70px;
-}
-
-.label {
-    line-height: 12px;
-    text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
 .form-fieldset {
     margin: 0;
     padding: 1em;
