@@ -16,6 +16,9 @@
     <link rel="manifest" href="/site.webmanifest">
     <!-- End favicons -->
 
+    <!-- Google AdSense stuff -->
+    <script data-ad-client="ca-pub-7656556852055065" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-KCM2YB8CJ6"></script>
     <script>
