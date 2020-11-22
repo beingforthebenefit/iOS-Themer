@@ -1,3 +1,9 @@
+    <script>
+        window.onload = switchTab("<?= $_SESSION['tab'] ?>");
+    </script>
+    <?php if ($_SESSION['editMode']) { ?>
+        <script>toggleEditMode()</script>
+    <?php } ?>
     <footer class="footer">
         <div class="footer-note donate">
             <a href="https://www.buymeacoffee.com/iostheme" target="_blank"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a beer&emoji=🍺&slug=iostheme&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff"></a>
@@ -10,7 +16,5 @@
                 <a href="https://twitter.com/intent/tweet?screen_name=iOSThemeLive&ref_src=twsrc%5Etfw" class="twitter-mention-button" data-show-count="false">Tweet to @iOSThemeLive</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
             </div>
         </div>
-
-        
     </footer>
 </body> 

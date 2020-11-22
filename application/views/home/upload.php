@@ -1,13 +1,16 @@
 <!-- App store -->
 <div class="app-type-wrap">
-    <span>App Type:</span>
-    <a class="app-type active" id="tab1" onclick="switchTab('app-store')">App Store</a>
-    <a class="app-type" id="tab2" onclick="switchTab('system-app')">System App</a>
-    <a class="app-type" id="tab3" onclick="switchTab('custom-app')">Custom App</a>
-    <a class="app-type" id="tab4" onclick="switchTab('batch')">Batch Upload</a>
+    <div class="app-type-label">App Type:</div>
+    <div class="app-types">
+        <a class="app-type active" id="tab1" onclick="switchTab('app-store')">App Store</a>
+        <a class="app-type" id="tab2" onclick="switchTab('system-app')">System App</a>
+        <a class="app-type" id="tab3" onclick="switchTab('custom-app')">Custom App</a>
+        <a class="app-type" id="tab4" onclick="switchTab('batch')">Batch Upload</a>
+    </div>
 </div>
 <form id="app-store" class="form" method="POST" enctype="multipart/form-data" >
     <input type="hidden" name="a" value="upload" />
+    <input type="hidden" name="tab" value="app-store" />
     <input type="hidden" name="ios14.3" value="true" />
     <fieldset class="form-fieldset">
         <div class="form-field-group">
@@ -37,6 +40,7 @@
 <!-- System app -->
 <form id="system-app" class="form hidden" method="POST" enctype="multipart/form-data">
     <input type="hidden" name="a" value="upload" />
+    <input type="hidden" name="tab" value="system-app" />
     <fieldset class="form-fieldset">
         <div class="form-iphone-switch">
             <label class="form-switch">
@@ -70,6 +74,7 @@
 <!-- Custom -->
 <form id="custom-app" class="form hidden" method="POST" enctype="multipart/form-data">
     <input type="hidden" name="a" value="upload" />
+    <input type="hidden" name="tab" value="custom-app" />
     <input type="hidden" name="ios14.3" value="true" />
     <fieldset class="form-fieldset">
         <div class="form-field-group">

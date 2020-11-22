@@ -25,6 +25,8 @@ class IndexController extends Controller {
     }
 
     public function uploadAction() {
+        $_SESSION['editMode'] = false;
+        $_SESSION['tab'] = $_POST['tab'];
         $errors = [];
         $fileType = strtolower(pathinfo($_FILES['icon']['name'], PATHINFO_EXTENSION));
         if (array_key_exists('submit', $_POST)) {
@@ -68,6 +70,8 @@ class IndexController extends Controller {
     }
 
     public function batchUploadAction() {
+        $_SESSION['editMode'] = false;
+        $_SESSION['tab'] = $_POST['tab'];
         $icons = [ ];
         $labels = [ ];
         $bundleIds = [ ];
@@ -114,6 +118,7 @@ class IndexController extends Controller {
     }
 
     public function deleteAction() {
+        $_SESSION['editMode'] = true;
         $_SESSION['icons'] = array_filter(
             $_SESSION['icons'],
             function ($icon) {
@@ -126,12 +131,16 @@ class IndexController extends Controller {
     }
 
     public function deleteAllAction() {
+        $_SESSION['editMode'] = false;
+
         unset($_SESSION['icons']);
 
         $this->indexAction();
     }
 
     public function loadIconsAction() {
+        $_SESSION['editMode'] = false;
+        
         $_SESSION['icons'] = unserialize(file_get_contents('uploads/example.icons'));
 
         $this->indexAction();

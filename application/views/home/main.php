@@ -4,7 +4,7 @@
             <?php include CURR_VIEW_PATH . 'upload.php' ?>
         </div>
 
-        <div class="phone-container">
+        <div class="phone-container" id="phone">
             <?php include CURR_VIEW_PATH . 'phone.php' ?>
         </div>
 

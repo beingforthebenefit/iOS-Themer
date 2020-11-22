@@ -1,6 +1,6 @@
         <div class="form-iphone-switch">
             <label class="form-switch edit">
-                <input type="checkbox" name="ios14.3" onchange="toggleEditMode()">
+                <input type="checkbox" name="ios14.3" onchange="toggleEditMode()" <?= $_SESSION['editMode'] ? checked : '' ?>>
                 Edit mode
                 <i></i>
             </label>
