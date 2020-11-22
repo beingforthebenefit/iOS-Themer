@@ -52,6 +52,13 @@ a:hover {
     height: 100vh;
 }
 
+.instructions-wrap {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    padding-bottom: 10px;
+}
+
 .instructions {
     padding-top: 10px;
 }
