@@ -131,6 +131,12 @@ class IndexController extends Controller {
         $this->indexAction();
     }
 
+    public function loadIconsAction() {
+        $_SESSION['icons'] = unserialize(file_get_contents('uploads/example.icons'));
+
+        $this->indexAction();
+    }
+
     // menuAction :: void -> void
     public function menuAction() {
         include CURR_VIEW_PATH . 'menu.php';
