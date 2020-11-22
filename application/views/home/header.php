@@ -52,7 +52,6 @@
     <link rel="stylesheet" href="/css/style.css<?= $u ?>">
     <link rel="stylesheet" href="/css/iphone.css<?= $u ?>">
     <link rel="stylesheet" href="/css/iphone-switch.css<?= $u ?>">
-
 </head>
 
 <body>
@@ -61,12 +60,14 @@
             <img class="logo" src="/images/logo.png" />
         </div>
         <div class="instructions">
-            <a href="/?c=Instructions">
-                How Do I Use This?
+            <a class="menu-link" href="/?c=Instructions">
+                <span class="menu-label">How Do I Use This?</span>
+                <span class="menu-icon">🤔</span>
             </a>
-            |
-            <a href="/?a=loadIcons">
-                Start with an example
+            <br />
+            <a class="menu-link" href="/?a=loadIcons#phone">
+                <span class="menu-label">Load Some Default Apps</span>
+                <span class="menu-icon">📲</span>
             </a>
         </div>
     </div>
