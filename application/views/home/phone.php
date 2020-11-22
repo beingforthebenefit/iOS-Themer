@@ -4,6 +4,12 @@
                 Edit mode
                 <i></i>
             </label>
+            <form method="post">
+                <input type="hidden" name="a" value="deleteAll" />
+                <div class="form-button-wrap clear">
+                    <input type="submit" class="form-field-button" value="Clear All Icons" />
+                </div>
+            </form>
         </div>
         <div class="iphone">
             <div class="iphone-top">
