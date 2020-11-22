@@ -51,7 +51,12 @@
   position: absolute;
   top: 50px;
   width: 200px;
-  transform: translateX(-50%);
+  transform: translateX(-90%);
+}
+
+.clear {
+  position: absolute;
+  top: 25px;
 }
 
 .form-switch:active input:checked + i::after { transform: translate3d(16px, 2px, 0); }
