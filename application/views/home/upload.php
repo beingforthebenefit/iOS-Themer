@@ -14,6 +14,14 @@
     <input type="hidden" name="ios14.3" value="true" />
     <fieldset class="form-fieldset">
         <div class="form-field-group">
+            <label class="form-field-label" for="country">Select country</label>
+            <select class="form-field-select" id="country" name="country">
+                <?php foreach (json_decode(file_get_contents(CONFIG_PATH . 'countries.json'), true) as $code => $country) { ?>
+                    <option value="<?= $code ?>" <?= $code == 'US' ? 'selected' : '' ?>><?= $country ?></option>
+                <?php } ?>
+            </select>
+        </div>
+        <div class="form-field-group">
             <label class="form-field-label" for="text">Search for an app</label>
             <input class="form-field-input" type="text" id="text" oninput="fetchApps()" />
         </div>

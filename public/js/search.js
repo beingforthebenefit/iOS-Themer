@@ -1,6 +1,7 @@
 async function fetchApps() {
+    var country = document.getElementById('country').value
     var term = document.getElementById('text').value;
-    const response = await fetch('https://itunes.apple.com/search?entity=software&limit=5&term=' + term);
+    const response = await fetch('https://itunes.apple.com/search?entity=software&country=' + country + '&limit=5&term=' + term);
     const apps = await response.json();
 
     var list = document.getElementById('apps');
