@@ -90,6 +90,7 @@ a:hover {
 
 .app-type {
     padding: 4px;
+    cursor: pointer;
 }
 
 .form-container,
