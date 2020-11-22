@@ -125,6 +125,12 @@ class IndexController extends Controller {
         $this->indexAction();
     }
 
+    public function deleteAllAction() {
+        unset($_SESSION['icons']);
+
+        $this->indexAction();
+    }
+
     // menuAction :: void -> void
     public function menuAction() {
         include CURR_VIEW_PATH . 'menu.php';
