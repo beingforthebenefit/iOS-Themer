@@ -1,7 +1,12 @@
-<div class="directions-wrap">
-    <a href="/?c=Instructions">
-        Learn How To Theme With This Site in 30 Seconds
-    </a>
+<div class="logo-wrap">
+    <div class="logo">
+        <img class="logo" src="/images/logo.png" />
+    </div>
+    <div class="instructions">
+        <a href="/?c=Instructions">
+            How Do I Use This?
+        </a>
+    </div>
 </div>
 <div class="page-wrap">
     <div class="form-container">

@@ -1,15 +1,16 @@
     <footer class="footer">
-        <div class="footer-note">
-            <p>Made with love by <a href="https://github.com/beingforthebenefit" target="_BLANK">Gerald Todd</a></p>
-            <a href="https://twitter.com/intent/tweet?screen_name=iOSThemeLive&ref_src=twsrc%5Etfw" class="twitter-mention-button" data-show-count="false">Tweet to @iOSThemeLive</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        <div class="footer-note donate">
+            <a href="https://www.buymeacoffee.com/iostheme" target="_blank"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a beer&emoji=🍺&slug=iostheme&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff"></a>
+        </div>
+        <div class="footer-row">
+            <div class="footer-note">
+                <p class="contact">Made with love by <a href="https://github.com/beingforthebenefit" target="_BLANK">Gerald Todd</a></p>
+            </div>
+            <div class="footer-note">
+                <a href="https://twitter.com/intent/tweet?screen_name=iOSThemeLive&ref_src=twsrc%5Etfw" class="twitter-mention-button" data-show-count="false">Tweet to @iOSThemeLive</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </div>
         </div>
 
-            
-
-        <div class="donate-wrap" action="https://www.buymeacoffee.com/iostheme">
-            <a class="donate-label" href="https://www.buymeacoffee.com/iostheme" title="Buy me a beer" alt="Buy me a beer" target="_BLANK">
-                Enjoy this site? Click here to buy me a beer  <img class="donate" src="/images/donate-icon.png" />
-            </a>
-        </div>
+        
     </footer>
 </body> 

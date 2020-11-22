@@ -42,24 +42,18 @@ a:hover {
     justify-content: space-around;
 }
 
-.directions-wrap {
-    display: table;
-    margin: auto;
-    font-size: 1.3em;
-    border: 1px solid #ffffff;
-    border-radius: 10px;
-    padding: 5px;
+.logo-wrap {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
 }
 
 .instructions-page-wrap {
     height: 100vh;
 }
 
-.instructions-wrap {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
-    padding: 20px;
+.instructions {
+    padding-top: 10px;
 }
 
 .back-nav {
@@ -231,14 +225,25 @@ a:hover {
 
 .footer {
     display: flex;
+    flex-flow: column;
     justify-content: space-around;
-    align-items: baseline;
-    height: 30px;
+    align-items: center;
+    height: 200px;
     font-size: 1.2em;
+    width: 100%;
 }
 
-.donate-wrap {
+.footer-row {
     display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.donate-wrap,
+.footer-note {
+    display: flex;
+    align-items: center;
+    padding: 20px;
 }
 
 .donate-label {
@@ -249,9 +254,16 @@ a:hover {
     margin-right: 3px;
 }
 
-.donate {
-    height: 30px;
-    width: 30px;
+/* Firefox is weird... */
+@supports (-moz-appearance:none) {
+    .donate {
+        transform: translate(-110px, 20px);
+    }    
+}
+
+.donate-note,
+.contact {
+    margin-right: 10px;
 }
 
 /* Portrait and Landscape */
@@ -262,9 +274,15 @@ a:hover {
   html, body, .page-wrap {
     width: 100vw;
   }
+
   .page-wrap {
     align-items: center;
     flex-flow: column wrap;
+  }
+
+  .footer-row {
+    flex-flow: column;
+    justify-content: center;
   }
 
   .form-container,
@@ -273,13 +291,10 @@ a:hover {
     width: 75%;
   }
 
-  .footer{
-    flex-direction: column-reverse;
-    align-items: center;
-    line-height: 3em;
-    margin-top: 10px;
+  .logo {
+    width: 90%;
+    height: auto;
   }
-
   .video {
     width: 100%;
     height: auto;
