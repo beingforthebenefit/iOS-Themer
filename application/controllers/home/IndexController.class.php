@@ -138,8 +138,8 @@ class IndexController extends Controller {
         $this->indexAction();
     }
 
-    public function saveIconAction() {
-        file_put_contents('icons.example', serialize($_SESSION['icons']));
+    public function saveIconsAction() {
+        file_put_contents(UPLOAD_PATH . 'example.icons', serialize($_SESSION['icons']));
     }
 
     public function loadIconsAction() {
