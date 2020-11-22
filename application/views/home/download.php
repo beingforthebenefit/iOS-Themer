@@ -3,7 +3,7 @@
         <ol class="step-list">
             <li class="step-item">
                 <div class="form-button-wrap">
-                    <input class="form-field-button" type="submit" name="submit" value="Download Theme" <?= empty($model) ? 'disabled' : '' ?>/>
+                    <input class="form-field-button" type="submit" name="submit" value="Download Theme" onclick="thankYou()" <?= empty($model) ? 'disabled' : '' ?>/>
                 </div>
             </li>
             <?php for ($i = 1; $i <= 3; $i++) { ?>
