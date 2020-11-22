@@ -56,6 +56,20 @@
 </head>
 
 <body>
+    <div class="logo-wrap">
+        <div class="logo">
+            <img class="logo" src="/images/logo.png" />
+        </div>
+        <div class="instructions">
+            <a href="/?c=Instructions">
+                How Do I Use This?
+            </a>
+            |
+            <a href="/?a=loadIcons">
+                Start with an example
+            </a>
+        </div>
+    </div>
     <?php if (array_key_exists('errors', $_SESSION)) { 
         foreach ($_SESSION['errors'] as $error) { ?>
             <div class="error-wrap">
