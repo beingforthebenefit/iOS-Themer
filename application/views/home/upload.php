@@ -98,10 +98,12 @@
 <!-- Batch upload -->
 <form id="batch" class="form hidden" method="POST" enctype="multipart/form-data">
     <input type="hidden" name="a" value="batchUpload" />
+    <input type="hidden" name="tab" value="batch" />
     <input type="hidden" name="ios14.3" value="true" />
     <input type="hidden" name="bundleId" value="" />
     <fieldset class="form-fieldset">
-        <span>File names must have the format 'BUNDLEID-MODIFIERS.EXT' where BUNDLEID is the app bundle ID, followed by a dash, and MODIFIERS are whatever you like, and extention is the filetype, e.g., com.apple.calendar-Large.png. Any jailbreak apps are ignored.</span> 
+        <span class="batch-description">File names must be
+            in the format <code class="code">bundleId-anytext.ext</code>, for example, <code class="code" >com.facebook.Facebook-large.png</code>. This is how typical jailbreak icon collections are named, although only non-jailbreak apps can be added here.</span> 
         <div class="form-file">
             <input class="form-field-file" type="file" id="icon4" name="icon[]" onchange="updateText2('icon-text4', 'icon4')" multiple />
             <p class="form-file-text" id="icon-text4">Drag a new icons here or click to browse!</p>
