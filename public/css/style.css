@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: #e64b99;
     background-image: linear-gradient(to bottom right, #2d21ab, #e64b99);
@@ -60,7 +64,25 @@ a:hover {
 }
 
 .instructions {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    font-size: 1.2em;
     padding-top: 10px;
+}
+
+.menu-link {
+    display: flex;
+    align-items: center;
+}
+
+.menu-label {
+    font-size: 1em;
+}
+
+.menu-icon {
+    font-size: 1.5em;
+    padding-left: 10px;
 }
 
 .back-nav {
@@ -82,14 +104,32 @@ a:hover {
     padding: 1px;
 }
 
+.batch-description {
+    display: inline-block;
+    font-size: 1.5em;
+    padding: 4px 20px 20px 20px;
+}
+
+.code {
+    white-space: nowrap;
+    color: lightgreen;
+}
+
 .app-type-wrap {
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: row nowrap;
     justify-content: space-between;
+    align-items: center;
     font-size: 1.2em;
 }
 
+.app-type-label {
+    white-space: nowrap;
+}
+
 .app-type {
+    display: inline-block;
+    white-space: nowrap;
     padding: 4px;
     cursor: pointer;
 }
@@ -275,35 +315,50 @@ a:hover {
 
 /* Portrait and Landscape */
 @media only screen
-  and (min-device-width: 414px)
-  and (max-device-width: 896px)
-  and (-webkit-min-device-pixel-ratio: 3) {
-  html, body, .page-wrap {
-    width: 100vw;
-  }
+    and (min-device-width: 414px)
+    and (max-device-width: 896px)
+    and (-webkit-min-device-pixel-ratio: 3) {
+    html, body, .page-wrap {
+        width: 100vw;
+    }
 
-  .page-wrap {
-    align-items: center;
-    flex-flow: column wrap;
-  }
+    .page-wrap {
+        align-items: center;
+        flex-flow: column wrap;
+    }
 
-  .footer-row {
-    flex-flow: column;
-    justify-content: center;
-  }
+    .app-types {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+    }
 
-  .form-container,
-  .phone-container,
-  .download-container {
-    width: 75%;
-  }
+    .batch-description {
+        font-size: 1.1em;
+    }
 
-  .logo {
-    width: 90%;
-    height: auto;
-  }
-  .video {
-    width: 100%;
-    height: auto;
-  }
+    .footer-row {
+        flex-flow: column;
+        justify-content: center;
+    }
+
+    .form-container,
+    .phone-container,
+    .download-container {
+        width: 75%;
+    }
+
+    .form-container,
+    .download-container {
+        padding-top: 30px;
+    }
+
+    .logo {
+        width: 90%;
+        height: auto;
+    }
+    .video {
+        width: 100%;
+        height: auto;
+    }
 }
