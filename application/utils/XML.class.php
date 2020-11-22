@@ -10,7 +10,7 @@ class XML {
         include TEMPLATE_PATH . 'head.xml';
         foreach ($icons as $icon) {
             $icon = unserialize($icon);
-            $label = $icon->Label;
+            $label = htmlspecialchars($icon->Label);
             $id = $icon->PayloadIdentifier;
             $uid = $icon->PayloadUUID;
             $bundleId = $icon->TargetApplicationBundleIdentifier;
