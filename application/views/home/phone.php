@@ -4,7 +4,7 @@
                 Edit mode
                 <i></i>
             </label>
-            <form method="post">
+            <form method="post" action="/">
                 <input type="hidden" name="a" value="deleteAll" />
                 <div class="form-button-wrap clear">
                     <input type="submit" class="form-field-button" value="Clear All Icons" />
