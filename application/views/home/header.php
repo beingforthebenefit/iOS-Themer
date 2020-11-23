@@ -71,6 +71,10 @@
             <a class="menu-link" href="/?a=loadIcons#phone">
                 <span class="menu-label">Load Some Default Apps</span>
                 <span class="menu-icon">📲</span>
+            </a><br />
+            <a class="menu-link" href="/?c=FindIcons">
+                <span class="menu-label">Find Icons for Your Device!</span>
+                <span class="menu-icon">🔎</span>
             </a>
         </div>
     </div>
