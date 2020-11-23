@@ -56,9 +56,11 @@
 </head>
 
 <body>
-    <div class="logo-wrap">
+    <div class="header-wrap">
         <div class="logo">
-            <img class="logo" src="/images/logo.png" />
+            <a href="/">
+                <img class="logo" src="/images/logo.png" title="iOSTheme.live" alt="iOSTheme.live" />
+            </a>
         </div>
         <div class="instructions">
             <a class="menu-link" href="/?c=Instructions">
