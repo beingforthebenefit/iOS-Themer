@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS `iosthemelive`;
+DROP TABLE IF EXISTS `apiKeys`;
 CREATE TABLE `apiKeys` (
   `apiKeyId` int(10) unsigned NOT NULL auto_increment,
   `owner` TEXT NOT NULL,
