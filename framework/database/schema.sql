@@ -1,11 +1,8 @@
-DROP TABLE IF EXISTS `repositories`;
-CREATE TABLE `repositories` (
-  `repositoryId` int(10) unsigned NOT NULL,
-  `name` text,
-  `url` text,
-  `createdDate` datetime DEFAULT NULL,
-  `lastUpdated` datetime DEFAULT NULL,
-  `description` text,
-  `stars` int(1) DEFAULT NULL,
-  PRIMARY KEY (`repositoryId`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+DROP TABLE IF EXISTS `iosthemelive`;
+CREATE TABLE `apiKeys` (
+  `apiKeyId` int(10) unsigned NOT NULL auto_increment,
+  `owner` TEXT NOT NULL,
+  `dateCreated` DATETIME NOT NULL,
+  `dateExpires` DATETIME NOT NULL,
+  PRIMARY KEY (`apiKeyId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
