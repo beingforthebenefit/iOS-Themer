@@ -44,6 +44,41 @@ class Model {
         }
     }
 
+    // row :: [string => a] -> [string -> a]?
+    public function row($filters) {
+        $sql = "SELECT * FROM {$this->table} WHERE ";
+
+        $appends = [ ];
+        foreach ($filters as $row => $value) {
+            $appends[] = "`$row` = '$value'";
+            $sql .= implode(' AND ', $appends);
+        }
+
+        $result = $this->db->query($sql);
+
+        return mysqli_fetch_assoc($result)[0] ?? NULL;
+    }
+
+    // rows :: [string => a] -> [[string -> a]]
+    public function rows($filters) {
+        $sql = "SELECT * FROM {$this->table} WHERE ";
+
+        $appends = [ ];
+        foreach ($filters as $row => $value) {
+            $appends[] = "`$row` = '$value'";
+            $sql .= implode(' AND ', $appends);
+        }
+
+        $result = $this->db->query($sql);
+
+        $rows = [ ];
+        while ($row = mysqli_fetch_assoc($result)) {
+            array_push($rows, $row);
+        }
+
+        return $rows;
+    }
+
     // insert :: [string => a] -> int|false
     public function insert($list) {
         $field_list = '';
