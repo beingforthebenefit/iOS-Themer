@@ -66,7 +66,7 @@ class IndexController extends Controller {
             $_SESSION['errors'] = $errors;
         }
 
-        $this->indexAction();
+        return $this->indexAction();
     }
 
     public function batchUploadAction() {
@@ -108,7 +108,7 @@ class IndexController extends Controller {
             );
         }
 
-        $this->indexAction();
+        return $this->indexAction();
     }
 
     public function downloadAction() {
@@ -127,7 +127,7 @@ class IndexController extends Controller {
             }
         );
 
-        $this->indexAction();
+        return $this->indexAction();
     }
 
     public function deleteAllAction() {
@@ -135,19 +135,30 @@ class IndexController extends Controller {
 
         unset($_SESSION['icons']);
 
-        $this->indexAction();
+        return $this->indexAction();
     }
 
-    public function saveIconsAction() {
-        file_put_contents(UPLOAD_PATH . 'example.icons', serialize($_SESSION['icons']));
-    }
+    // Dangerous function. Use with caution.
+    // public function saveIconsAction() {
+    //     file_put_contents(UPLOAD_PATH . 'example.icons', serialize($_SESSION['icons']));
+    // }
 
     public function loadIconsAction() {
         $_SESSION['editMode'] = false;
         
         $_SESSION['icons'] = unserialize(file_get_contents('uploads/example.icons'));
 
-        $this->indexAction();
+        return $this->indexAction();
+    }
+
+    public function importArchiveAction() {
+        // TODO REQUST->POST
+        $keys = new ApiKeyModel('apiKeys');
+        if (!$keys->validateKey($_REQUEST['key'])) {
+            $_SESSION['errors'][] = 'Invalid API Key';
+            return $this->indexAction();
+        }
+        echo 'Successful API request. Valid Key.';
     }
 
     // menuAction :: void -> void
