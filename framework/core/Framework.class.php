@@ -31,7 +31,7 @@ class Framework {
         define("TEMPLATE_PATH", APP_PATH . 'templates' . DS);
 
         define("CORE_PATH", FRAMEWORK_PATH . 'core' . DS);
-        // define("DB_PATH", FRAMEWORK_PATH . 'database'. DS);
+        define("DB_PATH", FRAMEWORK_PATH . 'database'. DS);
         define("LIB_PATH", FRAMEWORK_PATH . 'helpers' . DS);
         define("HELPER_PATH", FRAMEWORK_PATH . 'helpers'. DS);
 
@@ -49,7 +49,7 @@ class Framework {
         // Load core classes
         require CORE_PATH . "Controller.class.php";
         require CORE_PATH . "Loader.class.php";
-        // require DB_PATH . "Mysql.class.php";
+        require DB_PATH . "Mysql.class.php";
         require CORE_PATH . "Model.class.php";
 
         // Load configuration file
