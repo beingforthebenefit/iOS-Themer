@@ -44,6 +44,7 @@ class Framework {
 
         define("CURR_CONTROLLER_PATH", CONTROLLER_PATH . PLATFORM . DS);
         define("CURR_VIEW_PATH", VIEW_PATH . PLATFORM . DS);
+        define("AD_PATH", CURR_VIEW_PATH . 'ads' . DS);
 
         // Load core classes
         require CORE_PATH . "Controller.class.php";

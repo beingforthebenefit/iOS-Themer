@@ -5,6 +5,9 @@
         <script>toggleEditMode()</script>
     <?php } ?>
     <footer class="footer">
+        <div class="case-ad">
+            <?php include AD_PATH . 'iphone-cases.php'; ?>
+        </div>
         <div class="footer-note donate">
             <a href="https://www.buymeacoffee.com/iostheme" target="_blank"><p class="donate-note">Like that this site is free?</p><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a beer&emoji=🍺&slug=iostheme&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff"></a>
         </div>
