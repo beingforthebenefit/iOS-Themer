@@ -1,4 +1,7 @@
 function switchTab(tab) {
+    if (tab == '') {
+        return;
+    }
     form = document.getElementById(tab);
     if (form.id == 'app-store') {
         document.getElementById('system-app').classList.add('hidden');
