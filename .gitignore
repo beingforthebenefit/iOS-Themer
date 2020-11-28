@@ -8,3 +8,6 @@ config.php
 
 # deploy script
 deploy
+
+# ignore public uploads
+public/uploads/*
