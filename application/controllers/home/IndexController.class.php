@@ -166,19 +166,10 @@ class IndexController extends Controller {
         $hash = md5(date('ymdhmsu'));
         $zipFile = UPLOAD_PATH . "{$hash}.zip";
 
-        set_time_limit(0); // unlimited max execution time
-        $options = array(
-          CURLOPT_FILE    => $zipFile,
-          CURLOPT_TIMEOUT =>  28800, // set this to 8 hours so we dont timeout on big files
-          CURLOPT_URL     => $_POST['file'],
-        );
-        
-        $ch = curl_init();
-        curl_setopt_array($ch, $options);
-        curl_exec($ch);
-        curl_close($ch);
+        set_time_limit(0);
+        $temp = file_get_contents($_POST['file']);
+        file_put_contents($zipFile, $temp);
 
-        file_put_contents($zipFile, fopen($_POST['file'], 'r'));
         $destPath = TEMP_PATH . $hash . '/';
         $destFile = 'ready.icons';
 
@@ -204,6 +195,7 @@ class IndexController extends Controller {
         }
 
         // Clean up files
+        exec("rm {$zipFile}");
         exec("rm {$destPath}*");
         exec("rmdir {$destPath}");
 
