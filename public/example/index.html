@@ -2,6 +2,24 @@
     <title>Proof of Concept</title>
 
     <style type="text/css">
+        body {
+            background-color: black;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            color: #FFFFFF;
+            font-size: 16px;
+            font-style: normal;
+            font-variant: normal;
+            font-weight: 600;
+        }
+        .overlay {
+            background: #e9e9e9;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            opacity: 0.5;
+        }
         .hidden {
             display: none;
         }
@@ -9,23 +27,29 @@
 </head>
 
 <body>
-    <p>I am a graphic designer!</p>
-    <p>Look at my icon pack</p>
+    <h1>iOS Icon Pack Download</h1>
+    <h3>This is an example page for <a href="http://iostheme.live">iOSTheme.live</a>'s icon installation API</h3>
+    <p>Most graphic designers who sell icon packs give their users a ZIP file with some PNGs, a long tutorial involving Shortcuts, and an expectation that they have the whole afternoon free to install it.</p>
+    <p><i>Well, no more.</i></p>
+    <p>Here, we have a picture of an icon pack which you could be selling.</p>
     <img src="images/iconpack.jpg" style="width: 400px; height: auto;" />
-    <p>To install it, click the button below!</p>
+    <p>On my server, I have a .zip file containing the icons.</p>
+    <p>If a customer wants to install the icon pack, they can do it in seconds. No downloads, no file transfers, no Shortcuts, no BS.</p>
+    <p>Just click to install</p>
+    <p>Want to try it?</p>
     <form id="form" method="POST" action="/" enctype="multipart/form-data">
         <input type="hidden" name="a" value="importArchive" />
         <input type="hidden" name="key" value="abc123" />
         <input type="hidden" name="file" value="http://iostheme.live/uploads/icon-pack.zip" />
-        <input type="submit" id="submit" value="Install Icons" onclick="submitAndLoad()" />
+        <button id="submit" type="submit" onclick="javascript:loading()">Install Icons</button>
     </form>
-    <img id="loading" class="hidden" src="images/loading.gif" />
+    <div id="overlay" class="overlay hidden">
+        <img id="loading" src="images/loading.gif" style="float: center" />
+    </div>
 </body>
 
 <script>
-    function submitAndLoad() {
-        document.getElementById('loading').classList.remove('hidden');
-        document.getElementById('submit').setAttribute('disabled', 'true');
+    function loading() {
+        document.getElementById('overlay').classList.remove('hidden');
     }
 </script>
-
