@@ -157,16 +157,15 @@ class IndexController extends Controller {
     }
 
     public function importArchiveAction() {
-        // TODO REQUST->POST
         $keys = new ApiKeyModel('apiKeys');
-        if (!$keys->validateKey($_REQUEST['key'])) {
+        if (!$keys->validateKey($_POST['key'])) {
             $_SESSION['errors'][] = 'Invalid API Key';
             return $this->indexAction();
         }
 
         $hash = md5(date('ymdhmsu'));
-        // TODO replace this with $_FILES posted
-        $zipFile = UPLOAD_PATH . 'icon-pack.zip';
+        $zipFile = UPLOAD_PATH . "{$hash}.zip";
+        copy($_POST['file'], $zipFile);
         $destPath = TEMP_PATH . $hash . '/';
         $destFile = 'ready.icons';
 
@@ -195,7 +194,9 @@ class IndexController extends Controller {
         exec("rm {$destPath}*");
         exec("rmdir {$destPath}");
 
-        $this->indexAction($icons);
+        $_SESSION['messages'][] = 'Icon pack successfully loaded from ' . $_SERVER["HTTP_REFERER"];
+
+        echo $this->build(CURR_VIEW_PATH . 'install.php', $icons);
     }
 
     // menuAction :: void -> void
