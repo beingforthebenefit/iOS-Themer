@@ -16,12 +16,17 @@ class IndexController extends Controller {
     }
 
     // indexAction :: void -> void
-    public function indexAction() {
-        if (!array_key_exists('icons', $_SESSION)) {
-            $_SESSION['icons'] = [ ];
+    public function indexAction($icons = [ ]) {
+        if (empty($icons)) {
+            if (!array_key_exists('icons', $_SESSION)) {
+                $_SESSION['icons'] = [ ];
+            }
+            $icons = $_SESSION['icons'];
         }
 
-        echo $this->build(CURR_VIEW_PATH . 'main.php', $_SESSION['icons']);
+        $_SESSION['icons'] = $icons;
+
+        echo $this->build(CURR_VIEW_PATH . 'main.php', $icons);
     }
 
     public function uploadAction() {
@@ -158,7 +163,39 @@ class IndexController extends Controller {
             $_SESSION['errors'][] = 'Invalid API Key';
             return $this->indexAction();
         }
-        echo 'Successful API request. Valid Key.';
+
+        $hash = md5(date('ymdhmsu'));
+        // TODO replace this with $_FILES posted
+        $zipFile = UPLOAD_PATH . 'icon-pack.zip';
+        $destPath = TEMP_PATH . $hash . '/';
+        $destFile = 'ready.icons';
+
+        // Extract files to temp directory
+        exec("unzip -q \"$zipFile\" -d \"$destPath\"");
+        exec("ls {$destPath}*.png", $list);
+
+        $icons = [ ];
+        foreach ($list as $icon) {
+            $parts = explode('-', pathinfo($icon)['filename']);
+            $label = implode('-', array_slice($parts, 1));
+            $bundleId = $parts[0];
+
+            $icons[] = serialize(
+                new IconModel(
+                    $label,
+                    $bundleId,
+                    $icon,
+                    'png',
+                    ' '
+                )
+            );
+        }
+
+        // Clean up files
+        exec("rm {$destPath}*");
+        exec("rmdir {$destPath}");
+
+        $this->indexAction($icons);
     }
 
     // menuAction :: void -> void
