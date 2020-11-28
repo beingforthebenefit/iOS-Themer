@@ -85,10 +85,18 @@ a:hover {
     padding-left: 10px;
 }
 
-.error-wrap {
+.error-wrap,
+.message-wrap {
     text-align: center;
-    background-color: #CC0000;
     padding: 1px;
+}
+
+.error-wrap {
+    background-color: #AA0000;
+}
+
+.message-wrap {
+    background-color: #007700;
 }
 
 .batch-description {

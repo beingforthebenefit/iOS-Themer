@@ -78,11 +78,19 @@
             </a>
         </div>
     </div>
-    <?php if (array_key_exists('errors', $_SESSION)) { 
+    <?php if (array_key_exists('messages', $_SESSION)) {
+        foreach ($_SESSION['messages'] as $error) { ?>
+            <div class="message-wrap">
+                <p class="message"><?= $error ?></p>
+            </div>
+        <?php }
+        $_SESSION['messages'] = [ ];
+    }
+    if (array_key_exists('errors', $_SESSION)) {
         foreach ($_SESSION['errors'] as $error) { ?>
             <div class="error-wrap">
                 <p class="error"><?= $error ?></p>
             </div>
-        <?php } ?>
-    <?php $_SESSION['errors'] = [ ];
+        <?php }
+    $_SESSION['errors'] = [ ];
     } ?>
