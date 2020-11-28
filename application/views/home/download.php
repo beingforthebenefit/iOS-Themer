@@ -1,4 +1,5 @@
-<form class="form" method="POST" action="?a=download">
+<form class="form" method="POST">
+    <input type="hidden" name="a" value="download" />
     <fieldset class="form-fieldset">
         <ol class="list">
             <li class="list-item">
