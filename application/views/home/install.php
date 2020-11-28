@@ -1,6 +1,5 @@
     <div class="page-wrap">
         <div class="phone-container" id="phone">
-            <h1 class="header">Preview</h1>
             <?php include CURR_VIEW_PATH . 'phone.php' ?>
         </div>
 
