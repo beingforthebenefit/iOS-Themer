@@ -4,6 +4,7 @@ CREATE TABLE `apiKeys` (
   `owner` TEXT NOT NULL,
   `dateCreated` DATETIME NOT NULL,
   `dateExpires` DATETIME NOT NULL,
+  `timesUsed` INT NOT NULL DEFAULT 0,
   PRIMARY KEY (`apiKeyId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

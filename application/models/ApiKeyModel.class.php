@@ -13,9 +13,17 @@ class ApiKeyModel extends Model {
         ]);
     }
 
-    // validateKey :: filters -> bool
-    // filters = [string => a]
-    public function validateKey($key) {
+    // logUsage :: string -> bool
+    public function logUsage($key) {
+        $row = $this->row(['key' => $key]);
+        return $this->update([
+            'apiKeyId' => $row['apiKeyId'],
+            'timesUsed' => $row['timesUsed'] + 1
+        ]);
+    }
+
+    // validate :: string -> bool
+    public function validate($key) {
         return !empty(
             array_filter(
                 $this->rows(['key' => $key]),

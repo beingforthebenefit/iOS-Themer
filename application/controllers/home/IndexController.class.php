@@ -158,9 +158,11 @@ class IndexController extends Controller {
 
     public function importArchiveAction() {
         $keys = new ApiKeyModel('apiKeys');
-        if (!$keys->validateKey($_POST['key'])) {
+        if (!$keys->validate($_POST['key'])) {
             $_SESSION['errors'][] = 'Invalid API Key';
             return $this->indexAction();
+        } else {
+            $keys->logUsage($_POST['key']);
         }
 
         $hash = md5(date('ymdhmsu'));

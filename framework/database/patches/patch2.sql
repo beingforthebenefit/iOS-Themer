@@ -1,4 +1,4 @@
--- Intial patch to create table for managing API keys --
+-- Add table for admin accounts --
 
 use iosthemelive;
 
