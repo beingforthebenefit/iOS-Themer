@@ -2,6 +2,7 @@
 // application/controllers/admin/IndexController.class.php
 
 include UTIL_PATH . 'XML.class.php';
+include UTIL_PATH . 'SSL.class.php';
 
 class IndexController extends Controller {
 
@@ -117,9 +118,20 @@ class IndexController extends Controller {
     }
 
     public function downloadAction() {
+
         header('Content-Type: application/xml;');
         header('Content-Disposition: attachment; filename=MyTheme.mobileconfig');
-        echo XML::createConfig($_SESSION['icons']);
+
+        if (DEBUG) {
+            echo \XML::createConfig($_SESSION['icons']);
+            exit;
+        }
+        $hash = md5(date('ymdhmsu'));
+        mkdir(TEMP_PATH . $hash);
+        file_put_contents(TEMP_PATH . $hash . '/unsigned.mobileconfig', \XML::createConfig($_SESSION['icons']));
+        \SSL::sign(TEMP_PATH . $hash . '/unsigned.mobileconfig', TEMP_PATH . $hash . '/signed.mobileconfig');
+
+        echo file_get_contents(TEMP_PATH . $hash . '/signed.mobileconfig');
     }
 
     public function deleteAction() {
