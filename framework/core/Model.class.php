@@ -51,12 +51,12 @@ class Model {
         $appends = [ ];
         foreach ($filters as $row => $value) {
             $appends[] = "`$row` = '$value'";
-            $sql .= implode(' AND ', $appends);
         }
+        $sql .= implode(' AND ', $appends);
 
         $result = $this->db->query($sql);
 
-        return mysqli_fetch_assoc($result)[0] ?? NULL;
+        return mysqli_fetch_assoc($result) ?? NULL;
     }
 
     // rows :: [string => a] -> [[string -> a]]
