@@ -9,7 +9,7 @@ CREATE TABLE `apiKeys` (
 
 DROP TABLE IF EXISTS `admins`;
 CREATE TABLE `admins` (
-  `adminId` INT NOT NULL,
+  `adminId` INT unsigned NOT NULL auto_increment,
   `username` VARCHAR(45) NOT NULL,
   `password` VARCHAR(45) NOT NULL,
   `lastLogin` DATETIME NULL,
