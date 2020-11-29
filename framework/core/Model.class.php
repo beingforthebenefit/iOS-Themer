@@ -60,12 +60,16 @@ class Model {
     }
 
     // rows :: [string => a] -> [[string -> a]]
-    public function rows($filters) {
-        $sql = "SELECT * FROM {$this->table} WHERE ";
+    public function rows($filters = [ ]) {
+        if (empty($filters)) {
+            $sql = "SELECT * FROM {$this->table}";
+        } else {
+            $sql = "SELECT * FROM {$this->table} WHERE ";
 
-        $appends = [ ];
-        foreach ($filters as $row => $value) {
-            $appends[] = "`$row` = '$value'";
+            $appends = [ ];
+            foreach ($filters as $row => $value) {
+                $appends[] = "`$row` = '$value'";
+            }
             $sql .= implode(' AND ', $appends);
         }
 
