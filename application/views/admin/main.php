@@ -38,6 +38,9 @@
             <th>
                 Expires
             </th>
+            <th>
+                # of Calls
+            </th>
         </tr>
         <?php foreach ((new ApiKeyModel('apiKeys'))->rows() as $key) { ?>
             <tr>
@@ -52,6 +55,9 @@
                 </td>
                 <td>
                     <?= $key['dateExpires'] ?>
+                </td>
+                <td>
+                    <?= $key['timesUsed'] ?>
                 </td>
             </tr>
         <?php } ?>
