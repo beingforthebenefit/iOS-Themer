@@ -23,11 +23,21 @@ class AdminModel extends Model {
         );
     }
 
-    // logTime :: string -> bool
+    // logTime :: void -> bool
     public function logTime() {
         return $this->update([
-            'adminId' => $this->fields['pk'],
+            'adminId' => $_SESWSION['adminId'],
             'lastLogin' => date('Y-m-d H:i:s'),
         ]);
+    }
+
+    // login :: void -> bool
+    public function login() {
+        $thisUser = $this->row([
+            'username' => $_SERVER['PHP_AUTH_USER'],
+        ]);
+        $_SESSION['adminId'] = $thisUser['adminId'];
+        $_SESSION['username'] = $thisUser['username'];
+        $this->logTime();
     }
 }

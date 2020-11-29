@@ -15,7 +15,7 @@
                     <?= $admin['username'] ?>
                 </td>
                 <td>
-                    <?= $admin['lastLogin'] ?>
+                    <?= $admin['lastLogin'] ?? 'Never' ?>
                 </td>
             </tr>
         <?php } ?>

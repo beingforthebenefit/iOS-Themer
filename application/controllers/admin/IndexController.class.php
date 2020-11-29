@@ -30,7 +30,7 @@ class IndexController extends Controller {
     public function indexAction() {
         $admin = new AdminModel('admins');
         if ($this->authenticate($admin)) {
-            $admin->logTime();
+            $admin->login($admin);
             echo $this->build(CURR_VIEW_PATH . 'main.php');
         } else {
             echo "This is not the page you are looking for...";
