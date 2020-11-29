@@ -26,7 +26,7 @@ class AdminModel extends Model {
     // logTime :: void -> bool
     public function logTime() {
         return $this->update([
-            'adminId' => $_SESWSION['adminId'],
+            'adminId' => $_SESSION['adminId'],
             'lastLogin' => date('Y-m-d H:i:s'),
         ]);
     }
