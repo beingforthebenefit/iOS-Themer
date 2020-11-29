@@ -334,6 +334,11 @@ a:hover {
     margin-right: 10px;
 }
 
+.case-ad {
+    font-size: 1.5em;
+    margin-top: 30px;
+}
+
 /* Portrait and Landscape */
 @media only screen
     and (min-device-width: 414px)
@@ -398,9 +403,5 @@ a:hover {
     .video {
         width: 90%;
         height: auto;
-    }
-
-    .case-ad {
-        font-size: 1.5em;
     }
 }
