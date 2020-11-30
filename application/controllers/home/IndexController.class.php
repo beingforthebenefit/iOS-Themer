@@ -127,7 +127,7 @@ class IndexController extends Controller {
             exit;
         }
         $hash = md5(date('ymdhmsu'));
-        mkdir(TEMP_PATH . $hash);
+        mkdir(TEMP_PATH . $hash, 0777);
         exec("echo " . \XML::createConfig($_SESSION['icons']) . ">>" . TEMP_PATH . $hash . '/unsigned.mobileconfig')
         \SSL::sign(TEMP_PATH . $hash . '/unsigned.mobileconfig', TEMP_PATH . $hash . '/signed.mobileconfig');
 
