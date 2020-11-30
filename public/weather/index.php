@@ -1,7 +1,7 @@
 <?php
 $city = $_GET['city'];
 $weather = shell_exec('curl "http://wttr.in/'. $city .'?u&format=%25C+%25f"');
-$fileName = TEMP_PATH . md5(date('ymdhmsu')) . ".png";
+$fileName = md5(date('ymdhmsu')) . ".png";
 $cmd = "echo '{$weather}' | convert label:@- -trim {$fileName}";
 exec($cmd);
 $fp = fopen($fileName, 'rb');
