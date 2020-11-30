@@ -1,7 +1,7 @@
 <?php
 date_default_timezone_set($_GET['timezone']);
 $time = date('g:i a');
-$fileName = md5(date('ymdhmsu')) . ".png";
+$fileName = TEMP_PATH . md5(date('ymdhmsu')) . ".png";
 $cmd = "echo '{$time}' | convert label:@- -trim {$fileName}";
 exec($cmd);
 $fp = fopen($fileName, 'rb');
