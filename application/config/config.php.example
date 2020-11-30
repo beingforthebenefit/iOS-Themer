@@ -1,6 +1,8 @@
 <?php
 // application/config/config.php
 
+define("DEBUG", true);
+
 return [
     'host' => '',
     'user' => '',
