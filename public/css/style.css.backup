@@ -9,23 +9,24 @@ html {
 }
 
 body {
-    background-color: #f7f7f7;
+    background-color: #e64b99;
+    background-image: linear-gradient(to bottom right, #2d21ab, #e64b99);
     background-repeat: no-repeat;
     font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-    color: #333333;
+    color: #FFFFFF;
     font-size: 12px;
     font-style: normal;
     font-variant: normal;
-    font-weight: 300;
+    font-weight: 600;
 }
 
 a {
-    color: #132377;
+    color: lightblue;
     text-decoration: none;
 }
 
 a:hover {
-    color: #000000;
+    color: #FFFFFF;
     transition: all .4s ease;
 }
 
@@ -43,16 +44,12 @@ a:hover {
     flex-flow: row wrap;
     align-items: flex-start;
     justify-content: space-around;
-    background-image: linear-gradient(to bottom right, #e3eaf8, #fbe7f6);
-    padding: 30px;
-    border-radius: 100px 0 0 100px;
 }
 
 .header-wrap {
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: column wrap;
     align-items: center;
-    margin-bottom: 10px;
 }
 
 .instructions-page-wrap {
@@ -68,16 +65,13 @@ a:hover {
 
 .instructions {
     display: flex;
-    flex-flow: row;
+    flex-flow: column;
     align-items: center;
-    justify-content: space-around;
     font-size: 1.2em;
     padding-top: 10px;
-    width: 50%;
 }
 
 .menu-link {
-    white-space: nowrap;
     display: flex;
     align-items: center;
 }
@@ -342,7 +336,7 @@ a:hover {
 
 .case-ad {
     font-size: 1.5em;
-    margin-top: 100px;
+    margin-top: 30px;
 }
 
 /* Portrait and Landscape */
