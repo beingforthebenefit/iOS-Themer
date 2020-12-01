@@ -7,7 +7,7 @@ exec($cmd);
 $fp = fopen($fileName, 'rb');
 
 header('Content-Type: image/png');
-header("Content-Length: " . filesize($name));
+header("Content-Length: " . filesize($fileName));
 
 fpassthru($fp);
 
