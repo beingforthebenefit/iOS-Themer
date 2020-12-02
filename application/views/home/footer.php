@@ -10,11 +10,8 @@
     <?php } ?>
     <footer class="footer">
         <?php include AD_PATH . 'media.net.php'; ?>
-        <div class="case-ad">
+        <div class="footer-left">
             <?php include AD_PATH . 'iphone-cases.php'; ?>
-        </div>
-        <div class="footer-note donate">
-            <a href="https://www.buymeacoffee.com/iostheme" target="_blank"><p class="donate-note">Like that this site is free?</p><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a beer&emoji=🍺&slug=iostheme&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff"></a>
         </div>
         <div class="footer-row">
             <div class="footer-note">
@@ -23,6 +20,9 @@
             <div class="footer-note">
                 <a href="https://twitter.com/intent/tweet?screen_name=iOSThemeLive&ref_src=twsrc%5Etfw" class="twitter-mention-button" data-show-count="false">Tweet to @iOSThemeLive</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
             </div>
+        </div>
+        <div class="footer-right">
+            <a href="https://www.buymeacoffee.com/iostheme" target="_blank"><p class="donate-note">Like that this site is free? Buy me a beer 🍻</p></a>
         </div>
     </footer>
 </body> 

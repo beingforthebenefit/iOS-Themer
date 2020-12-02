@@ -53,6 +53,7 @@
 
     <script src="/js/file-upload.js<?= $u ?>"></script>
     <script src="/js/search.js<?= $u ?>"></script>
+    <script src="/js/page.js<?= $u ?>"></script>
     <script src="/js/tabs.js<?= $u ?>"></script>
     <script src="/js/edit-mode.js<?= $u ?>"></script>
     <script src="/js/donate.js<?= $u ?>"></script>
@@ -60,43 +61,3 @@
     <link rel="stylesheet" href="/css/iphone.css<?= $u ?>">
     <link rel="stylesheet" href="/css/iphone-switch.css<?= $u ?>">
 </head>
-
-<body>
-    <div class="header-wrap">
-        <div class="logo">
-            <a href="/">
-                <img class="logo" src="/images/logo.png" title="iOSTheme.live" alt="iOSTheme.live" />
-            </a>
-        </div>
-        <div class="instructions">
-            <a class="menu-link" href="/?c=Instructions">
-                <span class="menu-label">How Do I Use This?</span>
-                <span class="menu-icon">🤔</span>
-            </a>
-            <br />
-            <a class="menu-link" href="/?a=loadIcons#phone">
-                <span class="menu-label">Load Some Default Apps</span>
-                <span class="menu-icon">📲</span>
-            </a><br />
-            <a class="menu-link" href="/?c=FindIcons">
-                <span class="menu-label">Find Icons for Your Device!</span>
-                <span class="menu-icon">🔎</span>
-            </a>
-        </div>
-    </div>
-    <?php if (array_key_exists('messages', $_SESSION)) {
-        foreach ($_SESSION['messages'] as $error) { ?>
-            <div class="message-wrap">
-                <p class="message"><?= $error ?></p>
-            </div>
-        <?php }
-        $_SESSION['messages'] = [ ];
-    }
-    if (array_key_exists('errors', $_SESSION)) {
-        foreach ($_SESSION['errors'] as $error) { ?>
-            <div class="error-wrap">
-                <p class="error"><?= $error ?></p>
-            </div>
-        <?php }
-    $_SESSION['errors'] = [ ];
-    } ?>

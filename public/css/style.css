@@ -1,3 +1,5 @@
+/* Global */
+
 *,
 *:after,
 *:before {
@@ -9,87 +11,108 @@ html {
 }
 
 body {
-    background-color: #f7f7f7;
-    background-repeat: no-repeat;
-    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-    color: #333333;
+    background-color: var(--licorice);
+    color: darkgray;
+    font-family: 'Overpass-Regular', Helvetica, Arial, serif;
     font-size: 12px;
     font-style: normal;
-    font-variant: normal;
-    font-weight: 300;
+    font-weight: 400;
+    width: 100vw;
 }
 
-a {
-    color: #132377;
+a,
+a:visited {
+    color: #FFFFFF;
     text-decoration: none;
 }
 
 a:hover {
-    color: #000000;
-    transition: all .4s ease;
+    color: gray;
+    transition: fade .4s ease;
+    cursor: pointer;
+}
+
+.home,
+.how-to,
+.installer,
+.icon-packs {
+    position: absolute;
+    transition: all .8s ease;
 }
 
 .hidden {
-    display: none;
+    transform:translate(9999px);
+    opacity: 0;
 }
 
 .active {
-    border: 3px solid lightblue;
-    border-radius: 10px;
+    text-decoration: underline;
+    text-decoration-color: var(--eastern-blue);
+    text-decoration-thickness: 3px;
 }
 
 .page-wrap {
     display: flex;
     flex-flow: row wrap;
-    align-items: flex-start;
     justify-content: space-around;
-    background-image: linear-gradient(to bottom right, #e3eaf8, #fbe7f6);
+}
+
+/* end Global */
+
+/* Background */
+
+.background-left,
+.background-right {
+    background-color: transparent;
+    position: fixed;
+    width: 100vw;
+    z-index: -1;
+}
+
+.background-left {
+    left: 0;
+    bottom: 0;
+}
+
+.background-right {
+    right: 0;
+    top: 0;
+}
+
+/* end Background */
+
+/* Top */
+
+.top-wrap {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+}
+
+.logo-wrap {
+    font-size: 40px;
+    color: var(--eastern-blue);
+    padding: 10px;
+}
+
+.nav-wrap {
+    display: flex;
+    flex-flow: row nowrap;
     padding: 30px;
-    border-radius: 100px 0 0 100px;
-}
-
-.header-wrap {
-    display: flex;
-    flex-flow: row wrap;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-.instructions-page-wrap {
-    height: 100vh;
-}
-
-.instructions-wrap {
-    display: flex;
-    flex-flow: row wrap;
     justify-content: space-around;
-    padding-bottom: 10px;
+    width: 60%;
+    font-family: 'Maven Pro-Regular', Helvetica, Arial, serif;
+    font-size: 20px;
+    font-weight: 400;
 }
 
-.instructions {
-    display: flex;
-    flex-flow: row;
-    align-items: center;
-    justify-content: space-around;
-    font-size: 1.2em;
-    padding-top: 10px;
-    width: 50%;
-}
-
-.menu-link {
+.nav-link {
     white-space: nowrap;
-    display: flex;
-    align-items: center;
 }
 
-.menu-label {
-    font-size: 1em;
-}
+/* end Top */
 
-.menu-icon {
-    font-size: 1.5em;
-    padding-left: 10px;
-}
+/* Messages */
 
 .error-wrap,
 .message-wrap {
@@ -103,6 +126,68 @@ a:hover {
 
 .message-wrap {
     background-color: #007700;
+}
+
+/* end Messages */
+
+/* Home */
+
+.home {
+    padding-top: 100px;
+    padding-left: 20vw;
+}
+
+.page-title {
+    color: var(--quill-gray);
+    font-size: 48px;
+    font-weight: 700;
+}
+
+.page-paragraph {
+    width: 40%;
+    font-size: 24px;
+    padding: 60px 0;
+}
+
+.try-button {
+    background-color: var(--eastern-blue);
+    color: white;
+    font-size: 24px;
+    font-weight: 600px;
+    height: 58px;
+    width: 241px;
+    border: 1px solid black;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.try-button:hover {
+    background-color: var(--eastern-blue-2);
+}
+
+/* end Home */
+
+/* How To */
+
+.how-to {
+    display: flex;
+    flex-flow: row wrap;
+    width: 80vw;
+}
+
+.video-wrap {
+    display: flex;
+    flex-flow: column;
+}
+
+/* end How To */
+
+/* iOS Themer */
+
+.installer {
+    display: flex;
+    flex-flow: row wrap;
+    width: 80vw !important;
 }
 
 .batch-description {
@@ -147,6 +232,14 @@ a:hover {
     padding-bottom: 20px;
 }
 
+.form-container {
+    height: 600px;
+}
+
+.download-container {
+    height: 800px;
+}
+
 .phone-container {
     display: flex;
     justify-content: flex-start;
@@ -155,11 +248,17 @@ a:hover {
     height: 800px;
 }
 
+.forms-wrap {
+    height: 500px;
+}
+
 .form-fieldset {
+    position: absolute;
     margin: 0;
     padding: 1em;
     border: 1px solid #aaa;
     border-radius: 5px;
+    width: 500px;
 }
 
 .form-field-group {
@@ -272,77 +371,31 @@ a:hover {
   box-shadow: inset 0 0 3px 0 rgba(0, 0, 0, 0.2), 0 0 0 1px #999, 0 0 30px 0px rgba(0, 0, 0, 0.7);
 }
 
+/* end iOS Themer */
+
 .footer {
+    background-color: var(--licorice);
+    position: fixed;
+    bottom: 0px;
     display: flex;
-    flex-flow: column;
-    justify-content: space-around;
+    flex-flow: row;
+    justify-content: space-between;
     align-items: center;
-    height: 200px;
-    font-size: 1.2em;
-    width: 100%;
+    width: 80vw;
+    opacity: .8;
 }
 
 .footer-row {
     display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
 }
 
 .donate-wrap,
 .footer-note {
     display: flex;
     align-items: center;
-    padding: 20px;
-}
-
-.donate-label {
-    display: flex;
-    cursor: pointer;
-    height: 30px;
-    align-items: center;
-    margin-right: 3px;
-}
-
-.affiliates-wrap {
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: space-around;
-    align-items: center;
-    font-size: 1.5em;
-    width: 100%;
-}
-
-.affiliate-list {
-    width: auto;
-    border: 1px solid white;
-    border-radius: 10px;
-    background-color: rgba(209, 202, 161, .3);
-
-}
-
-.affiliate-wrap {
-    margin: 10px 0 10px 50px;
-}
-
-/* Firefox is weird... */
-/*@supports (-moz-appearance:none) {
-    .donate {
-        transform: translate(-110px, 20px);
-    }    
-}*/
-
-.donate-note{
-    width: 220px;
-    text-align: center;
-}
-
-.contact {
-    margin-right: 10px;
-}
-
-.case-ad {
-    font-size: 1.5em;
-    margin-top: 100px;
+    padding-right: 30px;
 }
 
 /* Portrait and Landscape */
@@ -350,64 +403,55 @@ a:hover {
     and (min-device-width: 414px)
     and (max-device-width: 896px)
     and (-webkit-min-device-pixel-ratio: 3) {
-    html, body, .page-wrap {
-        width: 100vw;
+    .home,
+    .how-to,
+    .installer,
+    .icon-packs {
+        padding-top: 0;
+        padding-left: 5vw;
     }
 
-    .page-wrap {
-        align-items: center;
-        flex-flow: column wrap;
+    .page-title,
+    .page-paragraph {
+        width: 80vw;
     }
 
-    .header {
+    .nav-wrap {
+        flex-flow: column;
+        align-items: flex-end;
+        padding: 30px;
+    }
+
+    .video {
+        width: 100%;
+        height: auto;
+    }
+
+    .form-fieldset {
+        width: 80vw;
+    }
+
+    .phone-container {
+        margin-top: 40px;
+    }
+
+    .download-container {
+        width: 95vw;
+    }
+
+    .footer {
+        flex-flow: column;
         width: 90vw;
     }
 
-    .app-types {
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: space-around;
+    .footer-left {
+        display: none;
     }
+}
 
-    .menu-icon {
-        font-size: 1em;
-    }
-
-    .affiliate-list {
-        width: 90%;
-    }
-
-    .instructions-wrap {
-        flex-flow: column wrap;
-        align-items: center;
-    }
-
-    .batch-description {
-        font-size: 1.1em;
-    }
-
-    .footer-row {
-        flex-flow: column;
-        justify-content: center;
-    }
-
-    .form-container,
-    .phone-container,
-    .download-container {
-        width: 75%;
-    }
-
-    .form-container,
-    .download-container {
-        padding-top: 30px;
-    }
-
-    .logo {
-        width: 90%;
-        height: auto;
-    }
-    .video {
-        width: 90%;
-        height: auto;
-    }
+:root {
+  --eastern-blue: rgba(37, 153, 161, 1.0);
+  --eastern-blue-2: rgba(60, 190, 200, 1.0);
+  --licorice: rgba(19, 19, 19, 1.0);
+  --quill-gray: rgba(210, 210, 210, 1.0);
 }
