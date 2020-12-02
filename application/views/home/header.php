@@ -60,4 +60,5 @@
     <link rel="stylesheet" href="/css/style.css<?= $u ?>">
     <link rel="stylesheet" href="/css/iphone.css<?= $u ?>">
     <link rel="stylesheet" href="/css/iphone-switch.css<?= $u ?>">
+    <link rel="stylesheet" href="/css/devices.min.css<?= $u ?>">
 </head>
