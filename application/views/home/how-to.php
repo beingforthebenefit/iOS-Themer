@@ -6,7 +6,7 @@
     <ol>
         <li>Choose the App Category</li>
         <li>Search for an App</li>
-        <li>Select country and search for an app</li>
+        <li>Select country and seach for an app</li>
         <li>Select the correct app</li>
         <li>Change the label to whatever you want</li>
         <li>Drag and drop an icon into the box (or click in the box)</li>
