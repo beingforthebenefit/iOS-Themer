@@ -6,7 +6,7 @@
 
         <!-- Home -->
 
-        <div class="home" id="home">
+        <div class="home <?= array_key_exists('page', $_SESSION) ? ('home' == $_SESSION['page'] ? '' : 'hidden') : '' ?>" id="home">
             <?php include CURR_VIEW_PATH . 'home.php' ?>
         </div>
 
@@ -14,7 +14,7 @@
 
         <!-- How To -->
 
-        <div class="how-to hidden" id="how-to">
+        <div class="how-to <?= 'how-to' == $_SESSION['page'] ? '' : 'hidden' ?>" id="how-to">
             <?php include CURR_VIEW_PATH . 'how-to.php' ?>
         </div>
 
@@ -22,7 +22,7 @@
 
         <!-- Installer -->
 
-        <div class="installer hidden" id="installer">
+        <div class="installer <?= 'installer' == $_SESSION['page'] ? '' : 'hidden' ?>" id="installer">
             <div class="form-container" id="upload">
                 <h1 class="header">1. Add as Many Apps As You Want</h1>
                 <?php include CURR_VIEW_PATH . 'upload.php' ?>
@@ -43,7 +43,7 @@
 
         <!-- Icon Packs -->
 
-        <div class="icon-packs hidden" id="icon-packs">
+        <div class="icon-packs <?= 'icon-packs' == $_SESSION['page'] ? '' : 'hidden' ?>" id="icon-packs">
             <?php include CURR_VIEW_PATH . 'icon-packs.php' ?>
         </div>
 

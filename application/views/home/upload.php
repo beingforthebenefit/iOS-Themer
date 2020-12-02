@@ -12,6 +12,7 @@
     <!-- App store -->
     <form id="app-store" class="form" method="POST" enctype="multipart/form-data" >
         <input type="hidden" name="a" value="upload" />
+        <input type="hidden" name="page" value="installer" />
         <input type="hidden" name="tab" value="app-store" />
         <input type="hidden" name="ios14.3" value="true" />
         <fieldset class="form-fieldset">
@@ -50,6 +51,7 @@
     <!-- System app -->
     <form id="system-app" class="form hidden" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="a" value="upload" />
+        <input type="hidden" name="page" value="installer" />
         <input type="hidden" name="tab" value="system-app" />
         <fieldset class="form-fieldset">
             <div class="form-iphone-switch">
@@ -84,6 +86,7 @@
     <!-- Custom -->
     <form id="custom-app" class="form hidden" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="a" value="upload" />
+        <input type="hidden" name="page" value="installer" />
         <input type="hidden" name="tab" value="custom-app" />
         <input type="hidden" name="ios14.3" value="true" />
         <fieldset class="form-fieldset">
@@ -108,6 +111,7 @@
     <!-- Batch upload -->
     <form id="batch" class="form hidden" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="a" value="batchUpload" />
+        <input type="hidden" name="page" value="installer" />
         <input type="hidden" name="tab" value="batch" />
         <input type="hidden" name="ios14.3" value="true" />
         <input type="hidden" name="bundleId" value="" />

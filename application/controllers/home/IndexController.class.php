@@ -33,6 +33,7 @@ class IndexController extends Controller {
     public function uploadAction() {
         $_SESSION['editMode'] = false;
         $_SESSION['tab'] = $_POST['tab'];
+        $_SESSION['page'] = $_POST['page'];
         $errors = [];
         $fileType = strtolower(pathinfo($_FILES['icon']['name'], PATHINFO_EXTENSION));
         if (array_key_exists('submit', $_POST)) {

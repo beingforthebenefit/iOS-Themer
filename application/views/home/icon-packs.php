@@ -1,1 +1,1 @@
-<h1 class="page-header">CONTENT GOES HERE</h1>
+<h1 class="page-header">Coming Soon...</h1>
