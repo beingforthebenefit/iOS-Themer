@@ -17,8 +17,14 @@
     <link rel="manifest" href="/site.webmanifest">
     <!-- End favicons -->
 
-    <!-- Google AdSense stuff -->
-    <script data-ad-client="ca-pub-7656556852055065" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- Media.net stuff -->
+    <script type="text/javascript">
+        window._mNHandle = window._mNHandle || {};
+        window._mNHandle.queue = window._mNHandle.queue || [];
+        medianet_versionId = "3121199";
+    </script>
+    <script src="https://contextual.media.net/dmedianet.js?cid=8CUFVB521" async="async"></script>
+    <!-- End Media.net stuff -->
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-KCM2YB8CJ6"></script>
@@ -40,6 +46,7 @@
 
       gtag('config', 'UA-183654641-1');
     </script>
+    <!-- End Google stuff -->
 
     <title>iDevice Icon Themer</title>
     <meta name="description" content="iDevice Icon Themer">

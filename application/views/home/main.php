@@ -15,9 +15,9 @@
         </div>
 
         <!-- begin Amazon Affiliates advertisement code -->
-        <div>
+        <!-- <div>
             <?php include AD_PATH . 'consumer-electronics.php'; ?>
             <?php include AD_PATH . 'best-sellers.php'; ?>
-        </div>
+        </div> -->
         <!-- end Amazon Affiliates advertisement code -->
     </div>

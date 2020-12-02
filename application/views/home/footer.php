@@ -9,6 +9,7 @@
         <script>toggleEditMode()</script>
     <?php } ?>
     <footer class="footer">
+        <?php include AD_PATH . 'media.net.php'; ?>
         <div class="case-ad">
             <?php include AD_PATH . 'iphone-cases.php'; ?>
         </div>
