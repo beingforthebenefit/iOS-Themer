@@ -79,6 +79,7 @@ class IndexController extends Controller {
     public function batchUploadAction() {
         $_SESSION['editMode'] = false;
         $_SESSION['tab'] = $_POST['tab'];
+        $_SESSION['page'] = $_POST['page']
         $icons = [ ];
         $labels = [ ];
         $bundleIds = [ ];
