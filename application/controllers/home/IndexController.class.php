@@ -151,6 +151,7 @@ class IndexController extends Controller {
 
     public function deleteAllAction() {
         $_SESSION['editMode'] = false;
+        $_SESSION['page'] = 'installer';
 
         unset($_SESSION['icons']);
 
