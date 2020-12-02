@@ -137,6 +137,7 @@ class IndexController extends Controller {
 
     public function deleteAction() {
         $_SESSION['editMode'] = true;
+        $_SESSION['page'] = 'installer';
         $_SESSION['icons'] = array_filter(
             $_SESSION['icons'],
             function ($icon) {
