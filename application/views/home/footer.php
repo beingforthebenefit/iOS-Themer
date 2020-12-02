@@ -21,7 +21,7 @@
             </div>
         </div>
         <div class="footer-right">
-            <a href="https://www.buymeacoffee.com/iostheme" target="_blank"><p class="donate-note">Like that this site is free? Buy me a beer 🍻</p></a>
+            <a href="https://www.buymeacoffee.com/iostheme" target="_blank"><p class="donate-note">Like that this site is free? Buy me a coffee ☕</p></a>
         </div>
     </footer>
 </body> 
