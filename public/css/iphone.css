@@ -147,16 +147,14 @@ b:after {
 }
 
 .icon-label {
-    color: #ffffff;
     line-height: 12px;
     text-align: center;
-    font-weight: 600;
-    margin: 0;
-    padding: 2px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+
 
 #inner{
     width: 100%;
