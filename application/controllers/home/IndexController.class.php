@@ -219,7 +219,7 @@ class IndexController extends Controller {
 
         $_SESSION['messages'][] = 'Icon pack successfully loaded from ' . $_SERVER["HTTP_REFERER"];
         $_SESSION['icons'] = $icons;
-        echo $this->build(CURR_VIEW_PATH . 'install.php', $icons);
+        return $this->indexAction();
     }
 
     // menuAction :: void -> void
