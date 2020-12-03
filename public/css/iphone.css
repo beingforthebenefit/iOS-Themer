@@ -13,93 +13,144 @@
     }
 }
 
-.iphone-x {
+.iphone {
+    box-shadow: inset 0 0 3px 0 rgba(0, 0, 0, 0.2), 0 0 0 1px #999, 0 0 30px 0px rgba(0, 0, 0, 0.7);
+    border: 5px solid #d9dbdc;
+    background: #f8f8f8;
+    padding: 15px;
+    border-radius: 50px;
+    height: 877px;
+    width: 423px;
+    position: absolute;
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8);
+}
+
+.iphone-top {
+    padding: 5px 110px 40px;
     position: relative;
-    margin: 40px auto;
-    width: 360px;
-    height: 780px;
-    background-color: #7371ee;
-    background-image: url("https://papers.co/wallpaper/papers.co-bj42-apple-iphone-ios13-background-orange-art-41-iphone-wallpaper.jpg");
-    background-size: 361px auto;
-    border-radius: 40px;
-    box-shadow: 0px 0px 0px 11px #1f1f1f, 0px 0px 0px 13px #191919, 0px 0px 0px 20px #111;
-    transform: scale(.9);
-    z-index: 1;
 }
-  
-.iphone-x:before,
-.iphone-x:after{
-    content: '';
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-}
-  
-  /* home button indicator */
-.iphone-x:after {
-    bottom: 7px;
-    width: 140px;
-    height: 4px;
-    background-color: #f2f2f2;
-    border-radius: 10px;
-}
-  
-  /* frontal camera/speaker frame */
-.iphone-x:before {
-    top: 0px;
-    width: 56%;
-    height: 30px;
-    background-color: #1f1f1f;
-    border-radius: 0px 0px 40px 40px;
-    z-index: 1;
-}
-  
-i,
-b,
-span {
-    position: absolute;
+.iphone-top .speaker {
     display: block;
-    color: transparent;
-    z-index: 1;
+    width: 70px;
+    height: 6px;
+    margin: 0 auto;
+    border-radius: 6px;
+    background: #292728;
 }
-  
-/*speaker*/
-i {
-    top: 0px;
-    left: 50%;
-    transform: translate(-50%, 6px);
-    height: 8px;
-    width: 15%;
-    background-color: #101010;
-    border-radius: 8px;
-    box-shadow: inset 0px -3px 3px 0px rgba(256, 256, 256, 0.2);
-    }
-
-/*camera*/
-b {
-    left: 10%;
-    top: 0px;
-    transform: translate(180px, 4px);
-    width: 12px;
-    height: 12px;
-    background-color: #101010;
-    border-radius: 12px;
-    box-shadow: inset 0px -3px 2px 0px rgba(256, 256, 256, 0.2);
+.iphone-top .camera {
+    display: block;
+    margin: 0 auto;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    margin-bottom: 13px;
+    background: #333;
+}
+.iphone-top .sensor {
+    display: block;
+    width: 15px;
+    height: 15px;
+    float: left;
+    background: #333;
+    margin-top: -5px;
+    border-radius: 50%;
 }
 
-b:after {
-  content: '';
-  position: absolute;
-  background-color: #2d4d76;
-  width: 6px;
-  height: 6px;
-  top: 2px;
-  left: 2px;
-  top: 3px;
-  left: 3px;
-  display: block;
-  border-radius: 4px;
-  box-shadow: inset 0px -2px 2px rgba(0, 0, 0, 0.5);
+.top-bar,
+.bottom-bar {
+    display: block;
+    width: 423px;
+    height: 15px;
+    border-left: 5px solid #bbb;
+    border-right: 5px solid #bbb;
+    position: absolute;
+    left: -5px;
+}
+
+.top-bar {
+    top: 65px;
+}
+
+.bottom-bar {
+    bottom: 65px;
+}
+
+.iphone-screen {
+    background: #eee;
+    border: 1px solid #fff;
+    height: 677px;
+    width: 375px;
+    margin: 0 auto;
+    border: 2px solid rgba(0, 0, 0, 0.9);
+    border-radius: 3px;
+    overflow: hidden;
+    background-image: url("../images/iphone-background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.iphone-screen img {
+    width: 100%;
+}
+
+.buttons .on-off,
+.buttons .up,
+.buttons .down,
+.buttons .sleep {
+    display: block;
+    background: #ccc;
+    position: absolute;
+    border-radius: 2px 0px 0px 2px;
+}
+.buttons .on-off {
+    height: 40px;
+    width: 3px;
+    top: 100px;
+    left: -8px;
+}
+.buttons .up,
+.buttons .down,
+.buttons .sleep {
+    height: 60px;
+    width: 5px;
+    left: -10px;
+}
+.buttons .up {
+    top: 170px;
+}
+.buttons .down {
+    top: 250px;
+}
+.buttons .sleep {
+    left: auto;
+    right: -10px;
+    top: 170px;
+    border-radius: 0px 2px 2px 0px;
+}
+
+.iphone-bottom {
+    padding: 10px 0 0;
+}
+.iphone-bottom span {
+    display: block;
+    margin: 0 auto;
+    width: 68px;
+    height: 68px;
+    background: #ccc;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #303233 0%, #b5b7b9 50%, #f0f2f2 69%, #303233 100%);
+    position: relative;
+}
+.iphone-bottom span:after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 60px;
+    background: #fff;
+    border-radius: 50%;
+    position: absolute;
+    left: 4px;
+    top: 4px;
 }
 
 
@@ -110,14 +161,12 @@ b:after {
     align-content: flex-start;
     margin: 9px;
     margin-top: 0px;
-    padding: 30px 0 50px 0;
-    width: 100%;
-    border-radius: 40px;
+    padding-top: 9px;
 }
 
 .app {
     position: relative;
-    width: 64px;
+    width: 67px;
     margin: 11px;
 }
 
@@ -162,5 +211,4 @@ b:after {
     width: 100%;
     height: 100%;
     overflow: auto;
-    overflow-x: hidden;
 }

@@ -1,4 +1,5 @@
 <?php
+
 if (array_key_exists('city', $_GET)) {
     $city = escapeshellarg($_GET['city']);
 } else {
