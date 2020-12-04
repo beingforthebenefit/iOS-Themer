@@ -197,8 +197,8 @@ class IndexController extends Controller {
 
         $icons = [ ];
         foreach ($list as $icon) {
-            $parts = explode('-', pathinfo($icon)['filename']);
-            $label = implode('-', array_slice($parts, 1));
+            $parts = explode(' - ', pathinfo($icon)['filename']);
+            $label = implode(' - ', array_slice($parts, 1));
             $bundleId = $parts[0];
 
             $icons[] = serialize(
