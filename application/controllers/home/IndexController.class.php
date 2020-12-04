@@ -219,7 +219,8 @@ class IndexController extends Controller {
 
         $_SESSION['messages'][] = 'Icon pack successfully loaded from ' . $_SERVER["HTTP_REFERER"];
         $_SESSION['icons'] = $icons;
-        return $this->indexAction();
+
+        return $this->downloadAction();
     }
 
     // menuAction :: void -> void
