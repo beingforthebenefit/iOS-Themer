@@ -64,7 +64,7 @@
                 </td>
                 <td>
                     <a href="#" title="Toggle" alt="Toggle" onclick="confirmToggle('<?= $key['key'] ?>', '<?= $key['owner'] ?>')">
-                        <?= $key['active'] ? 🚫 : ✔️ ?>
+                        <?= $key['active'] ? '🚫' : '✔️' ?>
                     </a>
                 </td>
             </tr>
