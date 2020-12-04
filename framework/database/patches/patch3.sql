@@ -5,6 +5,6 @@ use iosthemelive;
 start transaction;
 
 ALTER TABLE `apiKeys` 
-ADD COLUMN `timesUsed` INT NOT NULL DEFAULT 0 AFTER `dateExpires`;
+ADD COLUMN `timesUsed` INT NOT NULL DEFAULT 0 AFTER `dateCreated`;
 
 commit;

@@ -122,7 +122,7 @@ class Model {
 
         $sql = "UPDATE `{$this->table}` SET {$uplist} WHERE {$where}";
 
-        return $this->db->query($sql) ? mysqli_affected_rows() : false;
+        return $this->db->query($sql) ? mysqli_affected_rows($this->db) : false;
     }
 
     // delete :: string -> int|false
@@ -137,7 +137,7 @@ class Model {
 
         $sql = "DELETE FROM `{$this->table}` WHERE {$where}";
 
-        return $this->db->query($sql) ? mysqli_affected_rows() : false;
+        return $this->db->query($sql) ? mysqli_affected_rows($this->db) : false;
     }
 
     // fromId :: string -> [string => a]|false

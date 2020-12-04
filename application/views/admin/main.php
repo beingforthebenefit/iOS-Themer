@@ -36,10 +36,13 @@
                 Created
             </th>
             <th>
-                Expires
+                # of Calls
             </th>
             <th>
-                # of Calls
+                Active
+            </th>
+            <th>
+                Toggle
             </th>
         </tr>
         <?php foreach ((new ApiKeyModel('apiKeys'))->rows() as $key) { ?>
@@ -54,12 +57,37 @@
                     <?= $key['dateCreated'] ?>
                 </td>
                 <td>
-                    <?= $key['dateExpires'] ?>
+                    <?= $key['timesUsed'] ?>
                 </td>
                 <td>
-                    <?= $key['timesUsed'] ?>
+                    <?= $key['active'] ? 'Yes' : 'No' ?>
+                </td>
+                <td>
+                    <a href="#" title="Toggle" alt="Toggle" onclick="confirmToggle('<?= $key['key'] ?>', '<?= $key['owner'] ?>')">
+                        <?= $key['active'] ? 🚫 : ✔️ ?>
+                    </a>
                 </td>
             </tr>
         <?php } ?>
     </table>
+    <a href="#" title="Add Key" alt="Add Key" onclick="addKey()">
+        ➕
+    </a>
 </div>
+<script>
+    function confirmToggle(key, owner) {
+        var sure = confirm("Are sure you want to toggle the API key belonging to " + owner + "?");
+        if (sure) {
+            window.location.replace("/?p=admin&a=toggleKey&key=" + key);
+        }
+    }
+
+    function addKey() {
+        var owner = prompt('Please enter owner\'s name');
+        if (owner != null) {
+            window.location.replace("/?p=admin&a=addKey&owner=" + owner);
+        } else {
+            alert('You must enter a name');
+        }
+    }
+</script>

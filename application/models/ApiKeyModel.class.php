@@ -4,12 +4,11 @@
 class ApiKeyModel extends Model {
 
     // addKey :: (string, string, string) -> bool
-    public function addKey($owner, $key, $expiration) {
+    public function add($owner) {
         return $this->insert([
-            'key' => $key,
+            'key' => md5(date('yMdhmsu')),
             'owner' => $owner,
             'dateCreated' => date('Y-m-d H:i:s'),
-            'dateExpires' => $expiration,
         ]);
     }
 
@@ -28,9 +27,18 @@ class ApiKeyModel extends Model {
             array_filter(
                 $this->rows(['key' => $key]),
                 function($validKey) use ($key) {
-                    return $validKey['key'] == $key;
+                    return ($validKey['key'] == $key) && ($validKey['active'] == true);
                 }
             )
         );
+    }
+
+    // toggle :: string -> bool
+    public function toggle($key) {
+        $row = $this->row(['key' => $key]);
+        return $this->update([
+            'apiKeyId' => $row['apiKeyId'],
+            'active' => $row['active'] == '1' ? 0 : 1
+        ]);
     }
 }
