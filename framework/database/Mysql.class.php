@@ -39,7 +39,7 @@ class Mysql {
 
         $str = $sql . " [" . date("Y-m-d H:i:s") . "]" . PHP_EOL;
 
-        file_put_contents("log.txt", $str, FILE_APPEND);
+        file_put_contents(ROOT . "log.txt", $str, FILE_APPEND);
 
         $result = mysqli_query($this->conn, $this->sql);
 
