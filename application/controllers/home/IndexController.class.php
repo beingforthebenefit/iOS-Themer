@@ -12,10 +12,9 @@ class IndexController extends Controller {
     // build :: {string, string?} -> string
     public function build($path, $model = [ ]) {
         ob_start();
-        $this->headerAction();
-        $this->menuAction();
+        include CURR_VIEW_PATH . 'header.php';
         include $path;
-        $this->footerAction();
+        include CURR_VIEW_PATH . 'footer.php';
         return ob_get_clean();
     }
 
@@ -268,20 +267,5 @@ class IndexController extends Controller {
         $_SESSION['icons'] = $icons;
 
         return $this->downloadAction();
-    }
-
-    // menuAction :: void -> void
-    public function menuAction() {
-        include CURR_VIEW_PATH . 'menu.php';
-    }
-
-    // headerAction :: void -> void
-    public function headerAction() {
-        include CURR_VIEW_PATH . 'header.php';
-    }
-
-    // footerAction :: void -> void
-    public function footerAction() {
-        include CURR_VIEW_PATH . 'footer.php';
     }
 }
