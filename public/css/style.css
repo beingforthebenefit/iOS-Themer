@@ -87,20 +87,18 @@ a:hover {
     display: flex;
     flex-flow: row wrap;
     justify-content: flex-start;
+    padding-top: 30px;
 }
 
 .logo-wrap {
     font-size: 32px;
     color: var(--eastern-blue);
     padding-left: 100px;
-    padding-top: 30px;
-    width: 0vw;
 }
 
 .nav-wrap {
     display: flex;
     flex-flow: row nowrap;
-    padding: 30px;
     justify-content: space-between;
     width: 50%;
     font-family: 'Maven Pro-Regular', Helvetica, Arial, serif;
