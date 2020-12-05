@@ -6,6 +6,9 @@ include UTIL_PATH . 'SSL.class.php';
 
 class IndexController extends Controller {
 
+    // MAX_FILE_SIZE :: int
+    public const MAX_FILE_SIZE = 500000;
+
     // build :: {string, string?} -> string
     public function build($path, $model = [ ]) {
         ob_start();
@@ -30,7 +33,7 @@ class IndexController extends Controller {
         echo $this->build(CURR_VIEW_PATH . 'main.php', $icons);
     }
 
-
+    // uploadAction :: void -> string
     public function uploadAction() {
         // Set session info
         $_SESSION['editMode'] = false;
@@ -66,23 +69,80 @@ class IndexController extends Controller {
         return $this->indexAction();
     }
 
-    // iconCheck :: void -> void
-    public function uploadCheck() {
-        $errors = [];
+    public function batchUploadAction() {
+        // Set session info
+        $_SESSION['editMode'] = false;
+        $_SESSION['tab'] = $_POST['tab'];
+        $_SESSION['page'] = $_POST['page'];
 
+        // Check file sizes/types/etc
+        $errors = $this->uploadCheck();
+
+        // Check filename format
+        foreach ($_FILES['icon']['name'] as $name) {
+            if (!preg_match('/.*-.*/', $name)) {
+                $errors[] = "'{$name}' does not fit the naming convention.";
+            }
+        }
+
+        if (empty($errors)) {
+            $icons = [ ];
+            $labels = [ ];
+            $bundleIds = [ ];
+            $fileTypes = [ ];
+            $systemApps = json_decode(file_get_contents(CONFIG_PATH . 'default-apps.json'), true);
+            foreach ($_FILES['icon']['name'] as $id) {
+                $bundleId = explode('-', $id)[0];
+                $response = json_decode(
+                    file_get_contents('https://itunes.apple.com/lookup?bundleId=' . $bundleId),
+                    true
+                );
+                if ($response['resultCount'] == 1) {
+                    $label = $response['results'][0]['trackName'];
+                } else {
+                    $label = array_search($bundleId, $systemApps);
+                }
+
+                if ($label) {
+                    $labels[] = $label;
+                    $bundleIds[] = $bundleId;
+                    $fileTypes[] = strtolower(pathinfo($id, PATHINFO_EXTENSION));
+                }
+            }
+
+            for ($i = 0; $i < count($labels); $i++) {
+                $_SESSION['icons'][] = serialize(
+                    new IconModel(
+                        $labels[$i],
+                        $bundleIds[$i],
+                        $_FILES['icon']['tmp_name'][$i],
+                        $fileTypes[$i],
+                        ' '
+                    )
+                );
+            }
+        } else {
+            $_SESSION['errors'] = $errors;
+        }
+
+        return $this->indexAction();
+    }
+
+    // uploadCheck :: void -> [string?]
+    public function uploadCheck() {
+        $errors = [ ];
         if (array_key_exists('submit', $_POST)) {
-            $size = getimagesize($_FILES['icon']['tmp_name']);
-            if (!$size) {
-                $errors[] = "File is not an image.";
-            } else if ($_FILES['icon']['size'] > 500000) {
-                $errors[] = "File too large. Must be under 500KB.";
-            } else if (!in_array(
-                strtolower(pathinfo($_FILES['icon']['name'], PATHINFO_EXTENSION)),
-                ['jpg', 'jpeg', 'gif', 'png'])
-            ) {
-                $errors[] = "Only JPG, GIF, or PNG files are allowed.";
-            } else if ($_FILES['icon']['error']) {
-                $errors[] = "There was an error uploading this file.";
+            if (is_array($_FILES['icon']['name'])) {
+                foreach ($_FILES['icon']['size'] as $index => $size) {
+                    $name = $_FILES['icon']['name'][$index];
+                    $fileType = strtolower(pathinfo($_FILES['icon']['name'][$index], PATHINFO_EXTENSION));
+                    $errors = array_merge($errors, self::fileCheck($name, $size, $fileType));
+                }
+            } else {
+                $name = $_FILES['icon']['name'];
+                $size = $_FILES['icon']['size'];
+                $fileType = strtolower(pathinfo($_FILES['icon']['name'], PATHINFO_EXTENSION));
+                $errors = self::fileCheck($name, $size, $fileType);
             }
         } else {
             $errors[] = "There was an error uploading this file.";
@@ -90,47 +150,20 @@ class IndexController extends Controller {
         return $errors;
     }
 
-    public function batchUploadAction() {
-        $_SESSION['editMode'] = false;
-        $_SESSION['tab'] = $_POST['tab'];
-        $_SESSION['page'] = $_POST['page'];
-        $icons = [ ];
-        $labels = [ ];
-        $bundleIds = [ ];
-        $fileTypes = [ ];
-        $systemApps = json_decode(file_get_contents(CONFIG_PATH . 'default-apps.json'), true);
-        foreach ($_FILES['icon']['name'] as $id) {
-            $bundleId = explode('-', $id)[0];
-            $response = json_decode(
-                file_get_contents('https://itunes.apple.com/lookup?bundleId=' . $bundleId),
-                true
-            );
-            if ($response['resultCount'] == 1) {
-                $label = $response['results'][0]['trackName'];
-            } else {
-                $label = array_search($bundleId, $systemApps);
-            }
+    // fileCheck :: (string, string, string) -> [string?]
+    public function fileCheck($name, $size, $fileType) {
+        $errors = [ ];
 
-            if ($label) {
-                $labels[] = $label;
-                $bundleIds[] = $bundleId;
-                $fileTypes[] = strtolower(pathinfo($id, PATHINFO_EXTENSION));
-            }
+        if (!$size || $size > self::MAX_FILE_SIZE) {
+            $errors[] = "'$name' too large. Must be under " . self::MAX_FILE_SIZE / 1000 . "KB.";
+        } else if (!in_array(
+            $fileType,
+            ['jpg', 'jpeg', 'gif', 'png'])
+        ) {
+            $errors[] = "'{$name}' not allowed. Only JPG, GIF, or PNG files are allowed.";
         }
 
-        for ($i = 0; $i < count($labels); $i++) {
-            $_SESSION['icons'][] = serialize(
-                new IconModel(
-                    $labels[$i],
-                    $bundleIds[$i],
-                    $_FILES['icon']['tmp_name'][$i],
-                    $fileTypes[$i],
-                    ' '
-                )
-            );
-        }
-
-        return $this->indexAction();
+        return $errors;
     }
 
     public function downloadAction() {
