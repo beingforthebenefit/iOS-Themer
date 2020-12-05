@@ -1,4 +1,3 @@
-    <?php var_dump(); ?>
     <script>
             switchTab("<?= $_SESSION['tab'] ?? '' ?>");
             document.getElementById('amznBanners_assoc_banner_placement_default_0_a').target = '_blank';
