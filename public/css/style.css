@@ -431,6 +431,11 @@ a:hover {
         width: 80vw;
     }
 
+    .form-field-input,
+    .form-field-select {
+        width: 120px;
+    }
+
     .phone-container {
         margin-top: 40px;
     }
