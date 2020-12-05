@@ -55,8 +55,10 @@ class Framework {
         // Load configuration file
         $GLOBALS['config'] = include CONFIG_PATH . "config.php";
 
-        // Start session
-        session_start();
+        // Start session if one does not exist
+        if (session_status() !== PHP_SESSION_ACTIVE) {
+            session_start();
+        }
 
     }
 
