@@ -6,7 +6,7 @@ include UTIL_PATH . 'SSL.class.php';
 
 class IndexController extends Controller {
 
-    // build :: void -> void
+    // build :: {string, string?} -> string
     public function build($path, $model = [ ]) {
         ob_start();
         $this->headerAction();
@@ -16,7 +16,7 @@ class IndexController extends Controller {
         return ob_get_clean();
     }
 
-    // indexAction :: void -> void
+    // indexAction :: string? -> void
     public function indexAction($icons = [ ]) {
         if (empty($icons)) {
             if (!array_key_exists('icons', $_SESSION)) {
@@ -30,28 +30,18 @@ class IndexController extends Controller {
         echo $this->build(CURR_VIEW_PATH . 'main.php', $icons);
     }
 
+
     public function uploadAction() {
+        // Set session info
         $_SESSION['editMode'] = false;
         $_SESSION['tab'] = $_POST['tab'];
         $_SESSION['page'] = $_POST['page'];
-        $errors = [];
-        $fileType = strtolower(pathinfo($_FILES['icon']['name'], PATHINFO_EXTENSION));
-        if (array_key_exists('submit', $_POST)) {
-            $size = getimagesize($_FILES['icon']['tmp_name']);
-            if ($fail = !$size) {
-                $errors[] = "File is not an image.";
-            } else if ($fail = $_FILES['icon']['size'] > 500000) {
-                $errors[] = "File too large. Must be under 500KB.";
-            } else if ($fail = !in_array($fileType, ['jpg', 'jpeg', 'gif', 'png'])) {
-                $errors[] = "Only JPG, GIF, or PNG files are allowed.";
-            } else if ($fail = $_FILES['icon']['error']) {
-                $errors[] = "There was an error uploading this file.";
-            }
-        } else {
-            $fail = true;
-        }
 
-        if (!$fail) {
+        // Check file size/type/etc
+        $errors = $this->uploadCheck();
+
+        if (empty($errors)) {
+            $fileType = strtolower(pathinfo($_FILES['icon']['name'], PATHINFO_EXTENSION));
             $urls = json_decode(file_get_contents(CONFIG_PATH . 'urls.json'), true);
             $urls = $_REQUEST['ios14_3'] ? array_filter($urls, function($key) {
                 return 'apple' != explode('.', $key)[1];
@@ -74,6 +64,30 @@ class IndexController extends Controller {
         }
 
         return $this->indexAction();
+    }
+
+    // iconCheck :: void -> void
+    public function uploadCheck() {
+        $errors = [];
+
+        if (array_key_exists('submit', $_POST)) {
+            $size = getimagesize($_FILES['icon']['tmp_name']);
+            if (!$size) {
+                $errors[] = "File is not an image.";
+            } else if ($_FILES['icon']['size'] > 500000) {
+                $errors[] = "File too large. Must be under 500KB.";
+            } else if (!in_array(
+                strtolower(pathinfo($_FILES['icon']['name'], PATHINFO_EXTENSION)),
+                ['jpg', 'jpeg', 'gif', 'png'])
+            ) {
+                $errors[] = "Only JPG, GIF, or PNG files are allowed.";
+            } else if ($_FILES['icon']['error']) {
+                $errors[] = "There was an error uploading this file.";
+            }
+        } else {
+            $errors[] = "There was an error uploading this file.";
+        }
+        return $errors;
     }
 
     public function batchUploadAction() {
