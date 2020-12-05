@@ -47,9 +47,9 @@
     </script>
     <!-- End Google stuff -->
 
-    <title>iDevice Icon Themer</title>
-    <meta name="description" content="iDevice Icon Themer">
-    <meta name="author" content="Gerald Todd">
+    <title>22over7</title>
+    <meta name="description" content="iOSTheme.live">
+    <meta name="author" content="Gerald Todd and doyourhomeworkjacob">
 
     <script src="/js/file-upload.js<?= $u ?>"></script>
     <script src="/js/search.js<?= $u ?>"></script>
