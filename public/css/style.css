@@ -90,20 +90,23 @@ a:hover {
 }
 
 .logo-wrap {
-    font-size: 40px;
+    font-size: 32px;
     color: var(--eastern-blue);
-    padding: 10px;
+    padding-left: 100px
+    padding-top: 30px;
+    width: 0vw;
 }
 
 .nav-wrap {
     display: flex;
     flex-flow: row nowrap;
     padding: 30px;
-    justify-content: space-around;
-    width: 60%;
+    justify-content: space-between;
+    width: 50%;
     font-family: 'Maven Pro-Regular', Helvetica, Arial, serif;
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 400;
+    margin:auto;
 }
 
 .nav-link {
