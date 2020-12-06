@@ -21,7 +21,7 @@
             <div class="top-bar"></div>
             <div class="iphone-screen">
                 <div class="app-wrap" id="inner">
-                    <?php foreach ($model as $icon) {
+                    <?php foreach ($model as $index => $icon) {
                         $icon = unserialize($icon);
                     ?>
                         <?php include CURR_VIEW_PATH . 'icon.php' ?>
