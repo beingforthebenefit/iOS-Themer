@@ -3,7 +3,7 @@
             document.getElementById('amznBanners_assoc_banner_placement_default_0_a').target = '_blank';
             document.getElementById('amznBanners_assoc_banner_placement_default_1_a').target = '_blank';
     </script>
-    <?php if ($_SESSION['editMode']) { ?>
+    <?php if (array_key_exists('editMode', $_SESSION) && $_SESSION['editMode']) { ?>
         <script>toggleEditMode()</script>
     <?php } ?>
     <footer class="footer">
