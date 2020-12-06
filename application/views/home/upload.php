@@ -117,7 +117,7 @@
         <input type="hidden" name="bundleId" value="" />
         <fieldset class="form-fieldset">
             <span class="batch-description">Max of 20 icons per batch upload. File names must be
-                in the format <code class="code">bundleId-anytext.ext</code>, for example, <code class="code" >com.facebook.Facebook-large.png</code>. This is how typical jailbreak icon collections are named, although only non-jailbreak apps can be added here.</span> 
+                in the format <code class="code">bundleId - label.ext</code>, for example, <code class="code" >com.facebook.Facebook - Facebook</code>. Don't know the bundle ID? Follow <a href="https://pspdfkit.com/guides/ios/current/faq/finding-the-app-bundle-id/" target="_BLANK">this short tutorial</a>.</span> 
             <div class="form-file">
                 <input class="form-field-file" type="file" id="icon4" name="icon[]" onchange="updateText2('icon-text4', 'icon4')" multiple />
                 <p class="form-file-text" id="icon-text4">Drag a new icons here or click to browse!</p>

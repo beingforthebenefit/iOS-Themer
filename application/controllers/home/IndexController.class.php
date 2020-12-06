@@ -79,44 +79,37 @@ class IndexController extends Controller {
 
         // Check filename format
         foreach ($_FILES['icon']['name'] as $name) {
-            if (!preg_match('/.*-.*/', $name)) {
+            if (!preg_match('/.* - .*/', $name)) {
                 $errors[] = "'{$name}' does not fit the naming convention.";
             }
         }
 
         if (empty($errors)) {
             $icons = [ ];
-            $labels = [ ];
-            $bundleIds = [ ];
-            $fileTypes = [ ];
+
+            // Assuming user has iOS 14.3+
+            $urls = array_filter(json_decode(file_get_contents(CONFIG_PATH . 'urls.json'), true),
+                function($key) {
+                    return 'apple' != explode('.', $key)[1];
+                },
+                ARRAY_FILTER_USE_KEY
+            );
+
             $systemApps = json_decode(file_get_contents(CONFIG_PATH . 'default-apps.json'), true);
-            foreach ($_FILES['icon']['name'] as $id) {
-                $bundleId = explode('-', $id)[0];
-                $response = json_decode(
-                    file_get_contents('https://itunes.apple.com/lookup?bundleId=' . $bundleId),
-                    true
-                );
-                if ($response['resultCount'] == 1) {
-                    $label = $response['results'][0]['trackName'];
-                } else {
-                    $label = array_search($bundleId, $systemApps);
-                }
+            foreach ($_FILES['icon']['name'] as $i => $id) {
+                $parts = explode(' - ', $id);
+                $bundleId = $parts[0];
+                $label = pathinfo(implode(' - ', array_slice($parts, 1)), PATHINFO_FILENAME);
+                $fileType = strtolower(pathinfo($id, PATHINFO_EXTENSION));
+                $url = array_key_exists($bundleId, $urls) ? $urls[$bundleId] : ' ';
 
-                if ($label) {
-                    $labels[] = $label;
-                    $bundleIds[] = $bundleId;
-                    $fileTypes[] = strtolower(pathinfo($id, PATHINFO_EXTENSION));
-                }
-            }
-
-            for ($i = 0; $i < count($labels); $i++) {
                 $_SESSION['icons'][] = serialize(
                     new IconModel(
-                        $labels[$i],
-                        $bundleIds[$i],
+                        $label,
+                        $bundleId,
                         $_FILES['icon']['tmp_name'][$i],
-                        $fileTypes[$i],
-                        ' '
+                        $fileType,
+                        $url
                     )
                 );
             }
@@ -125,6 +118,68 @@ class IndexController extends Controller {
         }
 
         return $this->indexAction();
+    }
+
+    public function importArchiveAction() {
+        $keys = new ApiKeyModel('apiKeys');
+        if (!$keys->validate($_POST['key'])) {
+            $_SESSION['errors'][] = 'Invalid API Key';
+            return $this->indexAction();
+        } else {
+            $keys->logUsage($_POST['key']);
+        }
+
+        $hash = md5(date('ymdhmsu'));
+        $zipFile = UPLOAD_PATH . "{$hash}.zip";
+
+        set_time_limit(0);
+        $temp = file_get_contents($_POST['file']);
+        file_put_contents($zipFile, $temp);
+
+        $destPath = TEMP_PATH . $hash . '/';
+        $destFile = 'ready.icons';
+
+        // Extract files to temp directory
+        exec("unzip -q \"$zipFile\" -d \"$destPath\"");
+        exec("ls {$destPath}*.png", $list);
+
+        // Assuming user has iOS 14.3+
+        $urls = array_filter(json_decode(file_get_contents(CONFIG_PATH . 'urls.json'), true),
+            function($key) {
+                return 'apple' != explode('.', $key)[1];
+            },
+            ARRAY_FILTER_USE_KEY
+        );
+        $icons = [ ];
+        foreach ($list as $icon) {
+            $parts = explode(' - ', pathinfo($icon)['filename']);
+            $label = implode(' - ', array_slice($parts, 1));
+            $bundleId = $parts[0];
+
+            $fileType = strtolower(pathinfo($icon, PATHINFO_EXTENSION));
+            $url = array_key_exists($bundleId, $urls) ? $urls[$bundleId] : ' ';
+
+            $icons[] = serialize(
+                new IconModel(
+                    $label,
+                    $bundleId,
+                    $icon,
+                    'png',
+                    $url
+                )
+            );
+        }
+
+        // Clean up files
+        exec("rm {$zipFile}");
+        exec("rm {$destPath}*");
+        exec("rmdir {$destPath}");
+
+        // $_SESSION['messages'][] = 'Icon pack successfully loaded from ' . $_SERVER["HTTP_REFERER"];
+        $_SESSION['icons'] = $icons;
+
+        // return $this->indexAction();
+        return $this->downloadAction();
     }
 
     // uploadCheck :: void -> [string?]
@@ -218,54 +273,4 @@ class IndexController extends Controller {
         return $this->indexAction();
     }
 
-    public function importArchiveAction() {
-        $keys = new ApiKeyModel('apiKeys');
-        if (!$keys->validate($_POST['key'])) {
-            $_SESSION['errors'][] = 'Invalid API Key';
-            return $this->indexAction();
-        } else {
-            $keys->logUsage($_POST['key']);
-        }
-
-        $hash = md5(date('ymdhmsu'));
-        $zipFile = UPLOAD_PATH . "{$hash}.zip";
-
-        set_time_limit(0);
-        $temp = file_get_contents($_POST['file']);
-        file_put_contents($zipFile, $temp);
-
-        $destPath = TEMP_PATH . $hash . '/';
-        $destFile = 'ready.icons';
-
-        // Extract files to temp directory
-        exec("unzip -q \"$zipFile\" -d \"$destPath\"");
-        exec("ls {$destPath}*.png", $list);
-
-        $icons = [ ];
-        foreach ($list as $icon) {
-            $parts = explode(' - ', pathinfo($icon)['filename']);
-            $label = implode(' - ', array_slice($parts, 1));
-            $bundleId = $parts[0];
-
-            $icons[] = serialize(
-                new IconModel(
-                    $label,
-                    $bundleId,
-                    $icon,
-                    'png',
-                    ' '
-                )
-            );
-        }
-
-        // Clean up files
-        exec("rm {$zipFile}");
-        exec("rm {$destPath}*");
-        exec("rmdir {$destPath}");
-
-        $_SESSION['messages'][] = 'Icon pack successfully loaded from ' . $_SERVER["HTTP_REFERER"];
-        $_SESSION['icons'] = $icons;
-
-        return $this->downloadAction();
-    }
 }
