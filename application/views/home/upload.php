@@ -116,7 +116,7 @@
         <input type="hidden" name="ios14.3" value="true" />
         <input type="hidden" name="bundleId" value="" />
         <fieldset class="form-fieldset">
-            <span class="batch-description">File names must be
+            <span class="batch-description">Max of 20 icons per batch upload. File names must be
                 in the format <code class="code">bundleId-anytext.ext</code>, for example, <code class="code" >com.facebook.Facebook-large.png</code>. This is how typical jailbreak icon collections are named, although only non-jailbreak apps can be added here.</span> 
             <div class="form-file">
                 <input class="form-field-file" type="file" id="icon4" name="icon[]" onchange="updateText2('icon-text4', 'icon4')" multiple />
