@@ -266,9 +266,42 @@ class IndexController extends Controller {
     // }
 
     public function loadIconsAction() {
-        $_SESSION['editMode'] = false;
-        
-        $_SESSION['icons'] = unserialize(file_get_contents('uploads/example.icons'));
+        $_SESSION['icons'] = [ ];
+
+        $path = ICON_PACK_PATH . $_GET['pack'] . DS;
+
+        $icons = [ ];
+
+        // Assuming user has iOS 14.3+
+        $urls = array_filter(json_decode(file_get_contents(CONFIG_PATH . 'urls.json'), true),
+            function($key) {
+                return 'apple' != explode('.', $key)[1];
+            },
+            ARRAY_FILTER_USE_KEY
+        );
+
+        exec("ls {$path}*.png", $list);
+
+        $systemApps = json_decode(file_get_contents(CONFIG_PATH . 'default-apps.json'), true);
+
+        foreach ($list as $icon) {
+            $parts = explode(' - ', pathinfo($icon)['filename']);
+            $label = implode(' - ', array_slice($parts, 1));
+            $bundleId = $parts[0];
+
+            $fileType = strtolower(pathinfo($icon, PATHINFO_EXTENSION));
+            $url = array_key_exists($bundleId, $urls) ? $urls[$bundleId] : ' ';
+
+            $_SESSION['icons'][] = serialize(
+                new IconModel(
+                    $label,
+                    $bundleId,
+                    $icon,
+                    'png',
+                    $url
+                )
+            );
+        }
 
         return $this->indexAction();
     }

@@ -29,6 +29,7 @@ class Framework {
         define("VIEW_PATH", APP_PATH . 'views' . DS);
         define("UTIL_PATH", APP_PATH . 'utils' . DS);
         define("TEMPLATE_PATH", APP_PATH . 'templates' . DS);
+        define("ICON_PACK_PATH", APP_PATH . 'icon-packs' . DS);
 
         define("CORE_PATH", FRAMEWORK_PATH . 'core' . DS);
         define("DB_PATH", FRAMEWORK_PATH . 'database'. DS);
