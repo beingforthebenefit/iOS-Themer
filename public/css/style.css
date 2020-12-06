@@ -211,7 +211,7 @@ a:hover {
 }
 
 .app-label-edit-note {
-    transform: translateY(-100%);
+    transform: translateY(5px);
 }
 
 .app-type-label {
