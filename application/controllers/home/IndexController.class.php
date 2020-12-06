@@ -237,6 +237,19 @@ class IndexController extends Controller {
         echo file_get_contents(TEMP_PATH . $hash . '/signed.mobileconfig');
     }
 
+    public function renameIconAction() {
+        $_SESSION['page'] = 'installer';
+
+        $index = $_GET['index'];
+        $name = $_GET['name'];
+
+        $icon = unserialize($_SESSION['icons'][$index]);
+        $icon->rename($name);
+        $_SESSION['icons'][$index] = serialize($icon);
+
+        return $this->indexAction();
+    }
+
     public function deleteAction() {
         $_SESSION['editMode'] = true;
         $_SESSION['page'] = 'installer';
