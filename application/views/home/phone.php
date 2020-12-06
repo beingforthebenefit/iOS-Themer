@@ -11,6 +11,7 @@
                 </div>
             </form>
         </div>
+        <p class="app-label-edit-note">Click on an icon label to change it</p>
         <div class="iphone">
             <div class="iphone-top">
               <span class="camera"></span>

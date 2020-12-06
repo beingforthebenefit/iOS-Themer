@@ -210,6 +210,10 @@ a:hover {
     font-size: 1.2em;
 }
 
+.app-label-edit-note {
+    transform: translateY(-100%);
+}
+
 .app-type-label {
     white-space: nowrap;
 }
