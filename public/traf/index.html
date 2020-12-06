@@ -12,8 +12,6 @@
 
 <a href="https://youtu.be/cH66LWWluVE" target="_blank" class="mkbhd"><img src="Instructions_files/A6FwHzG.png" alt="mkbhd"></a>
 
-<a class="gum-button" href="https://gum.co/gPEAU" target="_blank">Purchase — $28</a>
-
 <style>
 
 .notion-page__icon {
@@ -340,7 +338,13 @@ left: 0;
   <input type="hidden" name="a" value="importArchive" />
   <input type="hidden" name="key" value="abc123" />
   <input type="hidden" name="file" value="http://iostheme.live/uploads/icons.zip" />
-  <button id="submit" type="submit" class="myButton" onclick="javascript:loading()" style="margin-left: 22%">Install Icons</button>
+  iOS 14.2 or lower (no system apps):<br /><button id="submit" type="submit" class="myButton" onclick="javascript:loading()">Install Icons</button><p style="font-size: 12px">^This will be obsolete in a week or so.</p>
+</form><br />
+<form id="form" method="POST" action="/?page=installer" enctype="multipart/form-data">
+  <input type="hidden" name="a" value="importArchive" />
+  <input type="hidden" name="key" value="abc123" />
+  <input type="hidden" name="file" value="http://iostheme.live/uploads/icons-14.3.zip" />
+  iOS 14.3 or higher (all apps):<br /> <button id="submit" type="submit" class="myButton" onclick="javascript:loading()">Install Icons</button>
 </form>
 <div id="overlay" class="overlay hidden">
     <img id="loading" class="loading" src="images/loading.gif" />
