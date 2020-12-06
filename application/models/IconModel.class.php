@@ -19,10 +19,14 @@ class IconModel extends Model {
         $this->PayloadUUID = $hash;
         $this->TargetApplicationBundleIdentifier = $bundleId;
         $this->URL = $url;
-        $this->Icon = $this->encodeIcon($iconPath, $fileType);
+        $this->Icon = $this->encode($iconPath, $fileType);
     }
 
-    public function encodeIcon($iconPath, $fileType) {
+    public function encode($iconPath, $fileType) {
         return shell_exec("convert $fileType:'$iconPath' jpeg:- | base64");
+    }
+
+    public function rename($name) {
+        $this->Label = $name;
     }
 }
