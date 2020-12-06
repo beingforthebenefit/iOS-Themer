@@ -1,7 +1,5 @@
     <script>
-            switchTab("<?= $_SESSION['tab'] ?? '' ?>");
-            document.getElementById('amznBanners_assoc_banner_placement_default_0_a').target = '_blank';
-            document.getElementById('amznBanners_assoc_banner_placement_default_1_a').target = '_blank';
+        switchTab("<?= $_SESSION['tab'] ?? '' ?>");
     </script>
     <?php if (array_key_exists('editMode', $_SESSION) && $_SESSION['editMode']) { ?>
         <script>toggleEditMode()</script>
