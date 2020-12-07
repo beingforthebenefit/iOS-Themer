@@ -26,6 +26,9 @@
             <div class="form-container" id="upload">
                 <h1 class="header">1. Add as Many Apps As You Want</h1>
                 <?php include CURR_VIEW_PATH . 'upload.php' ?>
+            <div class="footer-left">
+                <?php include AD_PATH . 'iphone-cases.php'; ?>
+            </div>
             </div>
 
             <div class="phone-container" id="phone">
@@ -35,6 +38,9 @@
             <div class="download-container" id="download">
                 <h1 class="header">2. Install On Your Device</h1>
                 <?php include CURR_VIEW_PATH . 'download.php' ?>
+            <div class="footer-right">
+                <a href="https://www.buymeacoffee.com/iostheme" target="_blank"><p class="donate-note">Like that this site is free? Buy me a coffee ☕</p></a>
+            </div>
             </div>
         </div>
 

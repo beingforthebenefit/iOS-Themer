@@ -55,6 +55,7 @@ a:hover {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
+    min-height: 900px;
 }
 
 /* end Global */
@@ -188,6 +189,7 @@ a:hover {
 .installer {
     display: flex;
     flex-flow: row wrap;
+    justify-content: space-around;
     width: 80vw !important;
 }
 
@@ -241,17 +243,13 @@ a:hover {
     height: 600px;
 }
 
-.download-container {
-    height: 800px;
-}
-
 .phone-container {
     display: flex;
     justify-content: flex-start;
     flex-flow: column wrap;
     align-items: center;
     height: 800px;
-    transform: translateY(30px);
+    transform: translateY(60px);
 }
 
 .forms-wrap {
@@ -380,28 +378,48 @@ a:hover {
 /* end iOS Themer */
 
 .footer {
-    background-color: var(--licorice);
     position: fixed;
     bottom: 0px;
     display: flex;
     flex-flow: row;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    width: 80vw;
-    opacity: .8;
+    margin-top: 90vh;
+    width: 100vw;
 }
 
 .footer-row {
     display: flex;
     flex-flow: row nowrap;
-    justify-content: flex-end;
+    color: #ffffff;
+    padding: 0;
+    justify-content: space-between;
+    background-color: var(--licorice);
+    font-size: 12px;
+    opacity: .8;
+}
+
+.footer-left,
+.footer-right {
+    position: relative;
+    font-size: 14px;
+    font-weight: 600;
+    padding-left: 25%;
+}
+
+.footer-right {
+    transform: translateY(640px);
+    padding-bottom: 40px;
+}
+
+.footer-note + .footer-note {
+    padding-left: 30px;
 }
 
 .donate-wrap,
 .footer-note {
     display: flex;
     align-items: center;
-    padding-right: 30px;
 }
 
 /* Portrait and Landscape */
@@ -453,10 +471,6 @@ a:hover {
     .footer {
         flex-flow: column;
         width: 90vw;
-    }
-
-    .footer-left {
-        display: none;
     }
 }
 

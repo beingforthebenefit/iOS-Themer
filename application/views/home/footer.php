@@ -5,20 +5,13 @@
         <script>toggleEditMode()</script>
     <?php } ?>
     <footer class="footer">
-        <?php include AD_PATH . 'media.net.php'; ?>
-        <div class="footer-left">
-            <?php include AD_PATH . 'iphone-cases.php'; ?>
-        </div>
         <div class="footer-row">
             <div class="footer-note">
-                <p class="contact">Made with love by <a href="https://github.com/beingforthebenefit" target="_BLANK">Gerald Todd</a>. Design by Ubaid D.</p>
+                <p class="contact">Made with love by <a href="https://github.com/beingforthebenefit" target="_BLANK">Gerald Todd</a>. Designed by <a href="https://twitter.com/ubaidafedar" target="_BLANK">Ubaid D.</a></p>
             </div>
             <div class="footer-note">
-                <a href="https://twitter.com/intent/tweet?screen_name=iOSThemeLive&ref_src=twsrc%5Etfw" class="twitter-mention-button" data-show-count="false">Tweet to @iOSThemeLive</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                <a href="https://twitter.com/intent/tweet?screen_name=iOSThemeLive&ref_src=twsrc%5Etfw" target="_BLANK">Tweet to @iOSThemeLive</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
             </div>
-        </div>
-        <div class="footer-right">
-            <a href="https://www.buymeacoffee.com/iostheme" target="_blank"><p class="donate-note">Like that this site is free? Buy me a coffee ☕</p></a>
         </div>
     </footer>
 </body> 
