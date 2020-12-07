@@ -140,7 +140,7 @@ a:hover {
 }
 
 .page-title {
-    color: var(--quill-gray);
+    color: rgb(255 255 255);
     font-size: 48px;
     font-weight: 700;
 }
@@ -175,6 +175,9 @@ a:hover {
     display: flex;
     flex-flow: row wrap;
     width: 80vw;
+    width: 100%;
+    padding-top: 7vw;
+    padding-left: 5vw;
 }
 
 .video-wrap {
