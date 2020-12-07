@@ -260,7 +260,7 @@ a:hover {
     position: absolute;
     margin: 0;
     padding: 1em;
-    border: 1px solid #aaa;
+    border: 1px solid #24989f;
     border-radius: 5px;
     width: 500px;
 }
@@ -325,9 +325,9 @@ a:hover {
 }
 
 .form-field-button {
-    background-color: #0078e7;
+    background-color: #24989f;
     color: #ffffff;
-    padding: .5em 1em;
+    padding: .5em 3em;
     border: transparent;
     border-radius: 2px;
     display: inline-block;
