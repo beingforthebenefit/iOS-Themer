@@ -401,10 +401,11 @@ a:hover {
 
 .footer-left,
 .footer-right {
+    white-space: nowrap;
     position: relative;
     font-size: 14px;
     font-weight: 600;
-    padding-left: 25%;
+    padding-left: 6vw;
 }
 
 .footer-right {
