@@ -116,15 +116,20 @@
         <input type="hidden" name="ios14.3" value="true" />
         <input type="hidden" name="bundleId" value="" />
         <fieldset class="form-fieldset">
-            <span class="batch-description">Max of 20 icons per batch upload. File names must be
-                in the format <code class="code">bundleId - label.ext</code>, for example, <code class="code" >com.facebook.Facebook - Facebook.png</code>. Don't know the bundle ID? For system apps, Apple lists them <a href="https://support.apple.com/en-in/guide/mdm/mdm90f60c1ce/web" target="_BLANK">here</a> and for third-party apps, use <a href="https://offcornerdev.com/bundleid.html" target="_BLANK">this handy search engine</a>.</span>
-            <div class="form-file">
-                <input class="form-field-file" type="file" id="icon4" name="icon[]" onchange="updateText2('icon-text4', 'icon4')" multiple />
-                <p class="form-file-text" id="icon-text4">Drag a new icons here or click to browse!</p>
-            </div>
-            <div class="form-button-wrap">
-                <input class="form-field-button" type="submit" name="submit" value="Add Icons" />
-            </div>
+            <?php if (!preg_match("/iPhone|iPad|iPod/i", $_SERVER["HTTP_USER_AGENT"])) { ?>
+                <span class="batch-description">Max of 20 icons per batch upload. File names must be
+                    in the format <code class="code">bundleId - label.ext</code>, for example, <code class="code" >com.facebook.Facebook - Facebook.png</code>. Don't know the bundle ID? For system apps, Apple lists them <a href="https://support.apple.com/en-in/guide/mdm/mdm90f60c1ce/web" target="_BLANK">here</a> and for third-party apps, use <a href="https://offcornerdev.com/bundleid.html" target="_BLANK">this handy search engine</a>.</span>
+                <div class="form-file">
+                    <input class="form-field-file" type="file" id="icon4" name="icon[]" onchange="updateText2('icon-text4', 'icon4')" multiple />
+                    <p class="form-file-text" id="icon-text4">Drag a new icons here or click to browse!</p>
+                </div>
+                <div class="form-button-wrap">
+                    <input class="form-field-button" type="submit" name="submit" value="Add Icons" />
+                </div>
+            <?php } else { ?>
+                <p>Mobile browsers do not support multiple file uploads. Please visit from a desktop!</p>
+                <p>Receive this message in error? <a href="mailto:gerald@gtodd.dev">Let me know</a>!</p>
+            <?php } ?>
         </fieldset>
     </form>
 </div>
