@@ -385,7 +385,7 @@ a:hover {
 .icon-pack-previews-wrap {
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-around;
+    justify-content: flex-start;
     width: 80vw;
 }
 
