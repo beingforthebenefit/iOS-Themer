@@ -396,12 +396,6 @@ a:hover {
     width: 30%;
     margin: 20px;
     padding: 0;
-    opacity: .5;
-    transition: all .5s ease;
-}
-
-.icon-pack-preview-wrap:hover {
-    opacity: 1;
 }
 
 .icon-pack-preview-image-wrap {
@@ -417,6 +411,12 @@ a:hover {
 .icon-pack-description-wrap {
     width: 50%;
     padding: 5%;
+    opacity: .5;
+    transition: all .5s ease;
+}
+
+.icon-pack-description-wrap:hover {
+    opacity: 1;
 }
 
 .icon-pack-title,
