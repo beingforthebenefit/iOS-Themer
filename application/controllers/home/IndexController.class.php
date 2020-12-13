@@ -316,7 +316,7 @@ class IndexController extends Controller {
             );
         }
 
-        return $this->indexAction();
+        return array_key_exists('customize', $_GET) ? $this->indexAction() : $this->downloadAction();
     }
 
 }
