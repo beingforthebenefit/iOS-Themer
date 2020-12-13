@@ -387,6 +387,7 @@ a:hover {
     flex-flow: row wrap;
     justify-content: flex-start;
     width: 80vw;
+    padding-top: 6%;
 }
 
 .icon-pack-preview-wrap {
@@ -429,8 +430,12 @@ a:hover {
     font-weight: 600;
 }
 .icon-pack-description {}
-.icon-pack-links {}
-.icon-pack-link {}
+.icon-pack-links {
+    padding: 5px;
+}
+.icon-pack-link {
+    line-height: 1.5em;
+}
 
 /* end Icon Packs */
 
