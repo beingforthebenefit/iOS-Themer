@@ -6,6 +6,6 @@
     <img src="/images/skin/wafer.png" alt="" data-speed="-2" class="move">
 </div>
 
-<div class="icon-packs-data">
-    <h1 class="icon-packs-title">Custom Crafted Icon Packs by Ubaid Dafedar</h1>
+<div class="main__data">
+    <h1 class="main__description">Custom Crafted Icon Packs by Ubaid Dafedar</h1>
 </div>
