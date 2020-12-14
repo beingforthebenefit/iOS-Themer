@@ -135,17 +135,18 @@ img{
   right: 0;
 }
 
-/*homepage*/
-.home{
+.main {
   background-color: var(--first-color);
   overflow: hidden;
 }
 
-.home__container{
+.main__container {
   height: calc(100vh - var(--header-height));
   grid-template-rows: repeat(2, max-content);
   row-gap: 1.5rem;
 }
+
+/*homepage*/
 
 .home__img{
   position: relative;
@@ -189,15 +190,6 @@ img{
 
 /*media queries (thanks to Dev Ed on YouTube for the tutorial)*/
 @media screen and (min-width: 768px){
-  .home__container{
-    height: 100vh;
-    grid-template-columns: repeat(2, max-content);
-    grid-template-rows:  1fr;
-    row-gap: 0;
-    align-items: center;
-    justify-content: center;
-  }
-  
   .home__img{
     order: 1;
     width: 375px;
@@ -210,11 +202,6 @@ img{
 }
 
 @media screen and (min-width: 1024px){
-  .home__container{
-    justify-content: initial;
-    column-gap: 4.5rem;
-  }
-
   .home__img{
     width: 604px;
     height: 466px;
@@ -227,18 +214,6 @@ img{
 
 
 /*how-to page*/
-
-
-.how-to{
-  background-color: var(--first-color);
-  overflow: hidden;
-}
-
-.how-to-container{
-  height: calc(100vh - var(--header-height));
-  grid-template-rows: repeat(2, max-content);
-  row-gap: 1.5rem;
-}
 
 .how-to-img{
   position: relative;
@@ -281,15 +256,6 @@ img{
 
 /*media queries (thanks to Dev Ed on YouTube for the tutorial)*/
 @media screen and (min-width: 768px){
-  .how-to-container{
-    height: 100vh;
-    grid-template-columns: repeat(2, max-content);
-    grid-template-rows:  1fr;
-    row-gap: 0;
-    align-items: center;
-    justify-content: center;
-  }
-  
   .how-to-img{
     order: 1;
     width: 375px;
@@ -302,11 +268,6 @@ img{
 }
 
 @media screen and (min-width: 1024px){
-  .how-to-container{
-    justify-content: initial;
-    column-gap: 4.5rem;
-  }
-
   .how-to-img{
     width: 604px;
     height: 466px;
@@ -358,15 +319,6 @@ img{
 
 /*media queries (thanks to Dev Ed on YouTube for the tutorial)*/
 @media screen and (min-width: 768px){
-  .icon-packs-container{
-    height: 100vh;
-    grid-template-columns: repeat(2, max-content);
-    grid-template-rows:  1fr;
-    row-gap: 0;
-    align-items: center;
-    justify-content: center;
-  }
-  
   .icon-packs-img{
     order: 1;
     width: 375px;
@@ -379,11 +331,6 @@ img{
 }
 
 @media screen and (min-width: 1024px){
-  .icon-packs-container{
-    justify-content: initial;
-    column-gap: 4.5rem;
-  }
-
   .icon-packs-img{
     width: 604px;
     height: 466px;
@@ -403,15 +350,6 @@ img{
 
 /*media queries (thanks to Dev Ed on YouTube for the tutorial)*/
 @media screen and (min-width: 768px){
-  .iosthemer-container{
-    height: 100vh;
-    grid-template-columns: repeat(2, max-content);
-    grid-template-rows:  1fr;
-    row-gap: 0;
-    align-items: center;
-    justify-content: center;
-  }
-  
   .iosthemer-img{
     order: 1;
     width: 375px;
@@ -424,11 +362,6 @@ img{
 }
 
 @media screen and (min-width: 1024px){
-  .iosthemer-container{
-    justify-content: initial;
-    column-gap: 4.5rem;
-  }
-
   .iosthemer-img{
     width: 604px;
     height: 466px;
@@ -462,11 +395,25 @@ img{
     margin-left: 3rem;
     margin-bottom: 0;
   }
+
+  .main__container{
+    height: 100vh;
+    grid-template-columns: repeat(2, max-content);
+    grid-template-rows:  1fr;
+    row-gap: 0;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 @media screen and (min-width: 1024px) {
   .bd-grid{
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .main__container{
+    justify-content: initial;
+    column-gap: 4.5rem;
   }
 }

@@ -26,5 +26,5 @@
 
     <main class="l-main">
 
-        <section class="home" id="home">
-            <div class="home__container bd-grid">
+        <section class="main">
+            <div class="main__container bd-grid">
