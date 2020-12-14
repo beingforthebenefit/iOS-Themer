@@ -13,23 +13,25 @@ class IndexController extends Controller {
     public function build($path, $model = [ ]) {
         ob_start();
         include CURR_VIEW_PATH . 'header.php';
+        include CURR_VIEW_PATH . 'top.php';
         include $path;
         include CURR_VIEW_PATH . 'footer.php';
         return ob_get_clean();
     }
 
-    // indexAction :: string? -> void
-    public function indexAction($icons = [ ]) {
-        if (empty($icons)) {
-            if (!array_key_exists('icons', $_SESSION)) {
-                $_SESSION['icons'] = [ ];
-            }
-            $icons = $_SESSION['icons'];
-        }
+    // indexAction :: void -> void
+    public function indexAction() {
+        echo $this->build(CURR_VIEW_PATH . 'home.php');
+    }
 
-        $_SESSION['icons'] = $icons;
+    // howToAction :: void -> void
+    public function howToAction() {
+        echo $this->build(CURR_VIEW_PATH . 'how-to.php');
+    }
 
-        echo $this->build(CURR_VIEW_PATH . 'main.php', $icons);
+    // iconPacksAction :: void -> void
+    public function iconPacksAction() {
+        echo $this->build(CURR_VIEW_PATH . 'icon-packs.php');
     }
 
     // uploadAction :: void -> string

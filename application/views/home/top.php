@@ -1,45 +1,37 @@
 <body>
-    <div class="top-wrap">
-        <div class="logo-wrap">
-            22over7
-        </div>
-        <div class="nav-wrap">
-            <div class="nav-link-wrap">
-                <a class="nav-link <?= array_key_exists('page', $_SESSION) ? ('home' == $_SESSION['page'] ? 'active' : '') : 'active' ?>" id="home-link" onclick="changePage('home')">
-                    Home
-                </a>
+    <header class="l-header">
+        <nav class="nav bd-grid">
+            <div>
+                <a class="nav__logo" href="#">22over7</a>
             </div>
-            <div class="nav-link-wrap <?= 'how-to' == $_SESSION['page'] ? 'active' : '' ?>" id="how-to-link" onclick="changePage('how-to')">
-                <a class="nav-link">
-                    How To
-                </a>
+            
+            <div class="nav__toggle" id="nav-toggle">
+                <i class='bx bx-menu'></i>
             </div>
-            <div class="nav-link-wrap <?= 'installer' == $_SESSION['page'] ? 'active' : '' ?>" id="installer-link" onclick="changePage('installer')">
-                <a class="nav-link">
-                    iOS Themer
-                </a>
-            </div>
-            <div class="nav-link-wrap <?= 'icon-packs' == $_SESSION['page'] ? 'active' : '' ?>" id="icon-packs-link" onclick="changePage('icon-packs')">
-                <a class="nav-link">
-                    Icon Packs
-                </a>
-            </div>
-        </div>
-    </div>
 
-    <?php if (array_key_exists('messages', $_SESSION)) {
-        foreach ($_SESSION['messages'] as $error) { ?>
-            <div class="message-wrap">
-                <p class="message"><?= $error ?></p>
+            <div class="nav__menu" id="nav-menu">
+                <div class="nav__close" id="nav-close">
+                    <i class='bx bx-x'></i>
+                </div>
+
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="/" class="nav__link active">Home</a></li>
+                    <li class="nav__item"><a href="/?a=howTo" class="nav__link">How to</a></li>
+                    <li class="nav__item"><a href="#TODO" class="nav__link">iOS Themer</a></li>
+                    <li class="nav__item"><a href="/?a=iconPacks" class="nav__link">Icon Packs</a></li>
+                </ul>
             </div>
-        <?php }
-        $_SESSION['messages'] = [ ];
-    }
-    if (array_key_exists('errors', $_SESSION)) {
-        foreach ($_SESSION['errors'] as $error) { ?>
-            <div class="error-wrap">
-                <p class="error"><?= $error ?></p>
-            </div>
-        <?php }
-    $_SESSION['errors'] = [ ];
-    } ?>
+        </nav>
+    </header>
+
+    <main class="l-main">
+
+        <section class="home" id="home">
+            <div class="home__container bd-grid">
+                <div class="home__img">
+                    <img src="/images/skin/spheres.png" alt="" data-speed="-2" class="move">
+                    <img src="/images/skin/cylinder boi.png" alt="" data-speed="2" class="move">
+                    <img src="/images/skin/icecream.png" alt="" data-speed="2" class="move">
+                    <img src="/images/skin/vanilla.png" alt="" data-speed="-2" class="move">
+                    <img src="/images/skin/wafer.png" alt="" data-speed="-2" class="move">
+                </div>
