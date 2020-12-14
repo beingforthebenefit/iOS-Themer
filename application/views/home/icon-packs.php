@@ -12,10 +12,10 @@
         <!-- Icon pack description -->
         <div class="icon-pack-description-wrap">
             <div class="icon-pack-title">
-                22over7 Icon Pack
+                Pastel Pink
             </div>
             <div class="icon-pack-description">
-                Just released in time for Christmas, try 22over7's primere icon pack for free.
+                Custom-designed Pastel-Pink themed Icon Pack, Christmas special, try 22over7's premiere icon pack for free.
             </div>
             <div class="icon-pack-links">
                 <a class="icon-pack-link" href="/?a=loadIcons&pack=demo" onclick="thankYou()">
