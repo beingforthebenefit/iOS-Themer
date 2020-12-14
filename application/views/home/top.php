@@ -17,7 +17,7 @@
                 <ul class="nav__list">
                     <li class="nav__item"><a href="/" class="nav__link active">Home</a></li>
                     <li class="nav__item"><a href="/?a=howTo" class="nav__link">How to</a></li>
-                    <li class="nav__item"><a href="#TODO" class="nav__link">iOS Themer</a></li>
+                    <li class="nav__item"><a href="/?a=installer" class="nav__link">iOS Themer</a></li>
                     <li class="nav__item"><a href="/?a=iconPacks" class="nav__link">Icon Packs</a></li>
                 </ul>
             </div>
@@ -28,10 +28,3 @@
 
         <section class="home" id="home">
             <div class="home__container bd-grid">
-                <div class="home__img">
-                    <img src="/images/skin/spheres.png" alt="" data-speed="-2" class="move">
-                    <img src="/images/skin/cylinder boi.png" alt="" data-speed="2" class="move">
-                    <img src="/images/skin/icecream.png" alt="" data-speed="2" class="move">
-                    <img src="/images/skin/vanilla.png" alt="" data-speed="-2" class="move">
-                    <img src="/images/skin/wafer.png" alt="" data-speed="-2" class="move">
-                </div>

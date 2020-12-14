@@ -10,7 +10,7 @@ class IndexController extends Controller {
     public const MAX_FILE_SIZE = 500000;
 
     // build :: {string, string?} -> string
-    public function build($path, $model = [ ]) {
+    public function build($path) {
         ob_start();
         include CURR_VIEW_PATH . 'header.php';
         include CURR_VIEW_PATH . 'top.php';
@@ -32,6 +32,11 @@ class IndexController extends Controller {
     // iconPacksAction :: void -> void
     public function iconPacksAction() {
         echo $this->build(CURR_VIEW_PATH . 'icon-packs.php');
+    }
+
+    // installerAction :: void -> void
+    public function installerAction() {
+        echo $this->build(CURR_VIEW_PATH . 'installer.php');
     }
 
     // uploadAction :: void -> string
