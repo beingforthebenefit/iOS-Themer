@@ -146,9 +146,7 @@ img{
   row-gap: 1.5rem;
 }
 
-/*homepage*/
-
-.home__img{
+.main__img{
   position: relative;
   padding-top: 1.5rem;
   justify-self: center;
@@ -156,11 +154,14 @@ img{
   height: 233px;
 }
 
-.home__img img{
+.main__img img{
   position: absolute;
   top: 0;
   left: 0;
 }
+
+
+/*homepage*/
 
 .home__data{
   color: var(--white-color);
@@ -188,46 +189,8 @@ img{
   background-color: var(--first-color-darken);
 }
 
-/*media queries (thanks to Dev Ed on YouTube for the tutorial)*/
-@media screen and (min-width: 768px){
-  .home__img{
-    order: 1;
-    width: 375px;
-    height: 289px;
-  }
-
-  .home__img img{
-    width: 375px;
-  }
-}
-
-@media screen and (min-width: 1024px){
-  .home__img{
-    width: 604px;
-    height: 466px;
-  }
-
-  .home__img img{
-    width: 604px;
-  }
-}
-
 
 /*how-to page*/
-
-.how-to-img{
-  position: relative;
-  padding-top: 1.5rem;
-  justify-self: center;
-  width: 302px;
-  height: 233px;
-}
-
-.how-to-img img{
-  position: absolute;
-  top: 0;
-  left: 0;
-}
 
 .how-to-data{
   color: var(--white-color);
@@ -254,57 +217,8 @@ img{
   background-color: var(--first-color-darken);
 }
 
-/*media queries (thanks to Dev Ed on YouTube for the tutorial)*/
-@media screen and (min-width: 768px){
-  .how-to-img{
-    order: 1;
-    width: 375px;
-    height: 289px;
-  }
-
-  .how-to-img img{
-    width: 375px;
-  }
-}
-
-@media screen and (min-width: 1024px){
-  .how-to-img{
-    width: 604px;
-    height: 466px;
-  }
-
-  .how-to-img img{
-    width: 604px;
-  }
-}
-
 
 /*icon-packs-page*/
-
-.icon-packs{
-  background-color: var(--first-color);
-  overflow: hidden;
-}
-
-.icon-packs-container{
-  height: calc(100vh - var(--header-height));
-  grid-template-rows: repeat(2, max-content);
-  row-gap: 1.5rem;
-}
-
-.icon-packs-img{
-  position: relative;
-  padding-top: 1.5rem;
-  justify-self: center;
-  width: 302px;
-  height: 233px;
-}
-
-.icon-packs-img img{
-  position: absolute;
-  top: 0;
-  left: 0;
-}
 
 .icon-packs-data{
   color: var(--white-color);
@@ -317,60 +231,9 @@ img{
 }
 
 
-/*media queries (thanks to Dev Ed on YouTube for the tutorial)*/
-@media screen and (min-width: 768px){
-  .icon-packs-img{
-    order: 1;
-    width: 375px;
-    height: 289px;
-  }
-
-  .icon-packs-img img{
-    width: 375px;
-  }
-}
-
-@media screen and (min-width: 1024px){
-  .icon-packs-img{
-    width: 604px;
-    height: 466px;
-  }
-
-  .icon-packs-img img{
-    width: 604px;
-  }
-}
-
-
 /* installer-page */
 
 
-
-
-
-/*media queries (thanks to Dev Ed on YouTube for the tutorial)*/
-@media screen and (min-width: 768px){
-  .iosthemer-img{
-    order: 1;
-    width: 375px;
-    height: 289px;
-  }
-
-  .iosthemer-img img{
-    width: 375px;
-  }
-}
-
-@media screen and (min-width: 1024px){
-  .iosthemer-img{
-    width: 604px;
-    height: 466px;
-  }
-
-  .iosthemer-img img{
-    width: 604px;
-  }
-}
 
 /* Global media queries */
 
@@ -396,6 +259,16 @@ img{
     margin-bottom: 0;
   }
 
+  .main__img{
+    order: 1;
+    width: 375px;
+    height: 289px;
+  }
+
+  .main__img img{
+    width: 375px;
+  }
+
   .main__container{
     height: 100vh;
     grid-template-columns: repeat(2, max-content);
@@ -415,5 +288,14 @@ img{
   .main__container{
     justify-content: initial;
     column-gap: 4.5rem;
+  }
+
+  .main__img{
+    width: 604px;
+    height: 466px;
+  }
+
+  .main__img img{
+    width: 604px;
   }
 }

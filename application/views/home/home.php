@@ -1,4 +1,4 @@
-<div class="home__img">
+<div class="main__img">
     <img src="/images/skin/spheres.png" alt="" data-speed="-2" class="move">
     <img src="/images/skin/cylinder boi.png" alt="" data-speed="2" class="move">
     <img src="/images/skin/icecream.png" alt="" data-speed="2" class="move">
