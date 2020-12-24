@@ -1,6 +1,8 @@
 <?php
     // unique ID to append to assets to prevent caching
     $u = '?random=' . rand(0, 1000);
+    // determine if we're on dev or production
+    $dev = explode('.', $_SERVER[HTTP_HOST])[1] == "live" ? false : true;
 ?>
 <!doctype html>
 
@@ -16,41 +18,36 @@
     <link rel="manifest" href="/site.webmanifest">
     <!-- End favicons -->
 
-    <!-- Media.net stuff -->
-    <script type="text/javascript">
-        window._mNHandle = window._mNHandle || {};
-        window._mNHandle.queue = window._mNHandle.queue || [];
-        medianet_versionId = "3121199";
-    </script>
-    <script src="https://contextual.media.net/dmedianet.js?cid=8CUFVB521" async="async"></script>
-    <!-- End Media.net stuff -->
+    <?php if (!$dev) { ?>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-KCM2YB8CJ6"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KCM2YB8CJ6"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+          gtag('config', 'G-KCM2YB8CJ6');
+        </script>
 
-      gtag('config', 'G-KCM2YB8CJ6');
-    </script>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-183654641-1">
+        </script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-183654641-1">
-    </script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'UA-183654641-1');
-    </script>
-    <!-- End Google stuff -->
+          gtag('config', 'UA-183654641-1');
+        </script>
+        <!-- End Google stuff -->
+    <?php } ?>
 
     <title>22over7</title>
     <meta name="description" content="iOSTheme.live">
     <meta name="author" content="Gerald Todd and doyourhomeworkjacob">
 
+    <script src="https://gumroad.com/js/gumroad-embed.js<?= $u ?>"></script>
+    <script src="https://gumroad.com/js/gumroad.js"></script>
     <script src="/js/file-upload.js<?= $u ?>"></script>
     <script src="/js/search.js<?= $u ?>"></script>
     <script src="/js/page.js<?= $u ?>"></script>

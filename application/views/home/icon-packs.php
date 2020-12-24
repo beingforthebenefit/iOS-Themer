@@ -15,7 +15,16 @@
             <h3>Minimal Red</h3>
             <p>Minimal Red Themed Icon Pack for iOS14.3+ 
             </p>
-            <a href="https://gumroad.com/l/RtqjQ">$16 - Buy Now</a>
+            <a class="gumroad-button" href="https://gum.co/RtqjQ" target="_blank">$12 - Buy Now</a>
         </div>
     </div>
-</div>
+
+    <div class="card">
+        <div class="content">
+            <h3>Minimal Red</h3>
+            <p>Minimal Red Themed Icon Pack for iOS14.3+ 
+            </p>
+            <div class="gumroad-product-embed" data-gumroad-product-id="RtqjQ"><a href="https://gumroad.com/l/RtqjQ">Loading...</a></div>
+        </div>
+    </div>
+</div><?= $dev = explode('.', $_SERVER[HTTP_HOST])[1] == "live" ? false : true ?>
