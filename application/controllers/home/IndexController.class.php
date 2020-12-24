@@ -273,6 +273,18 @@ class IndexController extends Controller {
         return $this->indexAction();
     }
 
+    public function clearAllLabelsAction() {
+        $_SESSIOn['editMode'] = false;
+        $_SESSION['page'] = 'installer';
+        for ($i = 0; $i < sizeof($_SESSION['icons']); $i++) {
+            $icon = unserialize($_SESSION['icons'][$i]);
+            $icon->rename(' ');
+            $_SESSION['icons'][$i] = serialize($icon);
+        }
+
+        return $this->indexAction();
+    }
+
     // Dangerous function. Use with caution.
     // public function saveIconsAction() {
     //     file_put_contents(UPLOAD_PATH . 'example.icons', serialize($_SESSION['icons']));
