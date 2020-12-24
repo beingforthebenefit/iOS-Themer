@@ -32,11 +32,6 @@
 .content {
     padding: 20px;
     text-align: center;
-    text-shadow:
-        0.1em 0 black,
-        0 0.1em black,
-        -0.1em 0 black,
-        0 -0.1em black;
 }
 
 .card:hover {
