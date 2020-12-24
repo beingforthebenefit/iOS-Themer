@@ -2,7 +2,7 @@
     // unique ID to append to assets to prevent caching
     $u = '?random=' . rand(0, 1000);
     // determine if we're on dev or production
-    $dev = explode('.', $_SERVER[HTTP_HOST])[1] == "live" ? false : true;
+    $dev = explode('.', $_SERVER['HTTP_HOST'])[1] == "live" ? false : true;
 ?>
 <!doctype html>
 
