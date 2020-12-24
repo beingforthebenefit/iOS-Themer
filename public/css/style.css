@@ -216,7 +216,9 @@ a:hover {
 }
 
 .app-label-edit-note {
-    transform: translateY(5px);
+    font-size: 14px;
+    font-weight: 600;
+    transform: translate(123px, 42px);
 }
 
 .app-type-label {
@@ -255,6 +257,10 @@ a:hover {
     transform: translateY(60px);
 }
 
+.clear-labels {
+    transform: translate(-98px, -30px);
+}
+
 .forms-wrap {
     height: 500px;
 }
@@ -274,6 +280,7 @@ a:hover {
 
 .form-iphone-switch,
 .form-edit-switch {
+    transform: translate(-30px, -44px);
     text-align: center;
     margin-bottom: 10px;
     font-size: 1.3em;
