@@ -18,13 +18,4 @@
             <a class="gumroad-button">Loading...</a>
         </div>
     </div>
-
-    <div class="card">
-        <div class="content">
-            <h3>Minimal Red</h3>
-            <p>Minimal Red Themed Icon Pack for iOS14.3+ 
-            </p>
-            <div class="gumroad-product-embed" data-gumroad-product-id="RtqjQ"><a href="https://gumroad.com/l/RtqjQ">Loading...</a></div>
-        </div>
-    </div>
 </div>
