@@ -26,9 +26,9 @@
             <div class="form-container" id="upload">
                 <h1 class="header">1. Add as Many Apps As You Want</h1>
                 <?php include CURR_VIEW_PATH . 'upload.php' ?>
-            <div class="footer-left">
+            <!-- <div class="footer-left">
                 <?php include AD_PATH . 'iphone-cases.php'; ?>
-            </div>
+            </div> -->
             </div>
 
             <div class="phone-container" id="phone">
