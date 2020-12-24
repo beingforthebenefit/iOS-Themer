@@ -15,7 +15,7 @@
             <h3>Minimal Red</h3>
             <p>Minimal Red Themed Icon Pack for iOS14.3+ 
             </p>
-            <a class="gumroad-button">Loading...</a>
+            <a class="gumroad-button" href="https://gum.co/RtqjQ" >$12 - Buy Now</a>
         </div>
     </div>
 </div>
