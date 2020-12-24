@@ -46,8 +46,7 @@
     <meta name="description" content="iOSTheme.live">
     <meta name="author" content="Gerald Todd and doyourhomeworkjacob">
 
-    <script src="https://gumroad.com/js/gumroad-embed.js<?= $u ?>"></script>
-    <script src="https://gumroad.com/js/gumroad.js"></script>
+    <script src="/js/gumroad/gumroad.js<?= $u ?>"></script>
     <script src="/js/file-upload.js<?= $u ?>"></script>
     <script src="/js/search.js<?= $u ?>"></script>
     <script src="/js/page.js<?= $u ?>"></script>
