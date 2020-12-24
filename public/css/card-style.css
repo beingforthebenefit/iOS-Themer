@@ -36,7 +36,7 @@
 .content {
     padding: 20px;
     text-align: center;
-    opacity: 0;
+    opacity: .3;
     transition: .5s;
 }
 
