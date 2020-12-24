@@ -7,7 +7,6 @@ class IconModel extends Model {
     public $PayloadIdentifier;
     public $PayloadUUID;
     public $TargetApplicationBUndleIdentifier;
-    public $URL;
     public $Icon;
 
     public function __construct($label, $bundleId, $iconPath, $fileType, $url) {
@@ -18,7 +17,7 @@ class IconModel extends Model {
         $this->PayloadIdentifier = 'geralds.icon.themer.' . $hash . '.' . (count($_SESSION['icons']) + 1);
         $this->PayloadUUID = $hash;
         $this->TargetApplicationBundleIdentifier = $bundleId;
-        $this->URL = $url;
+        $this->URL = ' ';
         $this->Icon = $this->encode($iconPath, $fileType);
     }
 

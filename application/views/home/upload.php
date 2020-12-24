@@ -14,7 +14,6 @@
         <input type="hidden" name="a" value="upload" />
         <input type="hidden" name="page" value="installer" />
         <input type="hidden" name="tab" value="app-store" />
-        <input type="hidden" name="ios14.3" value="true" />
         <fieldset class="form-fieldset">
             <div class="form-field-group">
                 <label class="form-field-label" for="country">Select country</label>
@@ -54,13 +53,6 @@
         <input type="hidden" name="page" value="installer" />
         <input type="hidden" name="tab" value="system-app" />
         <fieldset class="form-fieldset">
-            <div class="form-iphone-switch">
-                <label class="form-switch">
-                    <input type="checkbox" name="ios14.3">
-                    iOS 14.3+?
-                    <i></i>
-                </label>
-            </div>
             <div class="form-field-group">
                 <label class="form-field-label" for="apps2">Select an App</label>
                 <select class="form-field-select" id="apps2" name="bundleId" onclick="insertSelection('apps2', 'label2')">
@@ -88,7 +80,6 @@
         <input type="hidden" name="a" value="upload" />
         <input type="hidden" name="page" value="installer" />
         <input type="hidden" name="tab" value="custom-app" />
-        <input type="hidden" name="ios14.3" value="true" />
         <fieldset class="form-fieldset">
             <div class="form-field-group">
                 <label class="form-field-label" for="bundleId" >Bundle Id</label>
@@ -113,7 +104,6 @@
         <input type="hidden" name="a" value="batchUpload" />
         <input type="hidden" name="page" value="installer" />
         <input type="hidden" name="tab" value="batch" />
-        <input type="hidden" name="ios14.3" value="true" />
         <input type="hidden" name="bundleId" value="" />
         <fieldset class="form-fieldset">
             <?php if (!preg_match("/iPhone|iPad|iPod/i", $_SERVER["HTTP_USER_AGENT"])) { ?>
