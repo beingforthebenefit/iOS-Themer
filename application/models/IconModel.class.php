@@ -9,7 +9,7 @@ class IconModel extends Model {
     public $TargetApplicationBUndleIdentifier;
     public $Icon;
 
-    public function __construct($label, $bundleId, $iconPath, $fileType, $url) {
+    public function __construct($label, $bundleId, $iconPath, $fileType) {
         $hash = md5(date("ymdhsu") . $bundleId);
 
         $this->Label = $label;
