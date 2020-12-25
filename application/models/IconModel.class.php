@@ -10,14 +10,19 @@ class IconModel extends Model {
     public $Icon;
 
     public function __construct($label, $bundleId, $iconPath, $fileType) {
+        $systemApp = substr($bundleId, 0, 10) === 'com.apple.';
         $hash = md5(date("ymdhsu") . $bundleId);
+
+        if ($systemApp) {
+            $urls = json_decode(file_get_contents(CONFIG_PATH . 'system-app-urls.json'), true);
+        }
 
         $this->Label = $label;
         $this->PayloadDisplayName = $label;
         $this->PayloadIdentifier = 'geralds.icon.themer.' . $hash . '.' . (count($_SESSION['icons']) + 1);
         $this->PayloadUUID = $hash;
         $this->TargetApplicationBundleIdentifier = $bundleId;
-        $this->URL = ' ';
+        $this->URL = $systemApp ? $urls[$bundleId] : ' ';
         $this->Icon = $this->encode($iconPath, $fileType);
     }
 
