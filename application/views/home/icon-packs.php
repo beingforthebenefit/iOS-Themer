@@ -14,7 +14,7 @@
         <div class="content">
             <h3>Minimal Red</h3>
             <a href="/?a=loadIcons&pack=minimal-red-basic">Free Demo</a><br />
-            <a class="gumroad-button" href="https://gum.co/RtqjQ" >Buy Full Version - $12</a><br />
+            <a class="gumroad-button" href="https://gum.co/RtqjQ" >Buy Full Version - $6</a><br />
             <p>Full version includes 120+ icons and ability to edit icons/labels.</p>
         </div>
     </div>
