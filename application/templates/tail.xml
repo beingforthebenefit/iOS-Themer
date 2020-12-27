@@ -1,10 +1,10 @@
     </array>
     <key>PayloadDescription</key>
-    <string>Created by Gerald Todd Themer 1.0 on <?= date('m-d-Y H:i:s') ?></string>
+    <string>Created by 22over7.live 1.0 on <?= date('m-d-Y H:i:s') ?></string>
     <key>PayloadDisplayName</key>
-    <string>Custom Theme from gerald@gtodd.dev</string>
+    <string>22over7 Theme</string>
     <key>PayloadIdentifier</key>
-    <string>geralds.icon.themer.<?= $uid ?></string>
+    <string>22over7.live.<?= $uid ?></string>
     <key>PayloadOrganization</key>
     <string>Icon Themer</string>
     <key>PayloadType</key>
