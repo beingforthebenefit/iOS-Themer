@@ -1,6 +1,8 @@
 <?php
     // unique ID to append to assets to prevent caching
     $u = '?random=' . rand(0, 1000);
+    // determine if we're on dev or production
+    $dev = explode('.', $_SERVER['HTTP_HOST'])[1] == "live" ? false : true;
 ?>
 
 <!DOCTYPE html>
@@ -16,16 +18,29 @@
         <link rel="manifest" href="/site.webmanifest">
         <!-- End favicons -->
 
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-KCM2YB8CJ6"></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
+        <?php if (!$dev) { ?>
+            <!-- Global site tag (gtag.js) - Google Analytics -->
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-KCM2YB8CJ6"></script>
+            <script>
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
 
-          gtag('config', 'G-KCM2YB8CJ6');
-        </script>
-        <!-- End Google stuff -->
+              gtag('config', 'G-KCM2YB8CJ6');
+            </script>
+
+            <!-- Global site tag (gtag.js) - Google Analytics -->
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-183654641-1">
+            </script>
+            <script>
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+
+              gtag('config', 'UA-183654641-1');
+            </script>
+            <!-- End Google stuff -->
+        <?php } ?>
 
         <!-- This is a link to BoxIcons by jsDelivr on GitHub. -->
         <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>

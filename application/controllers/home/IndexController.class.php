@@ -74,21 +74,14 @@ class IndexController extends Controller {
 
         if (empty($errors)) {
             $fileType = strtolower(pathinfo($_FILES['icon']['name'], PATHINFO_EXTENSION));
-            $urls = json_decode(file_get_contents(CONFIG_PATH . 'urls.json'), true);
-            $urls = $_REQUEST['ios14_3'] ? array_filter($urls, function($key) {
-                return 'apple' != explode('.', $key)[1];
-            }, ARRAY_FILTER_USE_KEY) : $urls;
-            if (array_key_exists($_REQUEST['bundleId'], $urls)) {
-                $url = array_key_exists($_REQUEST['bundleId'], $urls) ? $urls[$_REQUEST['bundleId']] : '';
-            }
+
 
             $_SESSION['icons'][] = serialize(
                 new IconModel(
                     $_REQUEST['label'],
                     $_REQUEST['bundleId'],
                     $_FILES['icon']['tmp_name'],
-                    $fileType,
-                    $url ?? ' '
+                    $fileType
                 )
             );
         } else {
@@ -117,29 +110,19 @@ class IndexController extends Controller {
         if (empty($errors)) {
             $icons = [ ];
 
-            // Assuming user has iOS 14.3+
-            $urls = array_filter(json_decode(file_get_contents(CONFIG_PATH . 'urls.json'), true),
-                function($key) {
-                    return 'apple' != explode('.', $key)[1];
-                },
-                ARRAY_FILTER_USE_KEY
-            );
-
             $systemApps = json_decode(file_get_contents(CONFIG_PATH . 'default-apps.json'), true);
             foreach ($_FILES['icon']['name'] as $i => $id) {
                 $parts = explode(' - ', $id);
                 $bundleId = $parts[0];
                 $label = pathinfo(implode(' - ', array_slice($parts, 1)), PATHINFO_FILENAME);
                 $fileType = strtolower(pathinfo($id, PATHINFO_EXTENSION));
-                $url = array_key_exists($bundleId, $urls) ? $urls[$bundleId] : ' ';
 
                 $_SESSION['icons'][] = serialize(
                     new IconModel(
                         $label,
                         $bundleId,
                         $_FILES['icon']['tmp_name'][$i],
-                        $fileType,
-                        $url
+                        $fileType
                     )
                 );
             }
@@ -173,13 +156,6 @@ class IndexController extends Controller {
         exec("unzip -q \"$zipFile\" -d \"$destPath\"");
         exec("ls {$destPath}*.png", $list);
 
-        // Assuming user has iOS 14.3+
-        $urls = array_filter(json_decode(file_get_contents(CONFIG_PATH . 'urls.json'), true),
-            function($key) {
-                return 'apple' != explode('.', $key)[1];
-            },
-            ARRAY_FILTER_USE_KEY
-        );
         $icons = [ ];
         foreach ($list as $icon) {
             $parts = explode(' - ', pathinfo($icon)['filename']);
@@ -187,15 +163,13 @@ class IndexController extends Controller {
             $bundleId = $parts[0];
 
             $fileType = strtolower(pathinfo($icon, PATHINFO_EXTENSION));
-            $url = array_key_exists($bundleId, $urls) ? $urls[$bundleId] : ' ';
 
             $icons[] = serialize(
                 new IconModel(
                     $label,
                     $bundleId,
                     $icon,
-                    'png',
-                    $url
+                    'png'
                 )
             );
         }
@@ -281,7 +255,7 @@ class IndexController extends Controller {
     }
 
     public function deleteAction() {
-        $_SESSION['editMode'] = true;
+        $_SESSION['editMode'] = false;
         $_SESSION['page'] = 'installer';
         $_SESSION['icons'] = array_filter(
             $_SESSION['icons'],
@@ -303,6 +277,18 @@ class IndexController extends Controller {
         return $this->indexAction();
     }
 
+    public function clearAllLabelsAction() {
+        $_SESSIOn['editMode'] = false;
+        $_SESSION['page'] = 'installer';
+        for ($i = 0; $i < sizeof($_SESSION['icons']); $i++) {
+            $icon = unserialize($_SESSION['icons'][$i]);
+            $icon->rename(' ');
+            $_SESSION['icons'][$i] = serialize($icon);
+        }
+
+        return $this->indexAction();
+    }
+
     // Dangerous function. Use with caution.
     // public function saveIconsAction() {
     //     file_put_contents(UPLOAD_PATH . 'example.icons', serialize($_SESSION['icons']));
@@ -315,14 +301,6 @@ class IndexController extends Controller {
 
         $icons = [ ];
 
-        // Assuming user has iOS 14.3+
-        $urls = array_filter(json_decode(file_get_contents(CONFIG_PATH . 'urls.json'), true),
-            function($key) {
-                return 'apple' != explode('.', $key)[1];
-            },
-            ARRAY_FILTER_USE_KEY
-        );
-
         exec("ls {$path}*.png", $list);
 
         $systemApps = json_decode(file_get_contents(CONFIG_PATH . 'default-apps.json'), true);
@@ -333,15 +311,13 @@ class IndexController extends Controller {
             $bundleId = $parts[0];
 
             $fileType = strtolower(pathinfo($icon, PATHINFO_EXTENSION));
-            $url = array_key_exists($bundleId, $urls) ? $urls[$bundleId] : ' ';
 
             $_SESSION['icons'][] = serialize(
                 new IconModel(
                     $label,
                     $bundleId,
                     $icon,
-                    'png',
-                    $url
+                    'png'
                 )
             );
         }

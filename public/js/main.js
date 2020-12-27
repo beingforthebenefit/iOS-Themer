@@ -43,6 +43,7 @@ gsap.from('.try_now_button', {opacity: 0, duration: 1, delay:2.1, y: 30})
 gsap.from('.store-button', {opacity: 0, duration: 1, delay:2.1, y: 30})
 
 // icon-packs-page
+gsap.from('.container', {opacity: 0, duration: 1, delay: 1.3, y: 30})
 
 // iosthemer
 gsap.from('.installer', {opacity: 0, duration: 1, delay: 1.3, y: 30})
