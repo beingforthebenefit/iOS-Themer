@@ -104,6 +104,9 @@
             <th>
                 Link 2 URL
             </th>
+            <th>
+                Edit
+            </th>
         </tr>
         <?php foreach ((new PackModel('packs'))->rows() as $pack) { ?>
             <tr>
@@ -130,6 +133,9 @@
                 </td>
                 <td>
                     <?= $pack['link2Url'] ?>
+                </td>
+                <td>
+                    <a href="/?p=admin&c=IconPack&a=edit&packId=<?= $pack['packId'] ?>">✏️</a>
                 </td>
             </tr>
         <?php } ?>
