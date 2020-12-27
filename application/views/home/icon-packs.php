@@ -10,23 +10,16 @@
 <div class="main__data">
     <h1 class="main__description">Custom Crafted Icon Packs by Ubaid Dafedar</h1>
     <div class="container">
-        <div class="card" style="background:url(/images/icon-pack-previews/pastel-pink.jpg)">
+    <?php foreach ((new PackModel('packs'))->rows() as $pack) { ?>
+        <div class="card" style="background:url(/images/icon-pack-previews/<?= $pack['background'] ?>)">
             <div class="content">
-                <h3>Demo Icon Pack</h3>
-                <a href="#">Edit Icon Pack</a><br />
-                <a href="#">Install Now</a>
-                <p>Free Demo Icon Pack<br>Full version will be released soon.
-                </p>
+                <h3><?= $pack['title'] ?></h3>
+                <a href="<?= $pack['link1Url'] ?>"><?= $pack['link1Text'] ?></a><br />
+                <a href="<?= $pack['link2Url'] ?>" <?= $pack['paid'] ? 'class="gumroad-button"' : '' ?>><?= $pack['link2Text'] ?></a>
+                <p><?= $pack['description'] ?></p>
             </div>
         </div>
-
-        <div class="card" style="background:url(/images/icon-pack-previews/minimal-red.jpg)">
-            <div class="content">
-                <h3>Minimal Red</h3>
-                <a href="#">Free Demo</a><br />
-                <a class="gumroad-button" href="#" >Buy Full Version - $6</a><br />
-                <p>Full version includes 120+ icons and ability to edit icons/labels.</p>
-            </div>
-        </div>
+    <?php } ?>
     </div>
 </div>
+
