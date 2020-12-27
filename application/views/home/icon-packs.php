@@ -3,7 +3,7 @@
     <div class="card" style="background:url(/images/icon-pack-previews/pastel-pink.jpg)">
         <div class="content">
             <h3>Demo Icon Pack</h3>
-            <a href="/?a=loadIcons&pack=pastel-pink-basic&customize&page=installer">Edit Icon Pack</a><br />
+            <a href="/?a=loadIcons&pack=pastel-pink-basic&customize&page=installer#phone">Edit Icon Pack</a><br />
             <a href="/?a=loadIcons&pack=pastel-pink-basic">Install Now</a>
             <p>Free Demo Icon Pack<br>Full version will be released soon.
             </p>
