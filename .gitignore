@@ -6,8 +6,9 @@ log.txt
 # ignore config file
 config.php
 
-# deploy script
+# deploy scripts
 deploy
+deploy-staging
 
 # ignore public uploads
 public/uploads/*
