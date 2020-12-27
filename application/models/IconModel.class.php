@@ -22,7 +22,7 @@ class IconModel extends Model {
         $this->PayloadIdentifier = 'geralds.icon.themer.' . $hash . '.' . (count($_SESSION['icons']) + 1);
         $this->PayloadUUID = $hash;
         $this->TargetApplicationBundleIdentifier = $bundleId;
-        $this->URL = $systemApp ? $urls[$bundleId] : ' ';
+        $this->URL = $systemApp ? ($urls[$bundleId] ?? ' ') : ' ';
         $this->Icon = $this->encode($iconPath, $fileType);
     }
 
