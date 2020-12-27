@@ -19,9 +19,32 @@ class IndexController extends Controller {
         return ob_get_clean();
     }
 
+    // TEMPORARY CODE FOR STAGING
+    // authenticate :: void -> void
+    public function authenticate($admin) {
+        if (!isset($_SERVER['PHP_AUTH_USER'])) {
+            header('WWW-Authenticate: Basic realm="Staging Login"');
+            header('HTTP/1.0 401 Unauthorized');
+            echo 'This is not the page you are looking for...';
+            exit;
+        }
+
+        
+        $username = $_SERVER['PHP_AUTH_USER'];
+        $password = $_SERVER['PHP_AUTH_PW'];
+
+        return $admin->validate($username, $password);
+    }
+
     // indexAction :: void -> void
     public function indexAction() {
-        echo $this->build(CURR_VIEW_PATH . 'home.php');
+        $admin = new AdminModel('admins');
+        if ($this->authenticate($admin)) {
+            $admin->login($admin);
+            echo $this->build(CURR_VIEW_PATH . 'home.php');
+        } else {
+            echo "This is not the page you are looking for...";
+        }
     }
 
     // howToAction :: void -> void
