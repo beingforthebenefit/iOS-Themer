@@ -3,7 +3,7 @@
 
 class ApiKeyModel extends Model {
 
-    // addKey :: (string, string, string) -> bool
+    // add :: (string, string, string) -> bool
     public function add($owner) {
         return $this->insert([
             'key' => md5(date('yMdhmsu')),
