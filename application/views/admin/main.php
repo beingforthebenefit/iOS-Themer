@@ -72,7 +72,7 @@
         <?php } ?>
     </table>
     <a href="#" title="Add Key" alt="Add Key" onclick="addKey()">
-        ➕
+        ➕ New API Key
     </a>
 </div>
 
@@ -140,6 +140,12 @@
             </tr>
         <?php } ?>
     </table>
+    <a href="/?p=admin&c=IconPack&a=upload" title="Upload Icon Pack" alt="Upload Icon Pack">
+        📦 Upload Icon Pack
+    </a> | 
+    <a href="/?p=admin&c=IconPack&a=create" title="Add Icon Card" alt="Add Card">
+        ➕ New Icon Card
+    </a>
 </div>
 
 <script>
