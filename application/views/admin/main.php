@@ -22,6 +22,7 @@
     </table>
 </div>
 
+
 <div>
     <h1>API Keys</h1>
     <table>
@@ -74,6 +75,73 @@
         ➕
     </a>
 </div>
+
+<div>
+    <h1>Icon Packs</h1>
+    <table>
+        <tr>
+            <th>
+                Title
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                Background
+            </th>
+            <th>
+                Paid?
+            </th>
+            <th>
+                Link 1 Text
+            </th>
+            <th>
+                Link 1 URL
+            </th>
+            <th>
+                Link 2 Text
+            </th>
+            <th>
+                Link 2 URL
+            </th>
+            <th>
+                Edit
+            </th>
+        </tr>
+        <?php foreach ((new PackModel('packs'))->rows() as $pack) { ?>
+            <tr>
+                <td>
+                    <?= $pack['title'] ?>
+                </td>
+                <td>
+                    <?= $pack['description'] ?>
+                </td>
+                <td>
+                    <?= $pack['background'] ?>
+                </td>
+                <td>
+                    <?= $pack['paid'] ? 'Yes' : 'No' ?>
+                </td>
+                <td>
+                    <?= $pack['link1Text'] ?>
+                </td>
+                <td>
+                    <?= $pack['link1Url'] ?>
+                </td>
+                <td>
+                    <?= $pack['link2Text'] ?>
+                </td>
+                <td>
+                    <?= $pack['link2Url'] ?>
+                </td>
+                <td>
+                    <a href="/?p=admin&c=IconPack&a=edit&packId=<?= $pack['packId'] ?>">✏️</a>
+                </td>
+            </tr>
+        <?php } ?>
+    </table>
+</div>
+
 <script>
     function confirmToggle(key, owner) {
         var sure = confirm("Are sure you want to toggle the API key belonging to " + owner + "?");
