@@ -1,4 +1,4 @@
-<?php ini_set('max_file_uploads', '200') ?>
+<?php ini_set('max_file_uploads', '400') ?>
 <h1>Uploads</h1>
 
 <h2>Icon pack uploads</h2>
