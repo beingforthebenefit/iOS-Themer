@@ -294,4 +294,11 @@ class IndexController extends Controller {
         return array_key_exists('customize', $_GET) ? $this->indexAction() : $this->downloadAction();
     }
 
+    // getIconPackInfo :: void -> void
+    public function getIconPackInfoAction() {
+        header('Content-Type: application/json');
+        echo json_encode((new PackModel('packs'))->rows());
+    }
+
+
 }
