@@ -1,6 +1,6 @@
         <dict>
             <key>FullScreen</key>
-            <true/>
+            <?= $bundleId == 'com.apple.mobilesafari' ? "<false/>" : "<true/>" ?>
             <key>Icon</key>
             <data>
                 <?= $data ?>
