@@ -299,4 +299,43 @@ class IndexController extends Controller {
         header('Content-Type: application/json');
         echo json_encode((new PackModel('packs'))->rows());
     }
+
+    // buildFileAction :: void -> void
+    public function buildFileAction() {
+        // Check file sizes/types/etc
+        // TODO: Fix this error checking
+        // $errors = $this->uploadCheck();
+
+        // Initialize the session variable key `icons`
+        $_SESSION['icons'] = [ ];
+
+        // Check filename format
+        foreach ($_FILES['icon']['name'] as $name) {
+            if (!preg_match('/.* - .*/', $name)) {
+                $errors[] = "'{$name}' does not fit the naming convention.";
+            }
+        }
+        //if (empty($errors)) {
+            $icons = [ ];
+            $systemApps = json_decode(file_get_contents(CONFIG_PATH . 'default-apps.json'), true);
+            foreach ($_FILES['icon']['name'] as $i => $id) {
+                $parts = explode(' - ', $id);
+                $bundleId = $parts[0];
+                $label = pathinfo(implode(' - ', array_slice($parts, 1)), PATHINFO_FILENAME);
+                $fileType = strtolower(pathinfo($id, PATHINFO_EXTENSION));
+                $_SESSION['icons'][] = serialize(
+                    new IconModel(
+                        $label,
+                        $bundleId,
+                        $_FILES['icon']['tmp_name'][$i],
+                        $fileType
+                    )
+                );
+            }
+            $this->downloadAction();
+        //} else {
+        //    header('Content-Type: application/json');
+        //    echo json_encode($errors);
+        //}
+    }
 }
