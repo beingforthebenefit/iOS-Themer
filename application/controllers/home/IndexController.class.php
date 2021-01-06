@@ -306,6 +306,9 @@ class IndexController extends Controller {
         // TODO: Fix this error checking
         // $errors = $this->uploadCheck();
 
+        echo "I'm alive! and working hard on this.";
+        die;
+
         // Initialize the session variable key `icons`
         $_SESSION['icons'] = [ ];
 
