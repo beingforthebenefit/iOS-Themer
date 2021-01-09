@@ -330,6 +330,9 @@ class IndexController extends Controller {
                 )
             );
         }
-        $this->downloadAction();
+
+        $name = md5(date('mdyhmsu')) . '.mobileconfig';
+        file_put_contents(UPLOAD_PATH . $name, \XML::createConfig($_SESSION['icons']));
+        echo '/uploads/' . $name;
     }
 }
