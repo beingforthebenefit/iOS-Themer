@@ -19,6 +19,9 @@
   
   /*z-index*/
   --z-fixed: 100;
+  
+  /*Hue*/
+  filter: hue-rotate(218deg);
 }
 
 @media screen and (min-width: 768px){
