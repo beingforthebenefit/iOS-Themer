@@ -10,7 +10,7 @@
     <input type="hidden" name="c" value="IconPack" />
     <input type="hidden" name="a" value="uploadPack" />
     <div>
-        <label>Icon Pack Directory (will be placed in <code>/application/icon-packs/</code></label><br />
+        <label>Icon Pack Directory Name (will be placed in <code>/application/icon-packs/</code>. This will be used in the installation URL, so use conventions like <a href="https://www.theserverside.com/definition/Kebab-case">kebab-case</a> (e.g. <code>this-is-a-great-example-of-kebab-case</code>)</label><br />
         <input type="text" name="directory" />
     </div>
     <div>
