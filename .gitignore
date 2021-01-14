@@ -12,3 +12,6 @@ deploy-staging
 
 # ignore public uploads
 public/uploads/*
+
+# ignore temp dir
+tmp/
