@@ -185,7 +185,7 @@ class IndexController extends Controller {
         if (!$size || $size > self::MAX_FILE_SIZE) {
             $errors[] = "'$name' too large. Must be under " . self::MAX_FILE_SIZE / 1000 . "KB.";
         } else if (!in_array(
-            $fileType,
+            strtolower($fileType),
             ['jpg', 'jpeg', 'gif', 'png'])
         ) {
             $errors[] = "'{$name}' not allowed. Only JPG, GIF, or PNG files are allowed.";
@@ -271,6 +271,9 @@ class IndexController extends Controller {
         $icons = [ ];
 
         exec("ls {$path}*.png", $list);
+        if (empty($list)) {
+            exec("ls {$path}*.PNG", $list);
+        }
 
         $systemApps = json_decode(file_get_contents(CONFIG_PATH . 'default-apps.json'), true);
 
