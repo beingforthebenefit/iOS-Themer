@@ -17,7 +17,14 @@
     </div>
     <div>
         <label>Background File</label>
-        <input type="text" name="background" value="<?= $pack['background'] ?>" />
+        <select name="background">
+            <?php 
+                $files = array_diff(scandir(PUBLIC_PATH . 'images/icon-pack-previews'), ['..', '.']);
+                foreach ($files as $file) { 
+            ?>
+                <option value="<?= $file ?>" <?= $pack['background'] == $file ? 'selected': '' ?>><?= $file ?></option>
+            <?php } ?>
+        </select>
             Located in <code>/public/images/icon-pack-previews/</code>
     </div>
     <div>

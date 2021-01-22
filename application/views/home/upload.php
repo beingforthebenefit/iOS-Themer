@@ -10,7 +10,7 @@
 
 <div class="forms-wrap">
     <!-- App store -->
-    <form id="app-store" class="form" method="POST" enctype="multipart/form-data" >
+    <form id="app-store" class="form" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="a" value="upload" />
         <input type="hidden" name="page" value="installer" />
         <input type="hidden" name="tab" value="app-store" />

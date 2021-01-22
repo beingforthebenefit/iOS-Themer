@@ -215,7 +215,7 @@ class IndexController extends Controller {
         if (!$size || $size > self::MAX_FILE_SIZE) {
             $errors[] = "'$name' too large. Must be under " . self::MAX_FILE_SIZE / 1000 . "KB.";
         } else if (!in_array(
-            $fileType,
+            strtolower($fileType),
             ['jpg', 'jpeg', 'gif', 'png'])
         ) {
             $errors[] = "'{$name}' not allowed. Only JPG, GIF, or PNG files are allowed.";
@@ -236,8 +236,7 @@ class IndexController extends Controller {
         $hash = md5(date('ymdhmsu'));
         mkdir(TEMP_PATH . $hash, 0777);
         exec("echo " . \XML::createConfig($_SESSION['icons']) . ">>" . TEMP_PATH . $hash . '/unsigned.mobileconfig');
-        $result = \SSL::sign(TEMP_PATH . $hash . '/unsigned.mobileconfig', TEMP_PATH . $hash . '/signed.mobileconfig');
-        var_dump($result);die;
+        // $result = \SSL::sign(TEMP_PATH . $hash . '/unsigned.mobileconfig', TEMP_PATH . $hash . '/signed.mobileconfig');
         echo file_get_contents(TEMP_PATH . $hash . '/signed.mobileconfig');
     }
 
@@ -302,6 +301,9 @@ class IndexController extends Controller {
         $icons = [ ];
 
         exec("ls {$path}*.png", $list);
+        if (empty($list)) {
+            exec("ls {$path}*.PNG", $list);
+        }
 
         $systemApps = json_decode(file_get_contents(CONFIG_PATH . 'default-apps.json'), true);
 
@@ -325,4 +327,45 @@ class IndexController extends Controller {
         return array_key_exists('customize', $_GET) ? $this->indexAction() : $this->downloadAction();
     }
 
+    // getIconPackInfoAction :: void -> void
+    public function getIconPackInfoAction() {
+        header('Content-Type: application/json');
+        echo json_encode((new PackModel('packs'))->rows());
+    }
+
+
+    // This endpoint accepts JSON POST requests of the form:
+    // {
+    //     "0": {
+    //         "label":"<Icon Label>",
+    //         "bundleId":"<Bundle ID>",
+    //         "base64":"<Base64 encoded jpg icon"
+    //         },
+    //        ...
+    // }
+
+
+    // buildFileAction :: void -> void
+    public function buildFileAction() {
+        $request = json_decode(file_get_contents('php://input'), true);
+
+        // Initialize the session variable key `icons`
+        $_SESSION['icons'] = [ ];
+        foreach ($request as $index => $_icon) {       
+            $_SESSION['icons'][] = serialize(
+                new IconModel(
+                    $_icon['label'],
+                    $_icon['bundleId'],
+                    null,
+                    null,
+                    $_icon['base64'],
+                    $index + 1
+                )
+            );
+        }
+
+        $name = md5(date('mdyhmsu')) . '.mobileconfig';
+        file_put_contents(UPLOAD_PATH . $name, \XML::createConfig($_SESSION['icons']));
+        echo '/uploads/' . $name;
+    }
 }
