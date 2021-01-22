@@ -8,7 +8,6 @@
 
 <link rel="stylesheet" href="/css/card-style.css<?= $u ?>">
 <div class="main__data">
-    <h1 class="main__description">Custom Crafted Icon Packs by Ubaid Dafedar</h1>
     <div class="container">
     <?php foreach ((new PackModel('packs'))->rows() as $pack) { ?>
         <div class="card" style="background:url(/images/icon-pack-previews/<?= $pack['background'] ?>)">
