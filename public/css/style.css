@@ -149,6 +149,7 @@ img{
   justify-self: center;
   width: 302px;
   height: 233px;
+  filter: hue-rotate(218deg);
 }
 
 .main__img img{
