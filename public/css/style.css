@@ -8,7 +8,7 @@
 
   /*colors used*/
   --light-blue: #8EBEF0;
-  --first-color-dark: #C1576A;
+  --first-color-dark: #5995d4;
   --first-color-darken: #A83E51;
   --white-color: #FCF8F8;
   
@@ -19,10 +19,6 @@
   
   /*z-index*/
   --z-fixed: 100;
-  
-  /*Hue*/
-  filter: hue-rotate(218deg);
-}
 
 @media screen and (min-width: 768px){
   :root{
@@ -157,6 +153,7 @@ img{
   justify-self: center;
   width: 302px;
   height: 233px;
+  filter: hue-rotate(218deg);
 }
 
 .main__img img{
