@@ -4,12 +4,10 @@
 <?php if (!empty($_SESSION['errors'])) { ?>
     <?php foreach ($_SESSION['errors'] as $error) { ?>
         <div class="error-wrap">
-            Error: <?= $error ?>"
+            Error: <?= $error ?>
         </div>
-    <?php } ?>
-<?php }
-
-$_SESSION['errors'] = [ ]; ?>
+    <?php }
+} ?>
 
 <h2>Icon pack uploads</h2>
 
