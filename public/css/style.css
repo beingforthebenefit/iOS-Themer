@@ -7,7 +7,7 @@
   --header-height: 3rem;
 
   /*colors used*/
-  --first-color: #FCA4A6;
+  --light-blue: #8EBEF0;
   --first-color-dark: #C1576A;
   --first-color-darken: #A83E51;
   --white-color: #FCF8F8;
@@ -37,6 +37,7 @@
 }
 
 body{
+  background-color: var(--light-blue);
   margin: var(--header-height) 0 0 0;
   padding: 0;
   font-family: var(--body-font);
@@ -83,7 +84,6 @@ img{
   top: 0;
   left: 0;
   z-index: var(--z-fixed);
-  background-color: var(--first-color);
 }
 
 /*navigation bar*/
@@ -139,8 +139,6 @@ img{
 }
 
 .main {
-  background-color: var(--first-color);
-  overflow: hidden;
 }
 
 .main__container {
