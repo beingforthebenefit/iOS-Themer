@@ -68,6 +68,7 @@ class IconPackController extends Controller {
 
     // uploadPack :: void -> void
     public function uploadPackAction() {
+        $_SESSION['errors'] = [ ];
         $destination = ICON_PACK_PATH . $_POST['directory'];
         mkdir($destination);
 
@@ -78,8 +79,22 @@ class IconPackController extends Controller {
             }
         }
 
+
         foreach ($icons as $icon) {
-            move_uploaded_file($icon['tmp_name'], $destination . DS . $icon['name']);
+
+            if (!preg_match("/.+\s-\s.+\.(png|PNG)/", $icon['name']) || preg_match("/---/")) {
+                $_SESSION['errors'][] = $icon['name'] . " does not fit the required name format of 'bundleId - Icon Label.png'. Please rename and try again.";
+            } else {
+                move_uploaded_file($icon['tmp_name'], $destination . DS . $icon['name']);
+            }
+        }
+        // echo'<pre>';
+        // var_dump($_SESSION['errors']);die;
+        // echo '<pre />';
+
+        if (!empty($_SESSION['errors'])) {
+            header("Location: /?p=admin&c=IconPack&a=upload");
+            exit;
         }
 
         move_uploaded_file($_FILES['background']['tmp_name'], PUBLIC_PATH . 'images' . DS . 'icon-pack-previews' . DS . $_FILES['background']['name']);

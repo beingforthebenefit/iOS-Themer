@@ -7,4 +7,5 @@
         border: 1px solid #000000;
     }
 </style>
+<link rel="stylesheet" href="/css/style.css">
 <body>

@@ -1,9 +1,19 @@
-<?php ini_set('max_file_uploads', '400') ?>
+<?php ini_set('max_file_uploads', '300') ?>
 <h1>Uploads</h1>
+
+<?php if (!empty($_SESSION['errors'])) { ?>
+    <?php foreach ($_SESSION['errors'] as $error) { ?>
+        <div class="error-wrap">
+            Error: <?= $error ?>"
+        </div>
+    <?php } ?>
+<?php }
+
+$_SESSION['errors'] = [ ]; ?>
 
 <h2>Icon pack uploads</h2>
 
-<h4>Note: You can only upload 400 icons at a time. <a href="mailto:gerald@gtodd.dev">Let me know</a> if that's a problem.</h4>
+<h4>Note: You can only upload 300 icons at a time. <a href="mailto:gerald@gtodd.dev">Let me know</a> if that's a problem.</h4>
 
 <form action="/" method="POST" enctype="multipart/form-data">
     <input type="hidden" name="p" value="admin" />
