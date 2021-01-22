@@ -1,6 +1,8 @@
 <?php $pack = new PackModel('packs') ?>
 <h1>Create Icon Pack</h1>
 
+<php include CURR_VIEW_PATH . 'messages.php' ?>
+
 <form action="/" method="POST">
     <input type="hidden" name="p" value="admin" />
     <input type="hidden" name="c" value="IconPack" />

@@ -78,8 +78,17 @@ class IconPackController extends Controller {
             }
         }
 
+        $validName = preg_match("/.+ - .*.(png|PNG)", $icon['name']);
+
+        if (!$validName) {
+            $_SESSION['errors'][] = "$icon['name'] does not fit the required name format of `bundleId - Icon Label.png.<br />Please rename and try again.";
+            header("Location : /?p=admin&c=IconPack&a=upload");
+            return;
+        }
+
         foreach ($icons as $icon) {
             move_uploaded_file($icon['tmp_name'], $destination . DS . $icon['name']);
+
         }
 
         move_uploaded_file($_FILES['background']['tmp_name'], PUBLIC_PATH . 'images' . DS . 'icon-pack-previews' . DS . $_FILES['background']['name']);

@@ -63,6 +63,10 @@ img{
   height: auto;
 }
 
+.error {
+  background-color: red;
+}
+
 .hidden {
   display: none;
 }
