@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="/css/card-style.css<?= $u ?>">
 <div class="container">
     <?php foreach ((new PackModel('packs'))->rows() as $pack) { ?>
-        <div class="card" style="background:url(/images/icon-pack-previews/<?= $pack['background'] ?>)">
+        <div class="card" style="background:url('/images/icon-pack-previews/<?= $pack['background'] ?>')">
             <div class="content">
                 <h3><?= $pack['title'] ?></h3>
                 <?php if ($pack['link1Url']) { ?>
