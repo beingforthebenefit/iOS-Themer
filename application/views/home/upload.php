@@ -106,7 +106,7 @@
         <input type="hidden" name="tab" value="batch" />
         <input type="hidden" name="bundleId" value="" />
         <fieldset class="form-fieldset">
-            <?php if (!preg_match("/iPhone|iPad|iPod/i", $_SERVER["HTTP_USER_AGENT"])) { ?>
+            <?php if (!preg_match("/iPhone|iPad|iPod/i", $_SERVER["HTTP_USER_AGENT"] ?? [ ])) { ?>
                 <span class="batch-description">Max of 20 icons per batch upload. File names must be
                     in the format <code class="code">bundleId - label.ext</code>, for example, <code class="code" >com.facebook.Facebook - Facebook.png</code>. Don't know the bundle ID? For system apps, Apple lists them <a href="https://support.apple.com/en-in/guide/mdm/mdm90f60c1ce/web" target="_BLANK">here</a> and for third-party apps, use <a href="https://offcornerdev.com/bundleid.html" target="_BLANK">this handy search engine</a>.</span>
                 <div class="form-file">
