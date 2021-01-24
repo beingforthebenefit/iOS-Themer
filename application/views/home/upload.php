@@ -118,7 +118,7 @@
                 </div>
             <?php } else { ?>
                 <p>Mobile browsers do not support multiple file uploads. Please visit from a desktop!</p>
-                <p>Receive this message in error? <a href="mailto:gerald@gtodd.dev">Let me know</a>!</p>
+                <p>Receive this message in error? <a href="mailto:ApproximatelyPi@22over7.live">Let me know</a>!</p>
             <?php } ?>
         </fieldset>
     </form>

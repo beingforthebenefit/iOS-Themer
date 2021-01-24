@@ -11,7 +11,7 @@
 
 <h2>Icon pack uploads</h2>
 
-<h4>Note: You can only upload 300 icons at a time. <a href="mailto:gerald@gtodd.dev">Let me know</a> if that's a problem.</h4>
+<h4>Note: You can only upload 300 icons at a time. <a href="mailto:ApproximatelyPi@22over7.live">Let me know</a> if that's a problem.</h4>
 
 <form action="/" method="POST" enctype="multipart/form-data">
     <input type="hidden" name="p" value="admin" />
