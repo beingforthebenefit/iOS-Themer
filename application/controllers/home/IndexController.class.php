@@ -338,4 +338,10 @@ class IndexController extends Controller {
         file_put_contents(UPLOAD_PATH . $name, \XML::createConfig($_SESSION['icons']));
         echo '/uploads/' . $name;
     }
+
+    // getIconPacksAction :: void -> [string -> string]
+    public function getIconPacksAction() {
+        return json_decode(file_get_contents("https://flurly.com/api/store_details/22over7"), true);
+    }
 }
+ 
