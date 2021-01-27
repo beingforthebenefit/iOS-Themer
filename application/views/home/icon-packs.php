@@ -1,16 +1,12 @@
 <link rel="stylesheet" href="/css/card-style.css<?= $u ?>">
 <div class="container">
-    <?php foreach ((new PackModel('packs'))->rows() as $pack) { ?>
-        <div class="card" style="background:url('/images/icon-pack-previews/<?= $pack['background'] ?>')">
+    <?php foreach ((new PackModel('packs'))->getAllIconPacks() as $pack) {
+        $previewFile = DS . 'images' . DS . 'icon-pack-previews' . DS . end(explode('/', $pack['url'])) . '.jpg'; ?>
+        <div class="card" style="background:url('<?= $previewFile ?>')">
             <div class="content">
-                <h3><?= $pack['title'] ?></h3>
-                <?php if ($pack['link1Url']) { ?>
-                    <a href="<?= $pack['link1Url'] ?>" <?= $pack['paid'] && strpos('gum.co', $pack['link1Url']) ? 'class="gumroad-button"' : '' ?>><?= $pack['link1Text'] ?></a><br />
-                <?php } ?>
-                <?php if ($pack['link2Url']) { ?>
-                    <a href="<?= $pack['link2Url'] ?>" <?= $pack['paid'] && strpos('gum.co', $pack['link2Url']) ? 'class="gumroad-button"' : '' ?>><?= $pack['link2Text'] ?></a>
-                <?php } ?>
-                <p><?= $pack['description'] ?></p>
+                <h3><?= $pack['name'] . ' - ' . $pack['price'] . strtoupper($pack['currency']) ?></h3>
+                <a href="<?= $pack['url'] ?>" <?= $pack['paid'] && strpos('gum.co', $pack['url']) ? 'class="gumroad-button"' : '' ?>>Click to download!</a><br />
+                <p class="icon-pack-description overflow"><?= $pack['description'] ?></p>
             </div>
         </div>
     <?php } ?>
