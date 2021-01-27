@@ -444,6 +444,55 @@ a:hover {
     line-height: 1.5em;
 }
 
+/* truncating long descriptions */
+.icon-pack-description {
+  width: 250px;
+  margin: 0 0 1em 0;
+  overflow: hidden;
+}
+
+.last-line {
+  height: 3.6em; /* exactly three lines */
+  text-overflow: -o-ellipsis-lastline;
+}
+
+.ftellipsis {
+  height: 3.6em;
+}
+
+html {
+  --lh: 1.4rem;
+  line-height: var(--lh);
+}
+
+.overflow {
+  --max-lines: 3;
+  position: relative;
+  max-height: 150px;
+  overflow: hidden;
+  padding-right: 1rem; /* space for ellipsis */
+}
+
+.overflow::before {
+  position: absolute;
+  content: "...";
+/*   inset-block-end: 0;
+  inset-inline-end: 0; */
+  bottom: 0;
+  right: 0;
+  transform: translate(-10px, -5px);
+}
+
+.overflow::after {
+  content: "";
+  position: absolute;
+/*   inset-inline-end: 0; */
+  right: 0;
+  width: 1rem;
+  height: 1rem;
+  background: white;
+}
+
 /* end Icon Packs */
 
 .footer {
