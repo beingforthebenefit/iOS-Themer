@@ -5,7 +5,7 @@
         <div class="card" style="background:url('<?= $previewFile ?>')">
             <div class="content">
                 <h3><?= $pack['name'] . ' - ' . $pack['price'] . strtoupper($pack['currency']) ?></h3>
-                <a href="<?= $pack['url'] ?>" <?= $pack['paid'] && strpos('gum.co', $pack['url']) ? 'class="gumroad-button"' : '' ?>>Click to download!</a><br />
+                <a href="<?= $pack['url'] ?>" <?= $pack['price'] && strpos('gum.co', $pack['url']) ? 'class="gumroad-button"' : '' ?>>Click to download!</a><br />
                 <p class="icon-pack-description overflow"><?= $pack['description'] ?></p>
             </div>
         </div>
