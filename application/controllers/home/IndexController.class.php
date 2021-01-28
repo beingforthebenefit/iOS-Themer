@@ -346,8 +346,14 @@ class IndexController extends Controller {
 
     public function getIconsFromPackAction() {
         $files = [ ];
-        $fileList = glob(ICON_PACK_PATH . DS . $_GET['pack'] . DS . '*.png');
-        echo json_encode(glob(ICON_PACK_PATH . DS . $_GET['pack'] . DS . '*.png'));
+        if (!cdir($_GET['pack'])) {
+            echo "There is no directory named $_GET['pack']";
+            return;
+        }
+        foreach (glob(ICON_PACK_PATH . DS . $_GET['pack'] . DS . '*.png') as $file) {
+            $files[] = $file;
+        }
+        echo json_encode($files);
     }
 }
  
