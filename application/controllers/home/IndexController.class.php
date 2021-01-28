@@ -341,7 +341,7 @@ class IndexController extends Controller {
 
     // getIconPacksAction :: void -> [string -> string]
     public function getIconPacksAction() {
-        echo file_get_contents("https://flurly.com/api/store_details/22over7");
+        echo json_decode(file_get_contents("https://flurly.com/api/store_details/22over7"), true);
     }
 }
  
