@@ -348,7 +348,8 @@ class IndexController extends Controller {
         $files = [ ];
         if (chdir(ICON_PACK_PATH . $_GET['pack'])) {
             foreach (glob('*.png') as $file) {
-                $files[] = $file;
+                $files[]  = ['name' => trim(explode('-', $file)[1]),
+                    'bundleId' => trim(explode('-', $file)[0])];
             }
             echo json_encode($files);
         }
