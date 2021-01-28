@@ -350,7 +350,7 @@ class IndexController extends Controller {
             echo "There is no directory named $_GET['pack']";
             return;
         }
-        foreach (glob(ICON_PACK_PATH . DS . $_GET['pack'] . DS . '*.png') as $file) {
+        foreach ('*.png') as $file) {
             $files[] = $file;
         }
         echo json_encode($files);
