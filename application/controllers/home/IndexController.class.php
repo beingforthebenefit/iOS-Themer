@@ -343,5 +343,15 @@ class IndexController extends Controller {
     public function getIconPacksAction() {
         echo json_decode(file_get_contents("https://flurly.com/api/store_details/22over7"), true);
     }
+
+    public function getIconsFromPackAction() {
+        $files = [ ];
+        if (chdir(ICON_PACK_PATH . $_GET['pack'])) {
+            foreach (glob('*.png') as $file) {
+                $files[] = $file;
+            }
+            echo json_encode($files);
+        }
+    }
 }
  
