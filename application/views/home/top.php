@@ -19,8 +19,8 @@
                     iOS Themer
                 </a>
             </div>
-            <div class="nav-link-wrap <?= 'icon-packs' == $_SESSION['page'] ? 'active' : '' ?>" id="icon-packs-link" onclick="changePage('icon-packs')">
-                <a class="nav-link">
+            <div class="nav-link-wrap">
+                <a class="nav-link" href="https://flurly.com/s/22over7" target="_BLANK">
                     Icon Packs
                 </a>
             </div>
