@@ -345,14 +345,19 @@ class IndexController extends Controller {
     }
 
     public function getIconsFromPackAction() {
-        $files = [ ];
-        if (chdir(ICON_PACK_PATH . $_GET['pack'])) {
-            foreach (glob('*.png') as $file) {
-                $files[]  = ['name' => trim(explode('-', $file)[1]),
-                    'bundleId' => trim(explode('-', $file)[0])];
-            }
-            echo json_encode($files);
+        $url = "https://iostheme.live/change-me/" . $_GET['pack'] . DS;
+        $dir = scandir('change-me' . DS . $_GET['pack']);
+        foreach ($dir as $index => $_dir) {
+            $dir[$index] = $url . $dir[$index];
         }
+        echo json_encode(array_slice($dir, 2));
     }
+
+    // public funtion downloadIconFromPack() {
+    //     if (chdir(ICON_PACK_PATH . $_GET['pack'])) {
+
+    //     }
+    // }
 }
- 
+
+// https://storage.googleapis.com/ios-icons/icon-packs/3d/com.apple.findmy%20-%20Find%20My.png
