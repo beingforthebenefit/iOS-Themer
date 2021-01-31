@@ -37,9 +37,9 @@ $otherPacks = array_filter(
         $previewFile = DS . 'images' . DS . 'icon-pack-previews' . DS . end(explode('/', $pack['url'])) . '.jpg'; ?>
         <div class="card" style="background:url('<?= $previewFile ?>')">
             <div class="content">
-                <h3><?= $pack['name'] . ' - ' . $pack['price'] . strtoupper($pack['currency']) ?></h3>
-                <a href="<?= $pack['url'] ?>" <?= $pack['price'] && strpos('gum.co', $pack['url']) ? 'class="gumroad-button"' : '' ?>>Click to download!</a><br />
-                <p class="icon-pack-description overflow"><?= $pack['description'] ?></p>
+                <h3><?= $pack['name'] ?></h3>
+                <a href="<?= $pack['url'] ?>" <?= $pack['price'] && strpos('gum.co', $pack['url']) ? 'class="gumroad-button"' : '' ?>>
+                    <?= '$' . $pack['price'] . ' ' . strtoupper($pack['currency']) ?></a><br />
             </div>
         </div>
     <?php } ?>
@@ -52,9 +52,9 @@ $otherPacks = array_filter(
         $previewFile = DS . 'images' . DS . 'icon-pack-previews' . DS . end(explode('/', $pack['url'])) . '.jpg'; ?>
         <div class="card" style="background:url('<?= $previewFile ?>')">
             <div class="content">
-                <h3><?= $pack['name'] . ' - ' . $pack['price'] . strtoupper($pack['currency']) ?></h3>
-                <a href="<?= $pack['url'] ?>" <?= $pack['price'] && strpos('gum.co', $pack['url']) ? 'class="gumroad-button"' : '' ?>>Click to download!</a><br />
-                <p class="icon-pack-description overflow"><?= $pack['description'] ?></p>
+                <h3><?= $pack['name'] ?></h3>
+                <a href="<?= $pack['url'] ?>" <?= $pack['price'] && strpos('gum.co', $pack['url']) ? 'class="gumroad-button"' : '' ?>>
+                    <?= '$' . $pack['price'] . ' ' . strtoupper($pack['currency']) ?></a><br />
             </div>
         </div>
     <?php } ?>
@@ -67,9 +67,9 @@ $otherPacks = array_filter(
         $previewFile = DS . 'images' . DS . 'icon-pack-previews' . DS . end(explode('/', $pack['url'])) . '.jpg'; ?>
         <div class="card" style="background:url('<?= $previewFile ?>')">
             <div class="content">
-                <h3><?= $pack['name'] . ' - ' . $pack['price'] . strtoupper($pack['currency']) ?></h3>
-                <a href="<?= $pack['url'] ?>" <?= $pack['price'] && strpos('gum.co', $pack['url']) ? 'class="gumroad-button"' : '' ?>>Click to download!</a><br />
-                <p class="icon-pack-description overflow"><?= $pack['description'] ?></p>
+                <h3><?= $pack['name'] ?></h3>
+                <a href="<?= $pack['url'] ?>" <?= $pack['price'] && strpos('gum.co', $pack['url']) ? 'class="gumroad-button"' : '' ?>>
+                    <?= '$' . $pack['price'] . ' ' . strtoupper($pack['currency']) ?></a><br />
             </div>
         </div>
     <?php } ?>
@@ -82,9 +82,9 @@ $otherPacks = array_filter(
         $previewFile = DS . 'images' . DS . 'icon-pack-previews' . DS . end(explode('/', $pack['url'])) . '.jpg'; ?>
         <div class="card" style="background:url('<?= $previewFile ?>')">
             <div class="content">
-                <h3><?= $pack['name'] . ' - ' . $pack['price'] . strtoupper($pack['currency']) ?></h3>
-                <a href="<?= $pack['url'] ?>" <?= $pack['price'] && strpos('gum.co', $pack['url']) ? 'class="gumroad-button"' : '' ?>>Click to download!</a><br />
-                <p class="icon-pack-description overflow"><?= $pack['description'] ?></p>
+                <h3><?= $pack['name'] ?></h3>
+                <a href="<?= $pack['url'] ?>" <?= $pack['price'] && strpos('gum.co', $pack['url']) ? 'class="gumroad-button"' : '' ?>>
+                    <?= '$' . $pack['price'] . ' ' . strtoupper($pack['currency']) ?></a><br />
             </div>
         </div>
     <?php } ?>
