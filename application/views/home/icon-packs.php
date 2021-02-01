@@ -61,7 +61,7 @@ $otherPacks = array_filter(
 </div>
 
 <!-- Mini icon packs -->
-<div style="margin-top: 50px;margin-left: 45%"><h1>Mini Icon Packs</h1></div>
+<div style="margin-top: 50px;margin-left: 45%"><h1>Minimal Sets</h1></div>
 <div class="container">
     <?php foreach ($minimalSet as $pack) {
         $previewFile = DS . 'images' . DS . 'icon-pack-previews' . DS . end(explode('/', $pack['url'])) . '.jpg'; ?>
