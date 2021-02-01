@@ -33,9 +33,8 @@ $otherPacks = array_filter(
 <!-- Mini Icon Packs -->
 <div style="margin-top: 50px;margin-left: 25vw"><h1>Mini Icon Packs</h1></div>
 <div class="container">
-    <?php foreach ($miniIconPacks as $pack) {
-        $previewFile = DS . 'images' . DS . 'icon-pack-previews' . DS . end(explode('/', $pack['url'])) . '.jpg'; ?>
-        <div class="card" style="background:url('<?= $previewFile ?>')">
+    <?php foreach ($miniIconPacks as $pack) { ?>
+        <div class="card" style="background:url('<?= $pack['cover_image'] ?>')">
             <div class="content">
                 <h3><?= $pack['name'] ?></h3>
                 <a href="<?= $pack['url'] ?>" <?= $pack['price'] && strpos('gum.co', $pack['url']) ? 'class="gumroad-button"' : '' ?>>
@@ -48,9 +47,8 @@ $otherPacks = array_filter(
 <!-- Third-party icon packs -->
 <div style="margin-top: 50px;margin-left: 45%"><h1>Third-Party Icon Packs</h1></div>
 <div class="container">
-    <?php foreach ($thirdParty as $pack) {
-        $previewFile = DS . 'images' . DS . 'icon-pack-previews' . DS . end(explode('/', $pack['url'])) . '.jpg'; ?>
-        <div class="card" style="background:url('<?= $previewFile ?>')">
+    <?php foreach ($thirdParty as $pack) { ?>
+        <div class="card" style="background:url('<?= $pack['cover_image'] ?>')">
             <div class="content">
                 <h3><?= $pack['name'] ?></h3>
                 <a href="<?= $pack['url'] ?>" <?= $pack['price'] && strpos('gum.co', $pack['url']) ? 'class="gumroad-button"' : '' ?>>
@@ -63,9 +61,8 @@ $otherPacks = array_filter(
 <!-- Mini icon packs -->
 <div style="margin-top: 50px;margin-left: 45%"><h1>Minimal Sets</h1></div>
 <div class="container">
-    <?php foreach ($minimalSet as $pack) {
-        $previewFile = DS . 'images' . DS . 'icon-pack-previews' . DS . end(explode('/', $pack['url'])) . '.jpg'; ?>
-        <div class="card" style="background:url('<?= $previewFile ?>')">
+    <?php foreach ($minimalSet as $pack) { ?>
+        <div class="card" style="background:url('<?= $pack['cover_image'] ?>')">
             <div class="content">
                 <h3><?= $pack['name'] ?></h3>
                 <a href="<?= $pack['url'] ?>" <?= $pack['price'] && strpos('gum.co', $pack['url']) ? 'class="gumroad-button"' : '' ?>>
@@ -78,9 +75,8 @@ $otherPacks = array_filter(
 <!-- Others (Ones without descriptors) -->
 <div style="margin-top: 50px;margin-left: 45%"><h1>Other Icon Packs</h1></div>
 <div class="container">
-    <?php foreach ($otherPacks as $pack) {
-        $previewFile = DS . 'images' . DS . 'icon-pack-previews' . DS . end(explode('/', $pack['url'])) . '.jpg'; ?>
-        <div class="card" style="background:url('<?= $previewFile ?>')">
+    <?php foreach ($otherPacks as $pack) { ?>
+        <div class="card" style="background:url('<?= $pack['cover_image'] ?>')">
             <div class="content">
                 <h3><?= $pack['name'] ?></h3>
                 <a href="<?= $pack['url'] ?>" <?= $pack['price'] && strpos('gum.co', $pack['url']) ? 'class="gumroad-button"' : '' ?>>
