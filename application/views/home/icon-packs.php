@@ -31,7 +31,7 @@ $otherPacks = array_filter(
 <!-- TODO: Make this into a loop -->
 
 <!-- Mini Icon Packs -->
-<div style="margin-top: 50px;margin-left: 25vw"><h1>Mini Icon Packs</h1></div>
+<div style="text-align:center"><h1>Mini Icon Packs</h1></div>
 <div class="container">
     <?php foreach ($miniIconPacks as $pack) { ?>
         <div class="card" style="background:url('<?= $pack['cover_image'] ?>')">
@@ -45,7 +45,7 @@ $otherPacks = array_filter(
 </div>
 
 <!-- Third-party icon packs -->
-<div style="margin-top: 50px;margin-left: 45%"><h1>Third-Party Icon Packs</h1></div>
+<div style="text-align:center"><h1>Third-Party Icon Packs</h1></div>
 <div class="container">
     <?php foreach ($thirdParty as $pack) { ?>
         <div class="card" style="background:url('<?= $pack['cover_image'] ?>')">
@@ -59,7 +59,7 @@ $otherPacks = array_filter(
 </div>
 
 <!-- Mini icon packs -->
-<div style="margin-top: 50px;margin-left: 45%"><h1>Minimal Sets</h1></div>
+<div style="text-align:center"><h1>Minimal Sets</h1></div>
 <div class="container">
     <?php foreach ($minimalSet as $pack) { ?>
         <div class="card" style="background:url('<?= $pack['cover_image'] ?>')">
@@ -73,7 +73,7 @@ $otherPacks = array_filter(
 </div>
 
 <!-- Others (Ones without descriptors) -->
-<div style="margin-top: 50px;margin-left: 45%"><h1>Other Icon Packs</h1></div>
+<div style="text-align:center"><h1>Other Icon Packs</h1></div>
 <div class="container">
     <?php foreach ($otherPacks as $pack) { ?>
         <div class="card" style="background:url('<?= $pack['cover_image'] ?>')">
