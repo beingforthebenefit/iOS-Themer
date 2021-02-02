@@ -44,6 +44,20 @@ $otherPacks = array_filter(
     <?php } ?>
 </div>
 
+<!-- Pastel Icon Packs -->
+<div style="text-align:center"><h1>Pastel Collection</h1></div>
+<div class="container">
+    <?php foreach ($pastelCollection as $pack) { ?>
+        <div class="card" style="background:url('<?= $pack['cover_image'] ?>')">
+            <div class="content">
+                <h3><?= $pack['name'] ?></h3>
+                <a href="<?= $pack['url'] ?>" <?= $pack['price'] && strpos('gum.co', $pack['url']) ? 'class="gumroad-button"' : '' ?>>
+                    <?= '$' . $pack['price'] . ' ' . strtoupper($pack['currency']) ?></a><br />
+            </div>
+        </div>
+    <?php } ?>
+</div>
+
 <!-- Third-party icon packs -->
 <div style="text-align:center"><h1>Third-Party Icon Packs</h1></div>
 <div class="container">
