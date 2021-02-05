@@ -318,7 +318,6 @@ class IndexController extends Controller {
     // buildFileAction :: void -> void
     public function buildFileAction() {
         $request = json_decode(file_get_contents('php://input'), true);
-
         // Initialize the session variable key `icons`
         $_SESSION['icons'] = [ ];
         foreach ($request as $index => $_icon) {       
