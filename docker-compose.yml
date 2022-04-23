@@ -1,0 +1,29 @@
+version: '2'
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: db
+    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+      - .:/application
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=db
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=password
+    ports:
+      - "8082:3306"
+  iosthemer:
+    container_name: php7.2
+    image: tut:php_img
+    build:
+      context: ./
+    volumes:
+      - ./public:/var/www/html/
+      - ./application:/var/www/application/
+      - ./framework:/var/www/framework/
+    ports:
+      - 8000:80
+    depends_on:
+      - mysql
