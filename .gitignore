@@ -15,3 +15,6 @@ public/uploads/*
 
 # ignore temp dir
 tmp/
+
+# ignore environmental variables
+.env

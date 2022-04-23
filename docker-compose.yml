@@ -7,11 +7,8 @@ services:
     volumes:
       - .:/application
     restart: always
-    environment:
-      - MYSQL_ROOT_PASSWORD=password
-      - MYSQL_DATABASE=db
-      - MYSQL_USER=admin
-      - MYSQL_PASSWORD=password
+    env_file:
+    - .env
     ports:
       - "8082:3306"
   iosthemer:
