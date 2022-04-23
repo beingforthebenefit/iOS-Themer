@@ -19,7 +19,7 @@ class Mysql {
         $port = isset($config['port']) ? $config['port'] : '3306';
         $charset = isset($config['charset']) ? $config['charset'] : 'utf8';
 
-        $this->conn = mysqli_connect("{$host}:{$port}", $user, $password) or die('Database connection error.');
+        $this->conn = mysqli_connect($host, $user, $password) or die('Database connection error.');
 
         mysqli_select_db($this->conn, $dbname) or die('Database selection error.');
 
