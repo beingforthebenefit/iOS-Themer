@@ -1,4 +1,4 @@
-use `iosthemelive`;
+use `db`;
 
 DROP TABLE IF EXISTS `apiKeys`;
 CREATE TABLE `apiKeys` (
