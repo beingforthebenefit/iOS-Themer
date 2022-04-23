@@ -31,6 +31,7 @@ $otherPacks = array_filter(
 <!-- TODO: Make this into a loop -->
 
 <!-- Mini Icon Packs -->
+<!-- Temporarily Unavailable
 <div style="text-align:center"><h1>Mini Icon Packs</h1></div>
 <div class="container">
     <?php foreach ($miniIconPacks as $pack) { ?>
@@ -43,6 +44,7 @@ $otherPacks = array_filter(
         </div>
     <?php } ?>
 </div>
+-->
 
 <!-- Pastel Icon Packs -->
 <div style="text-align:center"><h1>Pastel Collection</h1></div>
