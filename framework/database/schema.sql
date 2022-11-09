@@ -32,3 +32,7 @@ CREATE TABLE `packs` (
     `link2Url` TEXT NULL,
     PRIMARY KEY (`packId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+insert into `packs` (`background`, `paid`, `title`, `description`, `link1Text`, `link1Url`, `link2Text`, `link2Url`)
+values
+    ('blueray.jpg', false, 'Blueray', 'Beautiful Icon Pack', 'text', 'url', null, null);

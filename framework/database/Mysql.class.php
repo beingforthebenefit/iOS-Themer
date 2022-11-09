@@ -28,8 +28,8 @@ class Mysql {
 
     // setChar :: string -> void
     private function setChar($charset) {
-        $sql = 'SET NAMES ' . $charset;
-        $this->query($sql);
+        // $sql = 'SET NAMES ' . $charset;
+        // $this->query($sql);
     }
 
     // query :: string -> result
